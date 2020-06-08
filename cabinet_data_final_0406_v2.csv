@@ -1000,7 +1000,7 @@ id,ls_number,name,gender,party,department,rank,rank_comment,appointment_begin,ap
 2026,6,Prof Madhu Dandavate,M,JD,,CM,,"Saturday, 26 March 1977","Saturday, 28 July 1979",Lok Sabha,Rajapur,Maharashtra,railways,no_error,
 2027,6,Hitendra Desai,M,INC,,CM,,"Monday, 30 July 1979","Monday, 14 January 1980",Lok Sabha,Godhra,Gujarat,commerce,other_exception,exception: ministry out of gazette date range
 2028,6,Mohan Dharia,M,JP,,CM,,"Saturday, 26 March 1977","Saturday, 28 July 1979",Lok Sabha,Pune,Maharashtra,commerce & civil supplies & cooperation,ministry_not_found_in_gazette,assumed
-2030,6,Krishna Chandra Pant,M,INC,,CM,,"Monday, 30 July 1979","Monday, 14 January 1980",Rajya Sabha,Nainital,Uttar Pradesh,energy,no_error,
+2030,6,Krishna Chandra Pant,M,INC,,CM,,"Monday, 30 July 1979","Monday, 14 January 1980",Lok Sabha,Nainital,Uttar Pradesh,energy,no_error,
 2031,6,A Bala Pajanor,M,AIADMK,,CM,,"Sunday, 19 August 1979","Sunday, 23 December 1979",Lok Sabha,Pondicherry,Pondicherry,"petroleum, chemicals & fertilisers",no_error,
 2033,6,Biju Patnaik,M,JD,,CM,,"Saturday, 26 March 1977","Sunday, 15 July 1979",Lok Sabha,Aska,Orissa,steel & mines,difference of 29,
 2034,6,Biju Patnaik,M,JD,,CM,,"Monday, 30 July 1979","Monday, 14 January 1980",Lok Sabha,Aska,Orissa,"steel, mines & coal ",ministry_not_found_in_gazette,minor_date_changes
@@ -1047,13 +1047,13 @@ id,ls_number,name,gender,party,department,rank,rank_comment,appointment_begin,ap
 2078,6,K Brahmananda Reddi,M,INC,,CM,,"Monday, 30 July 1979","Tuesday, 27 November 1979",Lok Sabha,Narasaraopet,Andhra Pradesh,industry,no_error,
 2079,6,Brijlal Varma,M,JP,,CM,,"Monday, 28 March 1977","Wednesday, 6 July 1977",Lok Sabha,Mahasamud,Madhya Pradesh,industry,no_error,
 2080,6,Brijlal Varma,M,JP,,CM,,"Wednesday, 6 July 1977","Saturday, 28 July 1979",Lok Sabha,Mahasamud,Madhya Pradesh,communications,no_error,
-2081,6,Ravindra Varma,M,INC,,CM,,"Saturday, 26 March 1977","Saturday, 28 July 1979",Rajya Sabha,Bombay North,Madras,parliamentary affairs,no_error,
-2082,6,Ravindra Varma,M,JP,,CM,,"Saturday, 26 March 1977","Saturday, 28 July 1979",Lok Sabha,Bombay North,Maharashtra,labour,no_error,
+2081,6,Ravindra Varma,M,INC,,CM,,"Saturday, 26 March 1977","Saturday, 28 July 1979",Lok Sabha,Ranchi,Bihar,parliamentary affairs,no_error,
+2082,6,Ravindra Varma,M,JP,,CM,,"Saturday, 26 March 1977","Saturday, 28 July 1979",Lok Sabha,Ranchi,Bihar,labour,no_error,
 2083,6,Shanti Bhushan,M,JP,,CM,,"Saturday, 26 March 1977","Saturday, 28 July 1979",Rajya Sabha,,Uttar Pradesh,law & justice,other_exception,exception: ministry out of gazette date range
 2085,6,P M Sayeed,M,INC,,MoS,,"Saturday, 4 August 1979","Monday, 14 January 1980",Lok Sabha,Lakshwadweep,Lakshwadweep,"steel, mines & coal",difference of 9,
 2086,6,Sikander Bakht,M,JP,,CM,,"Saturday, 26 March 1977","Saturday, 28 July 1979",Lok Sabha,Chandni Chowk,Delhi,works & housing,no_error,
 2087,6,Sikander Bakht,M,JP,,CM,,"Saturday, 26 March 1977","Saturday, 28 July 1979",Lok Sabha,Chandni Chowk,Delhi,supply & rehabilitation,no_error,
-2088,6,C Subramaniam,M,INC,,CM,,"Monday, 30 July 1979","Monday, 14 January 1980",Rajya Sabha,Palani,Madras,defence,no_error,
+2088,6,C Subramaniam,M,INC,,CM,,"Monday, 30 July 1979","Monday, 14 January 1980",Lok Sabha,Palani,Tamil Nadu,defence,no_error,
 2089,6,Satish Agarwal,M,BJP,,MoS,,"Sunday, 14 August 1977","Saturday, 28 July 1979",Lok Sabha,Jaipur,Rajasthan,finance,no_error,
 2090,6,Henry Austin,M,INC,,MoS,,"Monday, 30 July 1979","Monday, 14 January 1980",Lok Sabha,Ernakulam,Kerala,commerce & civil supplies,difference of 19,
 2091,6,Renuka Devi Barkataki,F,JP,,MoS,,"Tuesday, 16 August 1977","Saturday, 28 July 1979",Lok Sabha,Gauhati,Assam,education & social welfare,difference of 54,
@@ -1463,9 +1463,9 @@ id,ls_number,name,gender,party,department,rank,rank_comment,appointment_begin,ap
 2501,8,Bindeshwari Dubey,M,INC,,CM,,"Saturday, 25 June 1988","Saturday, 2 December 1989",Rajya Sabha,,Bihar,labour,no_error,
 2502,8,Arun Kumar Nehru,M,JD,Power,MoS,,"Monday, 31 December 1984","Wednesday, 25 September 1985",Lok Sabha,Bilhaur,Uttar Pradesh,energy,other_exception,exception: ministry out of gazette date range
 2503,8,Arun Kumar Nehru,M,JD,,MoS,,"Wednesday, 25 September 1985","Wednesday, 22 October 1986",Lok Sabha,Bilhaur,Uttar Pradesh,home affairs,no_error,
-2504,8,Krishna Chandra Pant,M,INC,,CM,,"Monday, 31 December 1984","Wednesday, 25 September 1985",Rajya Sabha,New Delhi,NCT of Delhi,education,difference of 0,
-2505,8,Krishna Chandra Pant,M,INC,,CM,,"Wednesday, 25 September 1985","Sunday, 12 April 1987",Rajya Sabha,New Delhi,NCT of Delhi,steel & mines,difference of 0,
-2506,8,Krishna Chandra Pant,M,INC,,CM,,"Sunday, 12 April 1987","Saturday, 2 December 1989",Rajya Sabha,New Delhi,NCT of Delhi,defence,no_error,
+2504,8,Krishna Chandra Pant,M,INC,,CM,,"Monday, 31 December 1984","Wednesday, 25 September 1985",Lok Sabha,New Delhi,NCT of Delhi,education,difference of 0,
+2505,8,Krishna Chandra Pant,M,INC,,CM,,"Wednesday, 25 September 1985","Sunday, 12 April 1987",Lok Sabha,New Delhi,NCT of Delhi,steel & mines,difference of 0,
+2506,8,Krishna Chandra Pant,M,INC,,CM,,"Sunday, 12 April 1987","Saturday, 2 December 1989",Lok Sabha,New Delhi,NCT of Delhi,defence,no_error,
 2507,8,Veerendra Patil,M,INC,,CM,,"Monday, 31 December 1984","Wednesday, 25 September 1985",Lok Sabha,Gulbarga,Karnataka,chemicals & fertilisers,other_exception,exception: ministry out of gazette date range
 2508,8,Veerendra Patil,M,INC,,CM,Additional Charge,"Monday, 14 January 1985","Wednesday, 25 September 1985",Lok Sabha,Gulbarga,Karnataka,industry,other_exception,exception: ministry out of gazette date range
 2510,8,Shivraj V Patil,M,INC,,MoS,,"Monday, 31 December 1984","Wednesday, 22 October 1986",Lok Sabha,Latur,Maharashtra,science & technology,difference of 4,
