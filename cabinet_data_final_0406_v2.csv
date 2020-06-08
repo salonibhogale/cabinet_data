@@ -93,10 +93,10 @@ id,ls_number,name,gender,party,department,rank,rank_comment,appointment_begin,ap
 1092,1,V K Krishna Menon,M,IND,,CM,,"Thursday, 17 May 1956","Thursday, 4 April 1957",Rajya Sabha,,Kerala,health,before_first_ammendment,
 1093,1,V V Giri,M,INC,,CM,,"Tuesday, 13 May 1952","Saturday, 7 August 1954",Lok Sabha,Pathapatnam,Madras,labour,before_first_ammendment,
 1094,1,C C Biswas,M,INC,,MoS,,"Tuesday, 13 May 1952","Wednesday, 17 April 1957",Rajya Sabha,,West Bengal,indo pak agreement,before_first_ammendment,
-1095,1,Morarji Desai,M,JP,,CM,,"Wednesday, 14 November 1956","Tuesday, 1 January 1957",not_applicable,,,commerce,before_first_ammendment,
-1096,1,Morarji Desai,M,JP,,CM,,"Wednesday, 14 November 1956","Tuesday, 1 January 1957",not_applicable,,,consumer industry & heavy industry,before_first_ammendment,
-1097,1,Morarji Desai,M,JP,,CM,,"Tuesday, 1 January 1957","Wednesday, 17 April 1957",not_applicable,,,commerce,before_first_ammendment,
-1098,1,Morarji Desai,M,JP,,CM,,"Tuesday, 1 January 1957","Wednesday, 17 April 1957",not_applicable,,,industry,before_first_ammendment,
+1095,1,Morarji Desai,M,INC,,CM,,"Wednesday, 14 November 1956","Tuesday, 1 January 1957",not_applicable,not_applicable,not_applicable,commerce,before_first_ammendment,
+1096,1,Morarji Desai,M,INC,,CM,,"Wednesday, 14 November 1956","Tuesday, 1 January 1957",not_applicable,not_applicable,not_applicable,consumer industry & heavy industry,before_first_ammendment,
+1097,1,Morarji Desai,M,INC,,CM,,"Tuesday, 1 January 1957","Wednesday, 17 April 1957",not_applicable,not_applicable,not_applicable,commerce,before_first_ammendment,
+1098,1,Morarji Desai,M,INC,,CM,,"Tuesday, 1 January 1957","Wednesday, 17 April 1957",not_applicable,not_applicable,not_applicable,industry,before_first_ammendment,
 1099,3,Gulzarilal Nanda,M,INC,atomic energy,CM,,"Wednesday, 27 May 1964","Tuesday, 9 June 1964",Lok Sabha,Kaithal,Haryana,atomic energy,no_error,
 1100,3,Gulzarilal Nanda,M,INC,atomic energy,CM,,"Tuesday, 11 January 1966","Monday, 24 January 1966",Lok Sabha,Kaithal,Haryana,atomic energy,no_error,
 1101,3,Gulzarilal Nanda,M,INC,,CM,,"Wednesday, 27 May 1964","Tuesday, 9 June 1964",Lok Sabha,Kaithal,Haryana,external affairs,no_error,
@@ -243,7 +243,7 @@ id,ls_number,name,gender,party,department,rank,rank_comment,appointment_begin,ap
 1249,3,Dinesh Singh,M,INC,,DCM,,"Monday, 15 June 1964","Tuesday, 11 January 1966",Lok Sabha,Pratapgarh,Uttar Pradesh,external affairs,no_error,
 1250,3,Dinesh Singh,M,INC,,DCM,,"Tuesday, 11 January 1966","Monday, 24 January 1966",Lok Sabha,Pratapgarh,Uttar Pradesh,external affairs,no_error,
 1251,3,Dinesh Singh,M,INC,,MoS,,"Monday, 24 January 1966","Monday, 13 March 1967",Lok Sabha,Pratapgarh,Uttar Pradesh,external affairs,no_error,
-1252,3,Krishna Chandra Pant,M,INC,,MoS,,"Monday, 13 March 1967","Friday, 14 February 1969",Lok Sabha,New Delhi,New Delhi,finance,no_error,
+1252,3,Krishna Chandra Pant,M,INC,,MoS,,"Monday, 13 March 1967","Friday, 14 February 1969",Lok Sabha,Nainital,Uttar Pradesh,finance,no_error,
 1253,3,S K Patil,M,INC,,CM,,"Tuesday, 10 April 1962","Sunday, 1 September 1963",Lok Sabha,Banaskantha,Gujarat,food & agriculture,no_error,
 1254,3,S K Patil,M,INC,,CM,,"Tuesday, 9 June 1964","Tuesday, 11 January 1966",Lok Sabha,Banaskantha,Gujarat,railways,no_error,
 1255,3,S K Patil,M,INC,,CM,,"Tuesday, 11 January 1966","Monday, 24 January 1966",Lok Sabha,Banaskantha,Gujarat,railways,no_error,
@@ -499,21 +499,21 @@ id,ls_number,name,gender,party,department,rank,rank_comment,appointment_begin,ap
 1510,3,Alungal Mathai Thomas,M,INC,Production,MoS,,"Tuesday, 11 January 1966","Monday, 24 January 1966",Lok Sabha,Ernakulam,Kerala,defence,no_error,
 1511,3,Alungal Mathai Thomas,M,INC,,MoS,,"Monday, 24 January 1966","Monday, 31 January 1966",Lok Sabha,Ernakulam,Kerala,defence,no_error,
 1512,3,Alungal Mathai Thomas,M,INC,Production,MoS,,"Monday, 31 January 1966","Monday, 13 March 1967",Lok Sabha,Ernakulam,Kerala,defence,no_error,
-1513,3,B C Bhagwati,M,not_applicable,,DCM,,"Tuesday, 8 May 1962","Sunday, 1 September 1963",not_applicable,,,transport & communications,difference of 1,
-1514,3,B C Bhagwati,M,not_applicable,,DCM,,"Sunday, 1 September 1963","Wednesday, 13 May 1964",not_applicable,,,posts & telegraph,difference of 9,
-1515,3,B C Bhagwati,M,not_applicable,,DCM,,"Wednesday, 13 May 1964","Wednesday, 27 May 1964",not_applicable,,,communications,difference of 9,
-1516,3,B C Bhagwati,M,not_applicable,,DCM,,"Wednesday, 27 May 1964","Tuesday, 9 June 1964",not_applicable,,,communications,difference of 23,
-1517,3,B C Bhagwati,M,not_applicable,,DCM,,"Monday, 15 June 1964","Tuesday, 11 January 1966",not_applicable,,,communications,difference of 42,
-1518,3,B C Bhagwati,M,not_applicable,,DCM,,"Tuesday, 11 January 1966","Monday, 24 January 1966",not_applicable,,,communications,no_error,
-1519,3,B C Bhagwati,M,not_applicable,,DCM,,"Monday, 24 January 1966","Monday, 13 March 1967",not_applicable,,,"works, housing & urban development",difference of 4,
-1520,2,Anil Kumar Chanda,M,INC,,DCM,,"Wednesday, 17 April 1957","Wednesday, 1 May 1957",not_applicable,,,external affairs,before_first_ammendment,
-1521,2,Anil Kumar Chanda,M,INC,,DCM,,"Wednesday, 1 May 1957","Tuesday, 10 April 1962",not_applicable,,,"works, housing & supply",before_first_ammendment,
-1522,3,Mono Mohan Das,M,INC,,DCM,,"Monday, 16 April 1962","Thursday, 21 November 1963",not_applicable,,,scientific research & cultural affairs,difference of 2,
-1523,3,Mono Mohan Das,M,INC,,DCM,,"Thursday, 21 November 1963","Wednesday, 27 May 1964",not_applicable,,,education,no_error,
-1524,3,Mono Mohan Das,M,INC,,DCM,,"Wednesday, 27 May 1964","Tuesday, 9 June 1964",not_applicable,,,education,no_error,
-1525,3,Mono Mohan Das,M,INC,,DCM,,"Monday, 15 June 1964","Tuesday, 11 January 1966",not_applicable,,,rehabilitation,difference of 60,
-1526,3,Mono Mohan Das,M,INC,,DCM,,"Tuesday, 11 January 1966","Monday, 24 January 1966",not_applicable,,,rehabilitation,difference of 4,
-1527,3,Jahanara Jaipal Singh,F,INC,,DCM,,"Tuesday, 15 February 1966","Monday, 13 March 1967",not_applicable,,,transport & aviation,difference of 18,
+1513,3,B C Bhagwati,M,not_applicable,,DCM,,"Tuesday, 8 May 1962","Sunday, 1 September 1963",not_applicable,not_applicable,not_applicable,transport & communications,difference of 1,
+1514,3,B C Bhagwati,M,not_applicable,,DCM,,"Sunday, 1 September 1963","Wednesday, 13 May 1964",not_applicable,not_applicable,not_applicable,posts & telegraph,difference of 9,
+1515,3,B C Bhagwati,M,not_applicable,,DCM,,"Wednesday, 13 May 1964","Wednesday, 27 May 1964",not_applicable,not_applicable,not_applicable,communications,difference of 9,
+1516,3,B C Bhagwati,M,not_applicable,,DCM,,"Wednesday, 27 May 1964","Tuesday, 9 June 1964",not_applicable,not_applicable,not_applicable,communications,difference of 23,
+1517,3,B C Bhagwati,M,not_applicable,,DCM,,"Monday, 15 June 1964","Tuesday, 11 January 1966",not_applicable,not_applicable,not_applicable,communications,difference of 42,
+1518,3,B C Bhagwati,M,not_applicable,,DCM,,"Tuesday, 11 January 1966","Monday, 24 January 1966",not_applicable,not_applicable,not_applicable,communications,no_error,
+1519,3,B C Bhagwati,M,not_applicable,,DCM,,"Monday, 24 January 1966","Monday, 13 March 1967",not_applicable,not_applicable,not_applicable,"works, housing & urban development",difference of 4,
+1520,2,Anil Kumar Chanda,M,INC,,DCM,,"Wednesday, 17 April 1957","Wednesday, 1 May 1957",Lok Sabha,Birbhum-SC,West Bengal,external affairs,before_first_ammendment,
+1521,2,Anil Kumar Chanda,M,INC,,DCM,,"Wednesday, 1 May 1957","Tuesday, 10 April 1962",Lok Sabha,Birbhum-SC,West Bengal,"works, housing & supply",before_first_ammendment,
+1522,3,Mono Mohan Das,M,INC,,DCM,,"Monday, 16 April 1962","Thursday, 21 November 1963",Lok Sabha,Ausgram-SC,West Bengal,scientific research & cultural affairs,difference of 2,
+1523,3,Mono Mohan Das,M,INC,,DCM,,"Thursday, 21 November 1963","Wednesday, 27 May 1964",Lok Sabha,Ausgram-SC,West Bengal,education,no_error,
+1524,3,Mono Mohan Das,M,INC,,DCM,,"Wednesday, 27 May 1964","Tuesday, 9 June 1964",Lok Sabha,Ausgram-SC,West Bengal,education,no_error,
+1525,3,Mono Mohan Das,M,INC,,DCM,,"Monday, 15 June 1964","Tuesday, 11 January 1966",Lok Sabha,Ausgram-SC,West Bengal,rehabilitation,difference of 60,
+1526,3,Mono Mohan Das,M,INC,,DCM,,"Tuesday, 11 January 1966","Monday, 24 January 1966",Lok Sabha,Ausgram-SC,West Bengal,rehabilitation,difference of 4,
+1527,3,Jahanara Jaipal Singh,F,INC,,DCM,,"Tuesday, 15 February 1966","Monday, 13 March 1967",Lok Sabha,Ranchi West-ST,Bihar,transport & aviation,difference of 18,
 1529,3,Ratanlal Kishorilal Malviya,M,INC,,DCM,,"Tuesday, 4 December 1962","Wednesday, 27 May 1964",Rajya Sabha,,Madhya Pradesh,labour & employment,no_error,
 1530,3,Ratanlal Kishorilal Malviya,M,INC,,DCM,,"Wednesday, 27 May 1964","Tuesday, 9 June 1964",Rajya Sabha,,Madhya Pradesh,labour & employment,no_error,
 1531,3,Ratanlal Kishorilal Malviya,M,INC,,DCM,,"Monday, 15 June 1964","Tuesday, 11 January 1966",Rajya Sabha,,Madhya Pradesh,labour & employment,difference of 17,
@@ -603,10 +603,10 @@ id,ls_number,name,gender,party,department,rank,rank_comment,appointment_begin,ap
 1616,4,Dinesh Singh,M,INC,,CM,,"Monday, 13 March 1967","Friday, 14 February 1969",Lok Sabha,Pratapgarh,Uttar Pradesh,commerce,difference of 5,
 1617,4,Dinesh Singh,M,INC,,CM,,"Monday, 13 March 1967","Friday, 14 February 1969",Lok Sabha,Pratapgarh,Uttar Pradesh,external affairs,no_error,
 1618,4,Dinesh Singh,M,INC,,CM,,"Saturday, 27 June 1970","Thursday, 18 March 1971",Lok Sabha,Pratapgarh,Uttar Pradesh,industrial development & internal trade,difference of 37,
-1619,4,Krishna Chandra Pant,M,INC,,MoS,,"Friday, 14 February 1969","Saturday, 27 June 1970",Lok Sabha,New Delhi,New Delhi,steel & heavy engineering,difference of 5,
-1620,4,Krishna Chandra Pant,M,INC,,MoS,,"Saturday, 27 June 1970","Thursday, 18 March 1971",Lok Sabha,New Delhi,New Delhi,home affairs,no_error,
-1621,4,Krishna Chandra Pant,M,INC,,MoS,,"Saturday, 27 June 1970","Thursday, 18 March 1971",Lok Sabha,New Delhi,New Delhi,electronics,other_exception,exception: ministry out of gazette date range
-1622,4,Krishna Chandra Pant,M,INC,,MoS,,"Saturday, 27 June 1970","Thursday, 18 March 1971",Lok Sabha,New Delhi,New Delhi,scientific & industrial research,ministry_not_found_in_gazette,not mentioned in gazettes
+1619,4,Krishna Chandra Pant,M,INC,,MoS,,"Friday, 14 February 1969","Saturday, 27 June 1970",Lok Sabha,Nainital,Uttar Pradesh,steel & heavy engineering,difference of 5,
+1620,4,Krishna Chandra Pant,M,INC,,MoS,,"Saturday, 27 June 1970","Thursday, 18 March 1971",Lok Sabha,Nainital,Uttar Pradesh,home affairs,no_error,
+1621,4,Krishna Chandra Pant,M,INC,,MoS,,"Saturday, 27 June 1970","Thursday, 18 March 1971",Lok Sabha,Nainital,Uttar Pradesh,electronics,other_exception,exception: ministry out of gazette date range
+1622,4,Krishna Chandra Pant,M,INC,,MoS,,"Saturday, 27 June 1970","Thursday, 18 March 1971",Lok Sabha,Nainital,Uttar Pradesh,scientific & industrial research,ministry_not_found_in_gazette,not mentioned in gazettes
 1625,4,C M Poonacha,M,INC,,CM,,"Monday, 13 March 1967","Friday, 14 February 1969",Lok Sabha,Hajipur,Bihar,railways,no_error,
 1626,4,C M Poonacha,M,INC,,CM,,"Monday, 14 April 1969","Saturday, 15 November 1969",Lok Sabha,Hajipur,Bihar,steel & heavy engineering,difference of 54,
 1627,4,Bali Ram Bhagat,M,INC,,MoS,,"Monday, 13 March 1967","Tuesday, 14 November 1967",Lok Sabha,Arrah,Bihar,defence,no_error,
@@ -706,15 +706,15 @@ id,ls_number,name,gender,party,department,rank,rank_comment,appointment_begin,ap
 1726,4,Anna Saheb P Shinde,M,INC,,MoS,,"Monday, 13 March 1967","Thursday, 18 March 1971",Lok Sabha,Ahmednagar,Maharashtra,"food, agriculture, community development & cooperation",difference of 48,
 1727,4,Anna Saheb P Shinde,M,INC,,MoS,,"Thursday, 18 March 1971","Sunday, 2 May 1971",Lok Sabha,Ahmednagar,Maharashtra,"food, agriculture, community development & cooperation",difference of 3,
 1728,4,Suredra Pal Singh,M,INC,,DCM,,"Saturday, 18 March 1967","Thursday, 18 March 1971",Lok Sabha,Bulandshahar,Uttar Pradesh,external affairs,no_error,
-1729,4,Bhanu Pratap Singh,M,INC,,DCM,,"Saturday, 18 March 1967","Friday, 14 February 1969",not_applicable,,,industrial development & company affairs,difference of 3,
-1730,4,Bhanu Pratap Singh,M,INC,,DCM,,"Friday, 14 February 1969","Saturday, 27 June 1970",not_applicable,,,"industrial development, internal trade & company affairs",difference of 5,
-1731,4,Bhanu Pratap Singh,M,INC,,DCM,,"Saturday, 27 June 1970","Monday, 31 August 1970",not_applicable,,,petroleum & chemicals & mines & metals,no_error,
+1729,4,Bhanu Pratap Singh,M,INC,,DCM,,"Saturday, 18 March 1967","Friday, 14 February 1969",Lok Sabha,Sidhi-ST,Madhya Pradesh,industrial development & company affairs,difference of 3,
+1730,4,Bhanu Pratap Singh,M,INC,,DCM,,"Friday, 14 February 1969","Saturday, 27 June 1970",Lok Sabha,Sidhi-ST,Madhya Pradesh,"industrial development, internal trade & company affairs",difference of 5,
+1731,4,Bhanu Pratap Singh,M,INC,,DCM,,"Saturday, 27 June 1970","Monday, 31 August 1970",Lok Sabha,Sidhi-ST,Madhya Pradesh,petroleum & chemicals & mines & metals,no_error,
 1732,4,Roshanlal Chaturvedi,M,INC,,DCM,,"Saturday, 18 March 1967","Tuesday, 14 November 1967",Lok Sabha,Etah,Uttar Pradesh,parliamentary affairs,no_error,
 1733,4,Roshanlal Chaturvedi,M,INC,,DCM,,"Tuesday, 14 November 1967","Thursday, 18 March 1971",Lok Sabha,Etah,Uttar Pradesh,railways,no_error,
 1734,4,D Ering,M,INC,,DCM,,"Saturday, 18 March 1967","Sunday, 21 June 1970",Lok Sabha,Nominated,Nominated,"food, agriculture, community development & cooperation",no_error,
-1735,3,Sardar Iqbal Singh,M,INC,,DCM,,"Monday, 24 January 1966","Monday, 13 March 1967",not_applicable,,,petroleum & chemicals,no_error,
-1736,4,Sardar Iqbal Singh,M,INC,,DCM,,"Saturday, 18 March 1967","Wednesday, 8 July 1970",not_applicable,,,"works, housing & supply",other_exception,minor_date_changes
-1737,4,Sardar Iqbal Singh,M,INC,,DCM,,"Friday, 14 February 1969","Wednesday, 8 July 1970",not_applicable,,,parliamentary affairs,no_error,
+1735,3,Sardar Iqbal Singh,M,INC,,DCM,,"Monday, 24 January 1966","Monday, 13 March 1967",Lok Sabha,Ferozepur,Punjab,petroleum & chemicals,no_error,
+1736,4,Sardar Iqbal Singh,M,INC,,DCM,,"Saturday, 18 March 1967","Wednesday, 8 July 1970",Lok Sabha,Fazilka,Punjab,"works, housing & supply",other_exception,minor_date_changes
+1737,4,Sardar Iqbal Singh,M,INC,,DCM,,"Friday, 14 February 1969","Wednesday, 8 July 1970",Lok Sabha,Fazilka,Punjab,parliamentary affairs,no_error,
 1738,4,Sardar Iqbal Singh,M,INC,,DCM,,"Friday, 14 February 1969","Wednesday, 8 July 1970",Lok Sabha,Fazilka,Punjab,shipping & transport,difference of 5,
 1739,4,Sardar Iqbal Singh,M,INC,,DCM,,"Wednesday, 8 July 1970","Thursday, 18 March 1971",Lok Sabha,Fazilka,Punjab,shipping & transport,no_error,
 1740,4,Jahanara Jaipal Singh,F,INC,,DCM,,"Saturday, 18 March 1967","Friday, 14 February 1969",Rajya Sabha,,Bihar,tourism & civil aviation,difference of 3,
@@ -791,18 +791,19 @@ id,ls_number,name,gender,party,department,rank,rank_comment,appointment_begin,ap
 1814,5,D P Dhar,M,INC,,CM,,"Sunday, 23 July 1972","Tuesday, 31 December 1974",Rajya Sabha,,J&K,planning,no_error,
 1815,5,Mohan Dharia,M,JP,,MoS,,"Sunday, 2 May 1971","Thursday, 10 October 1974",Lok Sabha,Pune,Maharashtra,planning,difference of 3,
 1816,5,Mohan Dharia,M,JP,,MoS,,"Thursday, 10 October 1974","Sunday, 2 March 1975",Lok Sabha,Pune,Maharashtra,works & housing,no_error,
-1817,5,Krishna Chandra Pant,M,INC,,MoS,,"Thursday, 18 March 1971","Sunday, 2 May 1971",Lok Sabha,New Delhi,New Delhi,home affairs,no_error,
-1818,5,Krishna Chandra Pant,M,INC,,MoS,,"Thursday, 18 March 1971","Sunday, 2 May 1971",Lok Sabha,New Delhi,New Delhi,electronics,difference of 93,minor_date_changes
-1819,5,Krishna Chandra Pant,M,INC,atomic energy,MoS,,"Thursday, 18 March 1971","Sunday, 2 May 1971",Lok Sabha,New Delhi,New Delhi,atomic energy,no_error,
-1820,5,Krishna Chandra Pant,M,INC,,MoS,,"Thursday, 18 March 1971","Sunday, 2 May 1971",Lok Sabha,New Delhi,New Delhi,science & technology,difference of 48,cannot_be_resolved
-1821,5,Krishna Chandra Pant,M,INC,,MoS,,"Sunday, 2 May 1971","Friday, 9 November 1973",Lok Sabha,New Delhi,New Delhi,home affairs,no_error,
-1822,5,Krishna Chandra Pant,M,INC,,MoS,,"Sunday, 2 May 1971","Friday, 9 November 1973",Lok Sabha,New Delhi,New Delhi,electronics,difference of 48,minor_date_changes
-1823,5,Krishna Chandra Pant,M,INC,atomic energy,MoS,,"Sunday, 2 May 1971","Friday, 9 November 1973",Lok Sabha,New Delhi,New Delhi,atomic energy,no_error,
-1824,5,Krishna Chandra Pant,M,INC,,Other,Assisted the PM,"Saturday, 26 August 1972","Friday, 9 November 1973",Lok Sabha,New Delhi,New Delhi,space,difference of 37,
-1825,5,Krishna Chandra Pant,M,INC,,CM,,"Friday, 9 November 1973","Thursday, 10 October 1974",Lok Sabha,New Delhi,New Delhi,irrigation & power,difference of 1,
-1826,5,Krishna Chandra Pant,M,INC,,CM,,"Thursday, 10 October 1974","Thursday, 24 March 1977",Lok Sabha,New Delhi,New Delhi,energy,difference of 1,
-1827,5,Krishna Chandra Pant,M,INC,,Other,Assisted the PM,"Thursday, 10 October 1974","Thursday, 24 March 1977",Lok Sabha,New Delhi,New Delhi,space,no_error,
-1828,5,Krishna Chandra Pant,M,INC,,Other,Assisted the PM,"Thursday, 10 October 1974","Thursday, 24 March 1977",Lok Sabha,New Delhi,New Delhi,electronics,no_error,
+1817,5,Krishna Chandra Pant,M,INC,,MoS,,"Thursday, 18 March 1971","Sunday, 2 May 1971",Lok Sabha,Nainital,Uttar Pradesh,home affairs,no_error,
+1818,5,Krishna Chandra Pant,M,INC,,MoS,,"Thursday, 18 March 1971","Sunday, 2 May 1971",Lok Sabha,Nainital,Uttar Pradesh,electronics,difference of 93,minor_date_changes
+1819,5,Krishna Chandra Pant,M,INC,atomic energy,MoS,,"Thursday, 18 March 1971","Sunday, 2 May 1971",Lok Sabha,Nainital,Uttar Pradesh,atomic energy,no_error,
+1820,5,Krishna Chandra Pant,M,INC,,MoS,,"Thursday, 18 March 1971","Sunday, 2 May 1971",Lok Sabha,Nainital,Uttar Pradesh,science & technology,difference of 48,cannot_be_resolved
+1821,5,Krishna Chandra Pant,M,INC,,MoS,,"Sunday, 2 May 1971","Friday, 9 November 1973",Lok Sabha,Nainital,Uttar Pradesh,home affairs,no_error,
+1822,5,Krishna Chandra Pant,M,INC,,MoS,,"Sunday, 2 May 1971","Friday, 9 November 1973",Lok Sabha,Nainital,Uttar Pradesh,electronics,difference of 48,minor_date_changes
+1823,5,Krishna Chandra Pant,M,INC,atomic energy,MoS,,"Sunday, 2 May 1971","Friday, 9 November 1973",Lok Sabha,Nainital,Uttar Pradesh,atomic energy,no_error,
+1824,5,Krishna Chandra Pant,M,INC,,Other,Assisted the PM,"Saturday, 26 August 1972","Friday, 9 November 1973",Lok Sabha,Nainital,Uttar Pradesh,space,difference of 37,
+1825,5,Krishna Chandra Pant,M,INC,,CM,,"Friday, 9 November 1973","Thursday, 10 October 1974",Lok Sabha,Nainital,Uttar Pradesh,irrigation & power,difference of 1,
+1826,5,Krishna Chandra Pant,M,INC,,CM,,"Thursday, 10 October 1974","Thursday, 24 March 1977",Lok Sabha,Nainital,Uttar Pradesh,energy,difference of 1,
+1827,5,Krishna Chandra Pant,M,INC,,Other,Assisted the PM,"Thursday, 10 October 1974","Thursday, 24 March 1977",Lok Sabha,Nainital,Uttar Pradesh,space,no_error,
+1827,5,Krishna Chandra Pant,M,INC,atomic energy,Other,Assisted the PM,"Thursday, 10 October 1974","Thursday, 24 March 1977",Lok Sabha,Nainital,Uttar Pradesh,atomic energy,no_error,
+1828,5,Krishna Chandra Pant,M,INC,,Other,Assisted the PM,"Thursday, 10 October 1974","Thursday, 24 March 1977",Lok Sabha,Nainital,Uttar Pradesh,electronics,no_error,
 1829,5,Janki Ballav Patnaik,M,INC,,DCM,,"Monday, 5 February 1973","Thursday, 23 December 1976",Lok Sabha,Cuttack,Orissa,defence,no_error,
 1830,5,Janki Ballav Patnaik,M,INC,,MoS,,"Thursday, 23 December 1976","Thursday, 24 March 1977",Lok Sabha,Cuttack,Orissa,defence,no_error,
 1831,5,T A Pai,M,INC,,CM,,"Sunday, 23 July 1972","Monday, 5 February 1973",Rajya Sabha,,Karnataka,railways,no_error,
@@ -999,7 +1000,7 @@ id,ls_number,name,gender,party,department,rank,rank_comment,appointment_begin,ap
 2026,6,Prof Madhu Dandavate,M,JD,,CM,,"Saturday, 26 March 1977","Saturday, 28 July 1979",Lok Sabha,Rajapur,Maharashtra,railways,no_error,
 2027,6,Hitendra Desai,M,INC,,CM,,"Monday, 30 July 1979","Monday, 14 January 1980",Lok Sabha,Godhra,Gujarat,commerce,other_exception,exception: ministry out of gazette date range
 2028,6,Mohan Dharia,M,JP,,CM,,"Saturday, 26 March 1977","Saturday, 28 July 1979",Lok Sabha,Pune,Maharashtra,commerce & civil supplies & cooperation,ministry_not_found_in_gazette,assumed
-2030,6,Krishna Chandra Pant,M,INC,,CM,,"Monday, 30 July 1979","Monday, 14 January 1980",Rajya Sabha,,Uttar Pradesh,energy,no_error,
+2030,6,Krishna Chandra Pant,M,INC,,CM,,"Monday, 30 July 1979","Monday, 14 January 1980",Rajya Sabha,Nainital,Uttar Pradesh,energy,no_error,
 2031,6,A Bala Pajanor,M,AIADMK,,CM,,"Sunday, 19 August 1979","Sunday, 23 December 1979",Lok Sabha,Pondicherry,Pondicherry,"petroleum, chemicals & fertilisers",no_error,
 2033,6,Biju Patnaik,M,JD,,CM,,"Saturday, 26 March 1977","Sunday, 15 July 1979",Lok Sabha,Aska,Orissa,steel & mines,difference of 29,
 2034,6,Biju Patnaik,M,JD,,CM,,"Monday, 30 July 1979","Monday, 14 January 1980",Lok Sabha,Aska,Orissa,"steel, mines & coal ",ministry_not_found_in_gazette,minor_date_changes
@@ -1018,14 +1019,14 @@ id,ls_number,name,gender,party,department,rank,rank_comment,appointment_begin,ap
 2049,6,H N Bahuguna,M,Janata (S),,CM,,"Monday, 28 March 1977","Tuesday, 29 March 1977",Lok Sabha,Garhwal,Uttarakhand,chemicals & fertilisers,no_error,
 2050,6,H N Bahuguna,M,Janata (S),,CM,,"Tuesday, 29 March 1977","Sunday, 15 July 1979",Lok Sabha,Garhwal,Uttarakhand,"petroleum, chemicals & fertilisers",other_exception,exception: ministry out of gazette date range
 2051,6,H N Bahuguna,M,Janata (S),,CM,,"Saturday, 28 July 1979","Friday, 19 October 1979",Lok Sabha,Garhwal,Uttarakhand,finance,no_error,
-2052,6,Prakash Singh Badal,M,SAD,,CM,,"Saturday, 26 March 1977","Sunday, 27 March 1977",not_applicable,,,communications,no_error,
-2053,6,Prakash Singh Badal,M,SAD,,CM,,"Monday, 28 March 1977","Friday, 17 June 1977",not_applicable,,,agriculture & irrigation,no_error,
+2052,6,Prakash Singh Badal,M,SAD,,CM,,"Saturday, 26 March 1977","Sunday, 27 March 1977",not_applicable,not_applicable,not_applicable,communications,no_error,
+2053,6,Prakash Singh Badal,M,SAD,,CM,,"Monday, 28 March 1977","Friday, 17 June 1977",not_applicable,not_applicable,not_applicable,agriculture & irrigation,no_error,
 2055,5,Buta Singh,M,INC,,DCM,,"Thursday, 23 December 1976","Thursday, 24 March 1977",Lok Sabha,Jalore,Rajasthan,commerce,no_error,
 2056,6,Perkash Brahm,M,JP,,CM,,"Monday, 30 July 1979","Monday, 14 January 1980",Lok Sabha,Outer Delhi,Delhi,agriculture & irrigation,no_error,
 2057,6,Nathu Ram Mirdha,M,INC,,MoS,,"Saturday, 4 August 1979","Thursday, 25 October 1979",Lok Sabha,Nagaur,Rajasthan,agriculture & irrigation,no_error,
 2058,6,Nathu Ram Mirdha,M,INC,,MoS,,"Thursday, 25 October 1979","Monday, 14 January 1980",Lok Sabha,Nagaur,Rajasthan,finance,no_error,
-2059,6,Janeshwar Misha,M,JD,,MoS,,"Sunday, 14 August 1977","Friday, 11 August 1978",not_applicable,,,petroleum,other_exception,exception: ministry out of gazette date range
-2060,6,Janeshwar Misha,M,JD,,MoS,,"Sunday, 14 August 1977","Friday, 11 August 1978",not_applicable,,,chemicals & fertilisers,other_exception,exception: ministry out of gazette date range
+2059,6,Janeshwar Misha,M,JP,,MoS,,"Sunday, 14 August 1977","Friday, 11 August 1978",Lok Sabha,Allahbad,Uttar Pradesh,petroleum,other_exception,exception: ministry out of gazette date range
+2060,6,Janeshwar Misha,M,JP,,MoS,,"Sunday, 14 August 1977","Friday, 11 August 1978",Lok Sabha,Allahbad,Uttar Pradesh,chemicals & fertilisers,other_exception,exception: ministry out of gazette date range
 2061,6,Janeshwar Misha,M,JD,,MoS,,"Friday, 26 January 1979","Sunday, 15 July 1979",Lok Sabha,Allahbad,Uttar Pradesh,energy,no_error,
 2062,6,Janeshwar Misha,M,JD,,MoS,,"Monday, 30 July 1979","Monday, 14 January 1980",Lok Sabha,Allahbad,Uttar Pradesh,shipping & transport,no_error,
 2063,6,Shyam Nandan Mishra,M,JP,,CM,,"Saturday, 28 July 1979","Monday, 14 January 1980",Lok Sabha,Begusarai,Bihar,external affairs,no_error,
@@ -1074,14 +1075,14 @@ id,ls_number,name,gender,party,department,rank,rank_comment,appointment_begin,ap
 2107,6,Kumari Abha Malti,F,JP,,MoS,,"Sunday, 14 August 1977","Saturday, 28 July 1979",Lok Sabha,Panskura,West Bengal,industry,no_error,
 2108,6,Dhanik Lal Mandal,M,Janata (S),,MoS,,"Sunday, 14 August 1977","Sunday, 15 July 1979",Lok Sabha,Jhajharpur,Bihar,home affairs,no_error,
 2109,6,Dhanik Lal Mandal,M,Janata (S),,MoS,,"Monday, 30 July 1979","Monday, 14 January 1980",Lok Sabha,Jhajharpur,Bihar,home affairs,no_error,
-2110,6,S D Patil,M,not_applicable,,MoS,,"Sunday, 14 August 1977","Saturday, 28 July 1979",not_applicable,,,home affairs,no_error,
-2111,6,S D Patil,M,not_applicable,,MoS,,"Tuesday, 20 February 1979","Saturday, 28 July 1979",not_applicable,,,"law, justice & company affairs",no_error,
+2110,6,S D Patil,M,not_applicable,,MoS,,"Sunday, 14 August 1977","Saturday, 28 July 1979",not_applicable,not_applicable,not_applicable,home affairs,no_error,
+2111,6,S D Patil,M,not_applicable,,MoS,,"Tuesday, 20 February 1979","Saturday, 28 July 1979",not_applicable,not_applicable,not_applicable,"law, justice & company affairs",no_error,
 2112,6,P Ankineedu Prasad Rao,M,INC,,MoS,,"Saturday, 4 August 1979","Tuesday, 27 November 1979",Lok Sabha,Bapatla,Andhra Pradesh,tourism & civil aviation,no_error,
 2113,6,Saugata Roy,M,INC,,MoS,,"Saturday, 4 August 1979","Monday, 14 January 1980",Lok Sabha,Barrackpore,West Bengal,"petroleum, chemicals & fertilisers",no_error,
 2114,6,Larang Sai,M,BJP,,MoS,,"Sunday, 14 August 1977","Saturday, 28 July 1979",Lok Sabha,Surguja,Madhya Pradesh,labour,no_error,
 2115,6,Larang Sai,M,BJP,,MoS,,"Sunday, 14 August 1977","Saturday, 28 July 1979",Lok Sabha,Surguja,Madhya Pradesh,parliamentary affairs,no_error,
-2116,6,Narhari Prasad Sukhdeo Sai,M,JP,,MoS,,"Sunday, 14 August 1977","Saturday, 28 July 1979",not_applicable,,,communications,no_error,
-2117,6,Sheo Narain,M,JP,,MoS,,"Sunday, 14 August 1977","Saturday, 28 July 1979",not_applicable,,,railways,no_error,
+2116,6,Narhari Prasad Sukhdeo Sai,M,JP,,MoS,,"Sunday, 14 August 1977","Saturday, 28 July 1979",Lok Sabha,Raigarh-ST,Madhya Pradesh,communications,no_error,
+2117,6,Sheo Narain,M,JP,,MoS,,"Sunday, 14 August 1977","Saturday, 28 July 1979",Lok Sabha,Basti-SC,Uttar Pradesh,railways,no_error,
 2118,6,Sher Singh,M,JP,,MoS,,"Sunday, 14 August 1977","Saturday, 28 July 1979",Lok Sabha,Rohtak,Haryana,defence,no_error,
 2119,6,Sher Singh,M,JP,atomic energy,MoS,,"Saturday, 24 March 1979","Saturday, 28 July 1979",Lok Sabha,Rohtak,Haryana,atomic energy,no_error,
 2120,6,Sher Singh,M,JP,,MoS,,"Saturday, 24 March 1979","Saturday, 28 July 1979",Lok Sabha,Rohtak,Haryana,electronics,no_error,
@@ -1099,15 +1100,15 @@ id,ls_number,name,gender,party,department,rank,rank_comment,appointment_begin,ap
 2132,6,Zulfiquarullah,M,JP,,MoS,,"Sunday, 14 August 1977","Sunday, 15 July 1979",Lok Sabha,Sultanpur,Uttar Pradesh,finance,no_error,
 2133,6,Zulfiquarullah,M,JP,,MoS,,"Monday, 30 July 1979","Tuesday, 4 December 1979",Lok Sabha,Sultanpur,Uttar Pradesh,communications,no_error,
 2134,6,Zulfiquarullah,M,JP,,MoS,,"Monday, 30 July 1979","Tuesday, 4 December 1979",Lok Sabha,Sultanpur,Uttar Pradesh,muslim waqfs,ministry_not_found_in_gazette,not mentioned in gazettes
-2135,6,H R Khanna,M,not_applicable,,Other,,"Monday, 30 July 1979","Friday, 3 August 1979",not_applicable,,,law & justice,other_exception,exception: ministry out of gazette date range
+2135,6,H R Khanna,M,not_applicable,,CM,,"Monday, 30 July 1979","Friday, 3 August 1979",not_applicable,not_applicable,not_applicable,law & justice,other_exception,exception: ministry out of gazette date range
 2136,6,Shyam Nandan Mishra,M,JP,,CM,Additional Charge,"Friday, 7 December 1979","Monday, 14 January 1980",Lok Sabha,Begusarai,Bihar,communications,no_error,
-2137,6,S N Kacker,M,not_applicable,,CM,,"Friday, 3 August 1979","Monday, 14 January 1980",not_applicable,,,"law, justice & company affairs",no_error,
+2137,6,S N Kacker,M,not_applicable,,CM,,"Friday, 3 August 1979","Monday, 14 January 1980",not_applicable,not_applicable,not_applicable,"law, justice & company affairs",no_error,
 2138,6,Charan Singh,M,JP,,CM,,"Saturday, 26 March 1977","Saturday, 1 July 1978",Lok Sabha,Baghpat,Uttar Pradesh,home affairs,no_error,
 2139,6,Charan Singh,M,JP,,DPM,,"Wednesday, 24 January 1979","Monday, 16 July 1979",Lok Sabha,Baghpat,Uttar Pradesh,deputy prime minister,ministry_not_found_in_gazette,"exception: pm, dpm"
 2140,6,Charan Singh,M,JP,,CM,,"Wednesday, 24 January 1979","Monday, 16 July 1979",Lok Sabha,Baghpat,Uttar Pradesh,finance,no_error,
-2141,6,Charan Singh,M,JP,,PM,,"Saturday, 28 July 1979","Monday, 14 January 1980",not_applicable,,,prime minister,ministry_not_found_in_gazette,"exception: pm, dpm"
+2141,6,Charan Singh,M,JP,,PM,,"Saturday, 28 July 1979","Monday, 14 January 1980",Lok Sabha,Baghpat,Uttar Pradesh,prime minister,ministry_not_found_in_gazette,"exception: pm, dpm"
 2142,6,Charan Singh,M,JP,,CM,,"Saturday, 28 July 1979","Monday, 14 January 1980",Lok Sabha,Baghpat,Uttar Pradesh,ministries/dept not allotted to anyone,ministry_not_found_in_gazette,exception: ministries/dept not allotted
-2143,6,Morarji Desai,M,JP,,PM,,"Thursday, 24 March 1977","Saturday, 28 July 1979",not_applicable,,,prime minister,ministry_not_found_in_gazette,"exception: pm, dpm"
+2143,6,Morarji Desai,M,JP,,PM,,"Thursday, 24 March 1977","Saturday, 28 July 1979",Lok Sabha,Surat,Gujarat,prime minister,ministry_not_found_in_gazette,"exception: pm, dpm"
 2144,6,Morarji Desai,M,JP,,CM,,"Thursday, 24 March 1977","Saturday, 28 July 1979",Lok Sabha,Surat,Gujarat,ministries/dept not allotted to anyone,ministry_not_found_in_gazette,exception: ministries/dept not allotted
 2145,6,Morarji Desai,M,JP,,CM,,"Thursday, 24 March 1977","Sunday, 14 August 1977",Lok Sabha,Surat,Gujarat,shipping & transport,no_error,
 2146,6,Morarji Desai,M,JP,,CM,,"Saturday, 7 January 1978","Wednesday, 24 January 1979",Lok Sabha,Surat,Gujarat,home affairs,no_error,
@@ -1423,8 +1424,8 @@ id,ls_number,name,gender,party,department,rank,rank_comment,appointment_begin,ap
 2461,8,Ghulam Nabi Azad,M,INC,,CM,,"Wednesday, 25 September 1985","Monday, 12 May 1986",Lok Sabha,Washim,Maharashtra,parliamentary affairs,other_exception,exception: ministry out of gazette date range
 2463,8,Ghulam Nabi Azad,M,INC,,CM,,"Monday, 12 May 1986","Wednesday, 22 October 1986",Lok Sabha,Washim,Maharashtra,home affairs,no_error,
 2464,8,Ghulam Nabi Azad,M,INC,,CM,,"Wednesday, 22 October 1986","Monday, 7 September 1987",Lok Sabha,Washim,Maharashtra,agriculture,no_error,
-2465,8,Ghulam Nabi Azad,M,INC,,CM,,"Wednesday, 22 October 1986","Monday, 7 September 1987",not_applicable,not_applicable,not_applicable,civil supplies,other_exception,exception: ministry out of gazette date range
-2466,8,Mohsina Kidwai,F,INC,,CM,,"Monday, 31 December 1984","Tuesday, 24 June 1986",not_applicable,not_applicable,not_applicable,health & family welfare,no_error,
+2465,8,Ghulam Nabi Azad,M,INC,,CM,,"Wednesday, 22 October 1986","Monday, 7 September 1987",Lok Sabha,Washim,Maharashtra,civil supplies,other_exception,exception: ministry out of gazette date range
+2466,8,Mohsina Kidwai,F,INC,,CM,,"Monday, 31 December 1984","Tuesday, 24 June 1986",Lok Sabha,Meerut,Uttar Pradesh,health & family welfare,no_error,
 2467,8,Mohsina Kidwai,F,INC,,CM,,"Tuesday, 24 June 1986","Wednesday, 22 October 1986",Lok Sabha,Meerut,Uttar Pradesh,transport,difference of 7,
 2468,8,Mohsina Kidwai,F,INC,,CM,,"Wednesday, 22 October 1986","Saturday, 2 December 1989",Lok Sabha,Meerut,Uttar Pradesh,urban development,no_error,
 2469,8,Mohsina Kidwai,F,INC,,CM,,"Monday, 14 March 1988","Saturday, 25 June 1988",Lok Sabha,Meerut,Uttar Pradesh,tourism,difference of 0,
@@ -1434,14 +1435,15 @@ id,ls_number,name,gender,party,department,rank,rank_comment,appointment_begin,ap
 2474,8,Arif Mohammed Khan,M,BSP,Power,MoS,,"Wednesday, 25 September 1985","Wednesday, 26 February 1986",Lok Sabha,Bahraich,Uttar Pradesh,energy,difference of 0,
 2475,8,Abdul Ghafoor,M,Samata Party,,MoS,,"Monday, 31 December 1984","Wednesday, 25 September 1985",Lok Sabha,Gopalganj,Bihar,works & housing,difference of 0,
 2476,8,Abdul Ghafoor,M,Samata Party,,MoS,,"Wednesday, 25 September 1985","Wednesday, 22 October 1986",Lok Sabha,Gopalganj,Bihar,urban development,difference of 0,
-2477,9,Dinesh Goswami,M,AGP,,CM,,"Wednesday, 6 December 1989","Saturday, 10 November 1990",not_applicable,,not_applicable,steel & mines,no_error,
-2478,8,Dinesh Goswami,M,AGP,,CM,,"Tuesday, 13 June 1989","Monday, 10 December 1990",not_applicable,,not_applicable,law & justice,no_error,
+2477,9,Dinesh Goswami,M,AGP,,CM,,"Wednesday, 6 December 1989","Saturday, 10 November 1990",not_applicable,not_applicable,not_applicable,steel & mines,no_error,
+2478,8,Dinesh Goswami,M,AGP,,CM,,"Tuesday, 13 June 1989","Monday, 02 December 1989",Lok Sabha,Guwahati,Assam,law & justice,no_error,
+2478,9,Dinesh Goswami,M,AGP,,CM,,"Monday, 02 December 1989","Monday, 10 December 1990",not_applicable,not_applicable,not_applicable,law & justice,no_error,
 2479,8,S B Chavan,M,INC,,CM,,"Monday, 31 December 1984","Tuesday, 11 March 1986",Rajya Sabha,,Maharashtra,home affairs,no_error,
 2480,8,S B Chavan,M,INC,,CM,,"Saturday, 25 June 1988","Saturday, 2 December 1989",Rajya Sabha,,Maharashtra,finance,no_error,
 2481,8,P Chidambaram,M,INC,,DCM,,"Wednesday, 25 September 1985","Friday, 27 September 1985",Lok Sabha,Sivaganga,Tamil Nadu,commerce,no_error,
 2482,8,P Chidambaram,M,INC,Textile,DCM,,"Friday, 27 September 1985","Friday, 4 October 1985",Lok Sabha,Sivaganga,Tamil Nadu,commerce,no_error,
-2483,8,P Chidambaram,M,INC,,DCM,,"Friday, 4 October 1985","Monday, 20 January 1986",not_applicable,Sivaganga,not_applicable,"personnel & training, administrative reforms & public grievances & pension",difference of 41,
-2484,8,P Chidambaram,M,INC,,MoS,,"Monday, 20 January 1986","Tuesday, 24 June 1986",not_applicable,Sivaganga,not_applicable,"personnel, public grievances & pension",difference of 41,
+2483,8,P Chidambaram,M,INC,,DCM,,"Friday, 4 October 1985","Monday, 20 January 1986",Lok Sabha,Sivaganga,Tamil Nadu,"personnel & training, administrative reforms & public grievances & pension",difference of 41,
+2484,8,P Chidambaram,M,INC,,MoS,,"Monday, 20 January 1986","Tuesday, 24 June 1986",Lok Sabha,Sivaganga,Tamil Nadu,"personnel, public grievances & pension",difference of 41,
 2485,8,P Chidambaram,M,INC,,MoS,,"Tuesday, 24 June 1986","Saturday, 2 December 1989",Lok Sabha,Sivaganga,Tamil Nadu,"personnel, public grievances & pension",no_error,
 2486,8,P Chidambaram,M,INC,,MoS,,"Tuesday, 24 June 1986","Saturday, 2 December 1989",Lok Sabha,Sivaganga,Tamil Nadu,home affairs,no_error,
 2487,8,A B A Ghani Khan Choudhury,M,INC,,CM,,"Wednesday, 25 September 1985","Monday, 4 May 1987",Lok Sabha,Malda,West Bengal,programme implementation,difference of 0,
@@ -1461,9 +1463,9 @@ id,ls_number,name,gender,party,department,rank,rank_comment,appointment_begin,ap
 2501,8,Bindeshwari Dubey,M,INC,,CM,,"Saturday, 25 June 1988","Saturday, 2 December 1989",Rajya Sabha,,Bihar,labour,no_error,
 2502,8,Arun Kumar Nehru,M,JD,Power,MoS,,"Monday, 31 December 1984","Wednesday, 25 September 1985",Lok Sabha,Bilhaur,Uttar Pradesh,energy,other_exception,exception: ministry out of gazette date range
 2503,8,Arun Kumar Nehru,M,JD,,MoS,,"Wednesday, 25 September 1985","Wednesday, 22 October 1986",Lok Sabha,Bilhaur,Uttar Pradesh,home affairs,no_error,
-2504,8,Krishna Chandra Pant,M,INC,,CM,,"Monday, 31 December 1984","Wednesday, 25 September 1985",Rajya Sabha,,Uttar Pradesh,education,difference of 0,
-2505,8,Krishna Chandra Pant,M,INC,,CM,,"Wednesday, 25 September 1985","Sunday, 12 April 1987",Rajya Sabha,,Uttar Pradesh,steel & mines,difference of 0,
-2506,8,Krishna Chandra Pant,M,INC,,CM,,"Sunday, 12 April 1987","Saturday, 2 December 1989",Rajya Sabha,,Uttar Pradesh,defence,no_error,
+2504,8,Krishna Chandra Pant,M,INC,,CM,,"Monday, 31 December 1984","Wednesday, 25 September 1985",Rajya Sabha,New Delhi,NCT of Delhi,education,difference of 0,
+2505,8,Krishna Chandra Pant,M,INC,,CM,,"Wednesday, 25 September 1985","Sunday, 12 April 1987",Rajya Sabha,New Delhi,NCT of Delhi,steel & mines,difference of 0,
+2506,8,Krishna Chandra Pant,M,INC,,CM,,"Sunday, 12 April 1987","Saturday, 2 December 1989",Rajya Sabha,New Delhi,NCT of Delhi,defence,no_error,
 2507,8,Veerendra Patil,M,INC,,CM,,"Monday, 31 December 1984","Wednesday, 25 September 1985",Lok Sabha,Gulbarga,Karnataka,chemicals & fertilisers,other_exception,exception: ministry out of gazette date range
 2508,8,Veerendra Patil,M,INC,,CM,Additional Charge,"Monday, 14 January 1985","Wednesday, 25 September 1985",Lok Sabha,Gulbarga,Karnataka,industry,other_exception,exception: ministry out of gazette date range
 2510,8,Shivraj V Patil,M,INC,,MoS,,"Monday, 31 December 1984","Wednesday, 22 October 1986",Lok Sabha,Latur,Maharashtra,science & technology,difference of 4,
@@ -1579,7 +1581,7 @@ id,ls_number,name,gender,party,department,rank,rank_comment,appointment_begin,ap
 2619,8,Margaret Alva,F,INC,,MoS,,"Wednesday, 31 December 1984","Wednesday, 25 September 1985",Rajya Sabha,,Karnataka,parliamentary affairs,difference of 0,
 2620,8,Margaret Alva,F,INC,Women and Child Development,MoS,,"Wednesday, 25 September 1985","Saturday, 2 December 1989",Rajya Sabha,,Karnataka,human resource development,difference of 0,
 2621,8,Margaret Alva,F,INC,Youth Affairs and Sports,MoS,,"Wednesday, 25 September 1985","Saturday, 2 December 1989",Rajya Sabha,,Karnataka,youth affairs & sports,other_exception,exception: ministry out of gazette date range
-2622,8,Arun Singh,M,INC,,Other,,"Tuesday, 1 January 1985","Wednesday, 25 September 1985",Rajya Sabha,,Uttar Pradesh,parliamentary secretary,ministry_not_found_in_gazette,exception: parliamentary secretary
+2622,8,Arun Singh,M,INC,,Other,Parliamentary Secretary,"Tuesday, 1 January 1985","Wednesday, 25 September 1985",Rajya Sabha,,Uttar Pradesh,parliamentary secretary,ministry_not_found_in_gazette,exception: parliamentary secretary
 2623,8,Arun Singh,M,INC,Defence Orgaization and Development Organization,MoS,,"Wednesday, 25 September 1985","Saturday, 18 July 1987",Rajya Sabha,,Uttar Pradesh,defence,no_error,
 2624,8,D L Baitha,M,INC,,DCM,,"Sunday, 14 February 1988","Tuesday, 4 July 1989",Lok Sabha,Araria,Bihar,food & civil supplies,other_exception,exception: ministry out of gazette date range
 2625,8,D L Baitha,M,INC,Production and Supplies,MoS,,"Tuesday, 4 July 1989","Saturday, 2 December 1989",Lok Sabha,Araria,Bihar,defence,no_error,
@@ -1646,7 +1648,7 @@ id,ls_number,name,gender,party,department,rank,rank_comment,appointment_begin,ap
 2686,8,Ramanand Yadav,M,INC,Rural Development,MoS,,"Monday, 12 May 1986","Sunday, 14 February 1988",Rajya Sabha,,Bihar,agriculture,no_error,
 2687,8,Ramanand Yadav,M,INC,mines,MoS,,"Monday, 12 May 1986","Sunday, 14 February 1988",Rajya Sabha,,Bihar,steel & mines,no_error,
 2688,8,Shyamlal Yadav,M,INC,Agriculture and Cooperation,MoS,,"Sunday, 14 February 1988","Saturday, 2 December 1989",Lok Sabha,Varanasi,Uttar Pradesh,agriculture,no_error,
-2689,8,Ahmed Patel,M,INC,,Other,,"Tuesday, 1 January 1985","Wednesday, 25 September 1985",Lok Sabha,Broach,Gujarat,pm secretary,ministry_not_found_in_gazette,exception: parliamentary secretary
+2689,8,Ahmed Patel,M,INC,,Other,Parliamentary Secretary,"Tuesday, 1 January 1985","Wednesday, 25 September 1985",Lok Sabha,Broach,Gujarat,pm secretary,ministry_not_found_in_gazette,exception: parliamentary secretary
 2690,7,Rajiv Gandhi,M,INC,,PM,,"Wednesday, 31 October 1984","Monday, 31 December 1984",Lok Sabha,Buxar,Bihar,prime minister,ministry_not_found_in_gazette,"exception: pm, dpm"
 2690,8,Rajiv Gandhi,M,INC,,PM,,"Monday, 31 December 1984","Saturday, 2 December 1989",Lok Sabha,Buxar,Bihar,prime minister,ministry_not_found_in_gazette,"exception: pm, dpm"
 2690,7,Rajiv Gandhi,M,INC,,CM,,"Wednesday, 31 October 1984","Monday, 31 December 1984",Lok Sabha,Buxar,Bihar,ministries/dept not allotted to anyone,ministry_not_found_in_gazette,exception: ministries/dept not allotted
@@ -1724,26 +1726,26 @@ id,ls_number,name,gender,party,department,rank,rank_comment,appointment_begin,ap
 2762,9,Satya Pal Malik,M,JD,,MoS,,"Friday, 23 March 1990","Saturday, 10 November 1990",Lok Sabha,Aligarh,Uttar Pradesh,parliamentary affairs,no_error,
 2763,9,Satya Pal Malik,M,JD,,MoS,,"Friday, 23 March 1990","Saturday, 10 November 1990",Lok Sabha,Aligarh,Uttar Pradesh,tourism,other_exception,exception: ministry out of gazette date range
 2764,9,Chimanbhai Mehta,M,INC,,MoS,,"Monday, 23 April 1990","Saturday, 10 November 1990",Rajya Sabha,,Gujarat,human resource development,no_error,
-2765,9,M G K Menon,M,JD,,MoS,,"Monday, 18 December 1989","Saturday, 10 November 1990",not_applicable,,not_applicable,science & technology,no_error,
-2766,9,M G K Menon,M,JD,atomic energy,Other,Assisted the PM,"Monday, 25 December 1989","Saturday, 10 November 1990",not_applicable,,not_applicable,atomic energy,no_error,
-2767,9,M G K Menon,M,JD,,Other,Assisted the PM,"Monday, 25 December 1989","Saturday, 10 November 1990",not_applicable,,not_applicable,electronics,no_error,
-2768,9,M G K Menon,M,JD,,Other,Assisted the PM,"Monday, 25 December 1989","Saturday, 10 November 1990",not_applicable,,not_applicable,ocean development,no_error,
-2769,9,M G K Menon,M,JD,,Other,Assisted the PM,"Monday, 25 December 1989","Saturday, 10 November 1990",not_applicable,,not_applicable,space,no_error,
+2765,9,M G K Menon,M,JD,,MoS,,"Monday, 18 December 1989","Saturday, 10 November 1990",not_applicable,not_applicable,not_applicable,science & technology,no_error,
+2766,9,M G K Menon,M,JD,atomic energy,Other,Assisted the PM,"Monday, 25 December 1989","Saturday, 10 November 1990",not_applicable,not_applicable,not_applicable,atomic energy,no_error,
+2767,9,M G K Menon,M,JD,,Other,Assisted the PM,"Monday, 25 December 1989","Saturday, 10 November 1990",not_applicable,not_applicable,not_applicable,electronics,no_error,
+2768,9,M G K Menon,M,JD,,Other,Assisted the PM,"Monday, 25 December 1989","Saturday, 10 November 1990",not_applicable,not_applicable,not_applicable,ocean development,no_error,
+2769,9,M G K Menon,M,JD,,Other,Assisted the PM,"Monday, 25 December 1989","Saturday, 10 November 1990",not_applicable,not_applicable,not_applicable,space,no_error,
 2770,8,K R Narayanan,M,INC,,MoS,,"Monday, 31 December 1984","Wednesday, 25 September 1985",Lok Sabha,Ottapalam,Kerala,planning,no_error,
-2771,8,K R Narayanan,M,INC,,MoS,,"Wednesday, 25 September 1985","Wednesday, 22 October 1986",not_applicable,Ottapalam,not_applicable,external affairs,no_error,
-2772,8,K R Narayanan,M,INC,,MoS,,"Wednesday, 22 October 1986","Saturday, 2 December 1989",not_applicable,Ottapalam,not_applicable,science & technology,no_error,
-2773,8,K R Narayanan,M,INC,atomic energy,MoS,,"Wednesday, 25 September 1985","Wednesday, 22 October 1986",not_applicable,Ottapalam,not_applicable,atomic energy,no_error,
-2774,8,K R Narayanan,M,INC,,MoS,,"Wednesday, 25 September 1985","Wednesday, 22 October 1986",not_applicable,Ottapalam,not_applicable,electronics,no_error,
-2775,8,K R Narayanan,M,INC,,MoS,,"Wednesday, 25 September 1985","Wednesday, 22 October 1986",not_applicable,Ottapalam,not_applicable,ocean development,no_error,
+2771,8,K R Narayanan,M,INC,,MoS,,"Wednesday, 25 September 1985","Wednesday, 22 October 1986",Lok Sabha,Ottapalam,Kerala,external affairs,no_error,
+2772,8,K R Narayanan,M,INC,,MoS,,"Wednesday, 22 October 1986","Saturday, 2 December 1989",Lok Sabha,Ottapalam,Kerala,science & technology,no_error,
+2773,8,K R Narayanan,M,INC,atomic energy,MoS,,"Wednesday, 25 September 1985","Wednesday, 22 October 1986",Lok Sabha,Ottapalam,Kerala,atomic energy,no_error,
+2774,8,K R Narayanan,M,INC,,MoS,,"Wednesday, 25 September 1985","Wednesday, 22 October 1986",Lok Sabha,Ottapalam,Kerala,electronics,no_error,
+2775,8,K R Narayanan,M,INC,,MoS,,"Wednesday, 25 September 1985","Wednesday, 22 October 1986",Lok Sabha,Ottapalam,Kerala,ocean development,no_error,
 2776,8,K R Narayanan,M,INC,,MoS,,"Wednesday, 25 September 1985","Wednesday, 22 October 1986",Lok Sabha,Ottapalam,Kerala,space,no_error,
 2777,9,Rampoojan Patel,M,JD,,MoS,,"Monday, 23 April 1990","Saturday, 10 November 1990",Lok Sabha,Phulpur,Uttar Pradesh,food & civil supplies,other_exception,exception: ministry out of gazette date range
-2778,9,Raja Ramana,M,JD,,MoS,,"Saturday, 20 January 1990","Saturday, 10 November 1990",not_applicable,,not_applicable,defence,no_error,
+2778,9,Raja Ramana,M,JD,,MoS,,"Saturday, 20 January 1990","Saturday, 10 November 1990",not_applicable,not_applicable,not_applicable,defence,no_error,
 2779,9,Arangil Shreedharan,M,INC,,MoS,,"Monday, 23 April 1990","Saturday, 10 November 1990",Rajya Sabha,,Kerala,commerce,no_error,
 2780,9,Hari Kishore Singh,M,JD,,MoS,,"Monday, 23 April 1990","Saturday, 10 November 1990",Lok Sabha,Sheohar,Bihar,external affairs,no_error,
 2781,9,Upendra Nath Verma,M,JD,Rural Development,MoS,,"Monday, 23 April 1990","Saturday, 10 November 1990",Lok Sabha,Chatra,Bihar,agriculture,no_error,
 2782,9,Ajay Singh,M,JD,,DCM,,"Monday, 23 April 1990","Saturday, 10 November 1990",Lok Sabha,Agra,Uttar Pradesh,railways,no_error,
 2783,9,Jagdeep Dhankar,M,JD,,DCM,,"Monday, 23 April 1990","Monday, 5 November 1990",Lok Sabha,Jhunjunu,Rajasthan,parliamentary affairs,no_error,
-2784,9,Anil Shastri,M,JD,,DCM,,"Monday, 23 April 1990","Saturday, 10 November 1990",not_applicable,Varanasi,not_applicable,finance,no_error,
+2784,9,Anil Shastri,M,JD,,DCM,,"Monday, 23 April 1990","Saturday, 10 November 1990",Lok Sabha,Varanasi,Uttar Pradesh,finance,no_error,
 2785,9,Inder Kumar Gujral,M,JD,,CM,,"Wednesday, 6 December 1989","Saturday, 10 November 1990",Lok Sabha,Jullundur,Punjab,external affairs,no_error,
 2786,9,Vishwanath Pratap Singh,M,JD,,PM,,"Sunday, 2 December 1989","Saturday, 10 November 1990",Lok Sabha,Fatehpur,Uttar Pradesh,prime minister,ministry_not_found_in_gazette,"exception: pm, dpm"
 2787,9,Vishwanath Pratap Singh,M,JD,atomic energy,CM,,"Tuesday, 5 December 1989","Saturday, 10 November 1990",Lok Sabha,Fatehpur,Uttar Pradesh,atomic energy,no_error,
