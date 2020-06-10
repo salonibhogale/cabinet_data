@@ -132,7 +132,10 @@ cabinet_csv_file['appointment_difference_in_years'] = cabinet_csv_file['appointm
 cabinet_csv_file['appointment_difference_in_years'] = cabinet_csv_file['appointment_difference_in_years'] / np.timedelta64(1, 'Y')
 print(cabinet_csv_file['appointment_difference_in_years'])
 
-
+cabinet_csv_file['starting_year'] = cabinet_csv_file['appointment_begin_in_datetime'].dt.year
+cabinet_csv_file['end_year'] = cabinet_csv_file['appointment_end_in_datetime'].dt.year
+for year1 in range(cabinet_csv_file['starting_year'], cabinet_csv_file['end_year']+1):
+    cabinet_csv_file['List of year'].append(year1)
 
 
 
