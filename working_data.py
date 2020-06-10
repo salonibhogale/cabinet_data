@@ -134,9 +134,20 @@ print(cabinet_csv_file['appointment_difference_in_years'])
 
 cabinet_csv_file['starting_year'] = cabinet_csv_file['appointment_begin_in_datetime'].dt.year
 cabinet_csv_file['end_year'] = cabinet_csv_file['appointment_end_in_datetime'].dt.year
+year_list = []
 for year1 in range(cabinet_csv_file['starting_year'], cabinet_csv_file['end_year']+1):
-    cabinet_csv_file['List of year'].append(year1)
+    year_list.append(year1)
 
+# code snippet for reference
+check_1950 = 1950 # fix this to year 
+cabinet_csv_file['list_of_years']=''
+for i in range(0, len(cabinet_csv_file)):
+    start_year = cabinet_csv_file['starting_year'].iloc[i]
+    end_year = cabinet_csv_file['end_year'].iloc[i]
+
+    if check_1950 >=start_year and check_1950 <= end_year:
+        # append for particular row value
+        cabinet_csv_file['list_of_years'].iloc[i]=cabinet_csv_file['list_of_years']+"1950,"
 
 
 #print(bool_series_appointment_end)
