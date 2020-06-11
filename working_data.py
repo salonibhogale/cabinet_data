@@ -12,7 +12,7 @@ import pandas as pd
 # print(unique_values_for_column_house)
 
 
-cabinet_csv_file = pd.read_csv("cabinet_data_final_0406_v2.csv")
+cabinet_csv_file = pd.read_csv("cabinet_data_final_1006.csv")
 unique_values_for_name = set(cabinet_csv_file.name)
 print(unique_values_for_name)
 unique_values_for_state = set(cabinet_csv_file.state)
@@ -133,21 +133,31 @@ cabinet_csv_file['appointment_difference_in_years'] = cabinet_csv_file['appointm
 print(cabinet_csv_file['appointment_difference_in_years'])
 
 cabinet_csv_file['starting_year'] = cabinet_csv_file['appointment_begin_in_datetime'].dt.year
+cabinet_csv_file['starting_year'] = pd.to_datetime(cabinet_csv_file['starting_year'], format='%Y')
 cabinet_csv_file['end_year'] = cabinet_csv_file['appointment_end_in_datetime'].dt.year
-year_list = []
-for year1 in range(cabinet_csv_file['starting_year'], cabinet_csv_file['end_year']+1):
-    year_list.append(year1)
+cabinet_csv_file['end_year'] = pd.to_datetime(cabinet_csv_file['end_year'], format='%Y')
+
+
 
 # code snippet for reference
-check_1950 = 1950 # fix this to year 
-cabinet_csv_file['list_of_years']=''
+check_1950 = pd.to_datetime(1950, format='%Y')  #fix this to year
+cabinet_csv_file['list_of_years'] = ''
+
 for i in range(0, len(cabinet_csv_file)):
     start_year = cabinet_csv_file['starting_year'].iloc[i]
     end_year = cabinet_csv_file['end_year'].iloc[i]
+    year_list = []
+    if check_1950 >= start_year and check_1950 <= end_year:
+        cabinet_csv_file['list_of_years'].iloc[i] += "1950,"
+"""
+    for p in range(start_year, end_year+1):
+        p = p.strftime('%Y')
+        cabinet_csv_file['list_of_years'].iloc[i] = cabinet_csv_file['list_of_years'] + p 
+        
 
-    if check_1950 >=start_year and check_1950 <= end_year:
-        # append for particular row value
-        cabinet_csv_file['list_of_years'].iloc[i]=cabinet_csv_file['list_of_years']+"1950,"
+    #if check_1950 >=start_year and check_1950 <= end_year:
+         #append for particular row value
+"""
 
 
 #print(bool_series_appointment_end)
@@ -158,6 +168,7 @@ for i in range(0, len(cabinet_csv_file)):
 #len(cabinet_csv_file)
 #cabinet_csv_file[['house']].count()
 #cabinet_csv_file.groupby('house').count()
+
 
 
 
