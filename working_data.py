@@ -140,15 +140,29 @@ cabinet_csv_file['end_year'] = pd.to_datetime(cabinet_csv_file['end_year'], form
 
 
 # code snippet for reference
-check_1950 = pd.to_datetime(1950, format='%Y')  #fix this to year
-cabinet_csv_file['list_of_years'] = ''
+check_1950 = pd.to_datetime('1950', format='%Y')  #fix this to year
+check_1951 = pd.to_datetime(1951, format='%Y')
+# cabinet_csv_file['list_of_years'] = ''
+list_of_years = [1950, 1951, 1952 ... ]
 
+def convert_year_to_datetime(year):
+    return pd.to_datetime(year, format = '%Y')
+
+list_of_years_datetime = [convert_year_to_datetime(x) for x in list_of_years]
+
+
+year_list = []
 for i in range(0, len(cabinet_csv_file)):
+    year_string = ''
     start_year = cabinet_csv_file['starting_year'].iloc[i]
     end_year = cabinet_csv_file['end_year'].iloc[i]
-    year_list = []
-    if check_1950 >= start_year and check_1950 <= end_year:
-        cabinet_csv_file['list_of_years'].iloc[i] += "1950,"
+    # for loop over list_of_years_datetime
+        # if check_1950 >= start_year and check_1950 <= end_year:
+        #     year_string += "year,"
+    year_list.append(year_string)
+
+# assigning list to a new column in the pandas dataframe
+cabinet_csv_file['list_of_years'] = pd.Series(year_list).values
 """
     for p in range(start_year, end_year+1):
         p = p.strftime('%Y')
