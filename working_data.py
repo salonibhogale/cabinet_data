@@ -184,6 +184,26 @@ fig = ff.create_gantt(df, colors=colors, index_col='House', show_colorbar=True,
 fig.show()
 
 
+# Gant Chart Visualization: Code for Reference 
+
+import plotly.figure_factory as ff
+
+df = [dict(Task=cabinet_csv_file['PARTY'].iloc[0], Start=cabinet_csv_file['appointment_begin_in_datetime'].iloc[0], Finish= cabinet_csv_file['appointment_end_in_datetime'].iloc[0],Resource=cabinet_csv_file['HOUSE'].iloc[0]),
+      dict(Task=cabinet_csv_file['PARTY'].iloc[1], Start=cabinet_csv_file['appointment_begin_in_datetime'].iloc[1], Finish= cabinet_csv_file['appointment_end_in_datetime'].iloc[1],Resource=cabinet_csv_file['HOUSE'].iloc[1]),
+      dict(Task=cabinet_csv_file['PARTY'].iloc[2], Start=cabinet_csv_file['appointment_begin_in_datetime'].iloc[2], Finish= cabinet_csv_file['appointment_end_in_datetime'].iloc[2],Resource=cabinet_csv_file['HOUSE'].iloc[2]),
+      dict(Task=cabinet_csv_file['PARTY'].iloc[3], Start=cabinet_csv_file['appointment_begin_in_datetime'].iloc[3], Finish= cabinet_csv_file['appointment_end_in_datetime'].iloc[3],Resource=cabinet_csv_file['HOUSE'].iloc[3]),
+      dict(Task=cabinet_csv_file['PARTY'].iloc[4], Start=cabinet_csv_file['appointment_begin_in_datetime'].iloc[4], Finish= cabinet_csv_file['appointment_end_in_datetime'].iloc[4],Resource=cabinet_csv_file['HOUSE'].iloc[4])]
+
+# build out the entire data frame using a for loop
+df=[]
+for i in range(0, nrow(cabinet_csv_file)):
+    dict_to_append = dict(Task=cabinet_csv_file['PARTY'].iloc[0], Start=cabinet_csv_file['appointment_begin_in_datetime'].iloc[0], Finish= cabinet_csv_file['appointment_end_in_datetime'].iloc[0],Resource=cabinet_csv_file['HOUSE'].iloc[0])dict(Task=cabinet_csv_file['PARTY'].iloc[0], Start=cabinet_csv_file['appointment_begin_in_datetime'].iloc[0], Finish= cabinet_csv_file['appointment_end_in_datetime'].iloc[0],Resource=cabinet_csv_file['HOUSE'].iloc[0])
+    df.append(dict_to_append)
+
+# visualize the chart: make this more intuitive (better colours? )
+fig = ff.create_gantt(df,index_col='Resource')
+fig.show()
+
 """
     for p in range(start_year, end_year+1):
         p = p.strftime('%Y')
