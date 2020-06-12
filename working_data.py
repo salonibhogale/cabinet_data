@@ -139,11 +139,9 @@ cabinet_csv_file['end_year'] = pd.to_datetime(cabinet_csv_file['end_year'], form
 
 
 
-# code snippet for reference
-check_1950 = pd.to_datetime('1950', format='%Y')  #fix this to year
-check_1951 = pd.to_datetime(1951, format='%Y')
+
 # cabinet_csv_file['list_of_years'] = ''
-list_of_years = [1950, 1951, 1952 ... ]
+list_of_years = list(range(1952,2019))
 
 def convert_year_to_datetime(year):
     return pd.to_datetime(year, format = '%Y')
@@ -156,13 +154,36 @@ for i in range(0, len(cabinet_csv_file)):
     year_string = ''
     start_year = cabinet_csv_file['starting_year'].iloc[i]
     end_year = cabinet_csv_file['end_year'].iloc[i]
-    # for loop over list_of_years_datetime
-        # if check_1950 >= start_year and check_1950 <= end_year:
-        #     year_string += "year,"
+    for year in list_of_years_datetime:
+        if year >= start_year and year<= end_year:
+           year_string += year.strftime('%Y,')
     year_list.append(year_string)
 
 # assigning list to a new column in the pandas dataframe
 cabinet_csv_file['list_of_years'] = pd.Series(year_list).values
+print(cabinet_csv_file['list_of_years'])
+
+cabinet_csv_file['appointment_begin_in_datetime'] = cabinet_csv_file['appointment_begin_in_datetime'].dt.strftime('%Y-%m-%d')
+cabinet_csv_file['appointment_end_in_datetime'] = cabinet_csv_file['appointment_end_in_datetime'].dt.strftime('%Y-%m-%d')
+import plotly.figure_factory as ff
+
+df = [dict(House=cabinet_csv_file['HOUSE'].iloc[0], Appointment_Begin=cabinet_csv_file['appointment_begin_in_datetime'].iloc[0], Appointment_end= cabinet_csv_file['appointment_end_in_datetime'].iloc[0], Party=cabinet_csv_file.iloc['PARTY'].iloc[0]),
+      dict(House=cabinet_csv_file['HOUSE'].iloc[1], Appointment_Begin=cabinet_csv_file['appointment_begin_in_datetime'].iloc[1], Appointment_end= cabinet_csv_file['appointment_end_in_datetime'].iloc[1], Party=cabinet_csv_file.iloc['PARTY'].iloc[1]),
+      dict(House=cabinet_csv_file['HOUSE'].iloc[2], Appointment_Begin=cabinet_csv_file['appointment_begin_in_datetime'].iloc[2], Appointment_end= cabinet_csv_file['appointment_end_in_datetime'].iloc[2], Party=cabinet_csv_file.iloc['PARTY'].iloc[2]),
+      dict(House=cabinet_csv_file['HOUSE'].iloc[3], Appointment_Begin=cabinet_csv_file['appointment_begin_in_datetime'].iloc[3], Appointment_end= cabinet_csv_file['appointment_end_in_datetime'].iloc[3], Party=cabinet_csv_file.iloc['PARTY'].iloc[3]),
+      dict(House=cabinet_csv_file['HOUSE'].iloc[4], Appointment_Begin=cabinet_csv_file['appointment_begin_in_datetime'].iloc[4], Appointment_end= cabinet_csv_file['appointment_end_in_datetime'].iloc[4], Party=cabinet_csv_file.iloc['PARTY'].iloc[4])]
+
+
+
+colors = {'Lok Sabha': 'rgb(220, 0, 0)',
+          'Rajya': (1, 0.9, 0.16),
+          'not_applicable': 'rgb(0, 255, 100)'}
+
+fig = ff.create_gantt(df, colors=colors, index_col='House', show_colorbar=True,
+                      group_tasks=True)
+fig.show()
+
+
 """
     for p in range(start_year, end_year+1):
         p = p.strftime('%Y')
