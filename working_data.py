@@ -205,7 +205,8 @@ count_rs = {}
 count_ls = {}
 count_none = {}
 
-d = {a1[0]:1, a1[1]:2}
+# assigning a dictionary - data type
+# for eg - d = {a1[0]:1, a1[1]:2}
 
 # assign all values of dictionary to 0
 
