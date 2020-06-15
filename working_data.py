@@ -165,44 +165,26 @@ print(cabinet_csv_file['list_of_years'])
 
 cabinet_csv_file['appointment_begin_in_datetime'] = cabinet_csv_file['appointment_begin_in_datetime'].dt.strftime('%Y-%m-%d')
 cabinet_csv_file['appointment_end_in_datetime'] = cabinet_csv_file['appointment_end_in_datetime'].dt.strftime('%Y-%m-%d')
+
+
 import plotly.figure_factory as ff
 
-df = [dict(House=cabinet_csv_file['HOUSE'].iloc[0], Appointment_Begin=cabinet_csv_file['appointment_begin_in_datetime'].iloc[0], Appointment_end= cabinet_csv_file['appointment_end_in_datetime'].iloc[0], Party=cabinet_csv_file.iloc['PARTY'].iloc[0]),
-      dict(House=cabinet_csv_file['HOUSE'].iloc[1], Appointment_Begin=cabinet_csv_file['appointment_begin_in_datetime'].iloc[1], Appointment_end= cabinet_csv_file['appointment_end_in_datetime'].iloc[1], Party=cabinet_csv_file.iloc['PARTY'].iloc[1]),
-      dict(House=cabinet_csv_file['HOUSE'].iloc[2], Appointment_Begin=cabinet_csv_file['appointment_begin_in_datetime'].iloc[2], Appointment_end= cabinet_csv_file['appointment_end_in_datetime'].iloc[2], Party=cabinet_csv_file.iloc['PARTY'].iloc[2]),
-      dict(House=cabinet_csv_file['HOUSE'].iloc[3], Appointment_Begin=cabinet_csv_file['appointment_begin_in_datetime'].iloc[3], Appointment_end= cabinet_csv_file['appointment_end_in_datetime'].iloc[3], Party=cabinet_csv_file.iloc['PARTY'].iloc[3]),
-      dict(House=cabinet_csv_file['HOUSE'].iloc[4], Appointment_Begin=cabinet_csv_file['appointment_begin_in_datetime'].iloc[4], Appointment_end= cabinet_csv_file['appointment_end_in_datetime'].iloc[4], Party=cabinet_csv_file.iloc['PARTY'].iloc[4])]
 
 
+# build out the entire data frame using a for loop
+df= []
+for i in range(0, len(cabinet_csv_file)):
+    dict_to_append = dict(Task=cabinet_csv_file['PARTY'].iloc[i], Start=cabinet_csv_file['appointment_begin_in_datetime'].iloc[i], Finish= cabinet_csv_file['appointment_end_in_datetime'].iloc[i],Resource=cabinet_csv_file['HOUSE'].iloc[i])
+    df.append(dict_to_append)
 
-colors = {'Lok Sabha': 'rgb(220, 0, 0)',
-          'Rajya': (1, 0.9, 0.16),
-          'not_applicable': 'rgb(0, 255, 100)'}
-
-fig = ff.create_gantt(df, colors=colors, index_col='House', show_colorbar=True,
-                      group_tasks=True)
+ # visualize the chart: make this more intuitive (better colours? )
+colors = {'Lok Sabha': 'rgb(34,139,34)',
+          'Rajya Sabha':'rgb(178,34,34)',
+          'not_applicable': 'rgb(254, 255, 51)'}
+fig = ff.create_gantt(df, colors=colors, index_col='Resource', show_colorbar=True, group_tasks=True)
 fig.show()
 
 
-"""
-    for p in range(start_year, end_year+1):
-        p = p.strftime('%Y')
-        cabinet_csv_file['list_of_years'].iloc[i] = cabinet_csv_file['list_of_years'] + p 
-        
-
-    #if check_1950 >=start_year and check_1950 <= end_year:
-         #append for particular row value
-"""
-
-
-#print(bool_series_appointment_end)
-
-
-#bool_series = pd.isnull(cabinet_csv_file["house"])
-
-#len(cabinet_csv_file)
-#cabinet_csv_file[['house']].count()
-#cabinet_csv_file.groupby('house').count()
 
 
 
