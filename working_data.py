@@ -174,14 +174,100 @@ import plotly.figure_factory as ff
 # build out the entire data frame using a for loop
 df= []
 for i in range(0, len(cabinet_csv_file)):
-    dict_to_append = dict(Task=cabinet_csv_file['PARTY'].iloc[i], Start=cabinet_csv_file['appointment_begin_in_datetime'].iloc[i], Finish= cabinet_csv_file['appointment_end_in_datetime'].iloc[i],Resource=cabinet_csv_file['HOUSE'].iloc[i])
-    df.append(dict_to_append)
+    if cabinet_csv_file.ministry_category.iloc[i]=='education':
+        dict_to_append = dict(Task=cabinet_csv_file['NAME'].iloc[i], Start=cabinet_csv_file['appointment_begin_in_datetime'].iloc[i], Finish= cabinet_csv_file['appointment_end_in_datetime'].iloc[i],Resource=cabinet_csv_file['HOUSE'].iloc[i])
+        df.append(dict_to_append)
 
  # visualize the chart: make this more intuitive (better colours? )
 colors = {'Lok Sabha': 'rgb(34,139,34)',
           'Rajya Sabha':'rgb(178,34,34)',
           'not_applicable': 'rgb(254, 255, 51)'}
 fig = ff.create_gantt(df, colors=colors, index_col='Resource', show_colorbar=True, group_tasks=True)
+fig.show()
+
+
+# getting the aggregates
+
+education_df = cabinet_csv_file[cabinet_csv_file['ministry_category']=='education']
+
+# trying with all df - education_df = cabinet_csv_file
+# trying to plot these for each year
+
+education_df[education_df['NAME']=='T S Soundaram Ramachandran']
+all_names = list(set(education_df.NAME))
+all_years = [x for x in education_df.list_of_years]
+all_years = list(set(','.join(all_years).split(',')))
+all_years.remove('')
+all_years = [int(x) for x in all_years]
+all_years.sort()
+
+count_rs = {}
+count_ls = {}
+count_none = {}
+
+d = {a1[0]:1, a1[1]:2}
+
+# assign all values of dictionary to 0
+
+for i in range(0, len(all_years)):
+    count_rs[all_years[i]]=0
+    count_ls[all_years[i]]=0
+    count_none[all_years[i]]=0
+
+
+for i in range(0, len(all_names)):
+    df_subset = education_df[education_df['NAME'] == all_names[i]]
+    ls_rows = df_subset[df_subset['HOUSE']=='Lok Sabha']
+    rs_rows = df_subset[df_subset['HOUSE']=='Rajya Sabha']
+    none_rows = df_subset[df_subset['HOUSE']=='not_applicable']
+    for j in range(0, len(ls_rows)):
+        year_split = split_years(ls_rows, j)
+        for x in year_split:
+            count_ls[x]+=1
+    for j in range(0, len(rs_rows)):
+        year_split = split_years(rs_rows, j)
+        for x in year_split:
+            count_rs[x]+=1
+    for j in range(0, len(none_rows)):
+        year_split = split_years(none_rows, j)
+        for x in year_split:
+            count_none[x]+=1
+
+def split_years(rows, j):
+    year_split = rows.list_of_years.iloc[j].split(',')
+    year_split.remove('')
+    year_split = [int(x) for x in year_split]
+    return(year_split)
+
+
+# plot out the dictionary
+
+# first create the complete df
+complete_df1 = pd.DataFrame()
+complete_df1['years'] = pd.Series(list(count_ls.keys())).values
+complete_df1['count'] = pd.Series(list(count_ls.values())).values
+complete_df1['house'] = 'Lok Sabha'
+
+
+complete_df2 = pd.DataFrame()
+complete_df2['years'] = pd.Series(list(count_rs.keys())).values
+complete_df2['count'] = pd.Series(list(count_rs.values())).values
+complete_df2['house'] = 'Rajya Sabha'
+
+complete_df3 = pd.DataFrame()
+complete_df3['years'] = pd.Series(list(count_none.keys())).values
+complete_df3['count'] = pd.Series(list(count_none.values())).values
+complete_df3['house'] = 'Not Applicable'
+
+all_dfs = [complete_df1, complete_df2, complete_df3]
+all_dfs_combined = pd.concat(all_dfs)
+
+
+import plotly.express as px
+
+fig = px.bar(all_dfs_combined, x='years', y='count',
+             color='house',
+             labels={'count':'Number of MPs'}, height=400)
 fig.show()
 
 
