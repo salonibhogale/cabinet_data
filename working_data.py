@@ -214,7 +214,11 @@ for i in range(0, len(all_years)):
     count_rs[all_years[i]]=0
     count_ls[all_years[i]]=0
     count_none[all_years[i]]=0
-
+def split_years(rows, j):
+    year_split = rows.list_of_years.iloc[j].split(',')
+    year_split.remove('')
+    year_split = [int(x) for x in year_split]
+    return(year_split)
 
 for i in range(0, len(all_names)):
     df_subset = education_df[education_df['NAME'] == all_names[i]]
@@ -234,11 +238,7 @@ for i in range(0, len(all_names)):
         for x in year_split:
             count_none[x]+=1
 
-def split_years(rows, j):
-    year_split = rows.list_of_years.iloc[j].split(',')
-    year_split.remove('')
-    year_split = [int(x) for x in year_split]
-    return(year_split)
+
 
 
 # plot out the dictionary
@@ -270,8 +270,88 @@ fig = px.bar(all_dfs_combined, x='years', y='count',
              color='house',
              labels={'count':'Number of MPs'}, height=400)
 fig.show()
+fig1 = px.line(all_dfs_combined, x="years", y="count", color='house')
+fig1.show()
+#creating the stacked area chart
 
 
+  """  
+import plotly.express as px
+
+df = px.data.gapminder()
+fig = px.area(df, x="year", y="count", color="continent",
+	      line_group="country")
+fig.show()
+"""
+gender_df = cabinet_csv_file[cabinet_csv_file['GENDER']=='F']
+all_names_female=list(set(gender_df.NAME))
+all_years_female=[x for x in gender_df.list_of_years]
+
+all_years_females = list(set(','.join(all_years_female).split(',')))
+all_years_female.remove('')
+all_years_female = [int(x) for x in all_years_female]
+all_years_female.sort()
+
+count_female = {}
+count_male = {}
+for i in range(0, len(all_years)):
+    count_female[all_years[i]]= 0
+    count_male[all_years[i]]= 0
+# list_of_years_part_2
+common_names = []
+for i in unique_values_for_name:
+    if len(cabinet_csv_file[cabinet_csv_file['NAME'] == i]) > 1:
+        common_names.append(i)
+print(common_names)
+print(len(common_names))
+print(len(unique_values_for_name))
+
+list_of_years_2 = pd.DataFrame()
+
+for i in common_names:
+    count_rows = {}
+
+    subset = cabinet_csv_file[cabinet_csv_file['NAME'] == i]
+
+    for j in range(0, len(subset)):
+        year_split = split_years(subset, j)
+        for x in year_split:
+            count_rows[x] += 1
+    list_of_all_years = list(count_rows.keys())
+    if cabinet_csv_file[cabinet_csv_file['NAME']==i]
+    for x in list_of_all_years:
+        count_female[x] += 1
+    else:
+        for x in list_of_all_years:
+            count_male[x] += 1
+unique_names=[]
+for i in unique_values_for_name:
+    if i not in common_names:
+        unique_names.append(i)
+
+for i in unique_names:
+    df_gender_subset = cabinet_csv_file[cabinet_csv_file['NAME'] == i]
+    f_rows = df_gender_subset[df_gender_subset['HOUSE']=='F']
+    m_rows = df_gender_subset[df_gender_subset['HOUSE']=='M']
+
+    for j in range(0, len(f_rows)):
+        year_split = split_years(f_rows, j)
+        for x in year_split:
+            count_female[x]+=1
+    for j in range(0, len(m_rows)):
+        year_split = split_years(m_rows, j)
+        for x in year_split:
+            count_male[x]+=1
+complete_gender = pd.DataFrame()
+complete_gender['years'] = pd.Series(list(count_female.keys())).values
+complete_gender['count'] = pd.Series(list(count_female.values())).values
+complete_gender['gender'] = 'Female'
+
+
+complete_gender2 = pd.DataFrame()
+complete_gender2['years'] = pd.Series(list(count_male.keys())).values
+complete_gender2['count'] = pd.Series(list(count_male.values())).values
+complete_gender2['gender'] = 'Male'
 
 
 
