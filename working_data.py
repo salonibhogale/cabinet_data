@@ -138,7 +138,7 @@ cabinet_csv_file['end_year'] = cabinet_csv_file['appointment_end_in_datetime'].d
 cabinet_csv_file['end_year'] = pd.to_datetime(cabinet_csv_file['end_year'], format='%Y')
 
 
-
+"""
 
 # cabinet_csv_file['list_of_years'] = ''
 list_of_years = list(range(1952,2019))
@@ -275,14 +275,14 @@ fig1.show()
 #creating the stacked area chart
 
 
-  """  
+
 import plotly.express as px
 
 df = px.data.gapminder()
 fig = px.area(df, x="year", y="count", color="continent",
 	      line_group="country")
 fig.show()
-"""
+
 gender_df = cabinet_csv_file[cabinet_csv_file['GENDER']=='F']
 all_names_female=list(set(gender_df.NAME))
 all_years_female=[x for x in gender_df.list_of_years]
@@ -352,7 +352,23 @@ complete_gender2 = pd.DataFrame()
 complete_gender2['years'] = pd.Series(list(count_male.keys())).values
 complete_gender2['count'] = pd.Series(list(count_male.values())).values
 complete_gender2['gender'] = 'Male'
-
+"""
+# fixing spelling mistakes in ministry_name
+cabinet_csv_file.loc[cabinet_csv_file['ministry_name']=='cabinet secreteriat','ministry_name']='cabinet secretariat'
+cabinet_csv_file.loc[cabinet_csv_file['ministry_name']=='law, justice, & company affairs','ministry_name']='law, justice & company affairs'
+cabinet_csv_file.loc[cabinet_csv_file['ministry_name']=='law, justice & company affairs ','ministry_name']='law, justice & company affairs'
+cabinet_csv_file.loc[cabinet_csv_file['ministry_name']=='earth sciences ', 'ministry_name']='earth sciences'
+cabinet_csv_file.loc[cabinet_csv_file['ministry_name']=='personnel & training, pensions, administrative reformos & public grievances', 'ministry_name']='personnel & training, pension, administrative reforms & public grievances'
+cabinet_csv_file.loc[cabinet_csv_file['ministry_name']=='personnel, personal grievances & pensions','ministry_name']='personnel, personal grievances, & pension'
+cabinet_csv_file.loc[cabinet_csv_file['ministry_name']=='personnel & training, administrative reforms & public grievances & pension','ministry_name']= 'personnel & training, pension, administrative reforms & public grievances'
+cabinet_csv_file.loc[cabinet_csv_file['ministry_name']=='personnel, public grievances & pensions','ministry_name']='personnel, public grievances & pension'
+cabinet_csv_file.loc[cabinet_csv_file['ministry_name']=='consumer affairs, food & public distribution', 'ministry_name']='food, consumer affairs, public distribution'
+cabinet_csv_file.loc[cabinet_csv_file['ministry_name']==' labour, employment & rehabilitation', 'ministry_name']='labour, employment & rehabilitation'
+cabinet_csv_file.loc[cabinet_csv_file['ministry_name']=='commerce & civil supplies & cooperation', 'ministry_name']='commerce, civil supplies & cooperation'
+cabinet_csv_file.loc[cabinet_csv_file['ministry_name']=='steel, mines & coal ', 'ministry_name']='steel, mines & coal'
+cabinet_csv_file.loc[cabinet_csv_file['ministry_name']=="Prime Minister's Office", 'ministry_name']="prime minister's office"
+cabinet_csv_file.loc[cabinet_csv_file['ministry_category']=='personnel, public grievances & pension', 'ministry_category']= "personnel, public/private grievances & pension"
+cabinet_csv_file.loc[cabinet_csv_file['ministry_category2']=='personnel, public grievances & pension', 'ministry_category2']= "personnel, public/private grievances & pension"
 
 
 
