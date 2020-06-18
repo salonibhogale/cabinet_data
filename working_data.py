@@ -138,7 +138,7 @@ cabinet_csv_file['end_year'] = cabinet_csv_file['appointment_end_in_datetime'].d
 cabinet_csv_file['end_year'] = pd.to_datetime(cabinet_csv_file['end_year'], format='%Y')
 
 
-"""
+
 
 # cabinet_csv_file['list_of_years'] = ''
 list_of_years = list(range(1952,2019))
@@ -193,7 +193,7 @@ education_df = cabinet_csv_file[cabinet_csv_file['ministry_category']=='educatio
 # trying with all df - education_df = cabinet_csv_file
 # trying to plot these for each year
 
-education_df[education_df['NAME']=='T S Soundaram Ramachandran']
+
 all_names = list(set(education_df.NAME))
 all_years = [x for x in education_df.list_of_years]
 all_years = list(set(','.join(all_years).split(',')))
@@ -276,13 +276,7 @@ fig1.show()
 
 
 
-import plotly.express as px
-
-df = px.data.gapminder()
-fig = px.area(df, x="year", y="count", color="continent",
-	      line_group="country")
-fig.show()
-
+"""
 gender_df = cabinet_csv_file[cabinet_csv_file['GENDER']=='F']
 all_names_female=list(set(gender_df.NAME))
 all_years_female=[x for x in gender_df.list_of_years]
@@ -291,12 +285,14 @@ all_years_females = list(set(','.join(all_years_female).split(',')))
 all_years_female.remove('')
 all_years_female = [int(x) for x in all_years_female]
 all_years_female.sort()
-
+"""
 count_female = {}
 count_male = {}
+
 for i in range(0, len(all_years)):
     count_female[all_years[i]]= 0
     count_male[all_years[i]]= 0
+
 # list_of_years_part_2
 common_names = []
 for i in unique_values_for_name:
@@ -308,22 +304,26 @@ print(len(unique_values_for_name))
 
 list_of_years_2 = pd.DataFrame()
 
+
+
 for i in common_names:
-    count_rows = {}
-
-    subset = cabinet_csv_file[cabinet_csv_file['NAME'] == i]
-
+    count_rows={}
+    for p in range(0,len(all_years)):
+        count_rows[all_years[p]]=0
+    subset= cabinet_csv_file[cabinet_csv_file['NAME']==i]
     for j in range(0, len(subset)):
         year_split = split_years(subset, j)
         for x in year_split:
             count_rows[x] += 1
-    list_of_all_years = list(count_rows.keys())
-    if cabinet_csv_file[cabinet_csv_file['NAME']==i]
-    for x in list_of_all_years:
-        count_female[x] += 1
+    list_of_all_years = [k for k,v in count_rows.items() if v >= 1]
+    set1=set(cabinet_csv_file[cabinet_csv_file.NAME == i].GENDER)
+    if 'F' in set1:
+        for x in list_of_all_years:
+            count_female[x] +=1
     else:
         for x in list_of_all_years:
             count_male[x] += 1
+
 unique_names=[]
 for i in unique_values_for_name:
     if i not in common_names:
@@ -352,7 +352,21 @@ complete_gender2 = pd.DataFrame()
 complete_gender2['years'] = pd.Series(list(count_male.keys())).values
 complete_gender2['count'] = pd.Series(list(count_male.values())).values
 complete_gender2['gender'] = 'Male'
+
+all_dfs_gender = [complete_gender, complete_gender2]
+all_dfs_combined_gender = pd.concat(all_dfs_gender)
+
+
+
+
+fig34 = px.bar(all_dfs_combined_gender, x='years', y='count',
+             color='gender',
+             labels={'count':'Number of MPs'}, height=400)
+fig34.show()
+
+
 """
+print(set(cabinet_csv_file['rank']))
 # fixing spelling mistakes in ministry_name
 cabinet_csv_file.loc[cabinet_csv_file['ministry_name']=='cabinet secreteriat','ministry_name']='cabinet secretariat'
 cabinet_csv_file.loc[cabinet_csv_file['ministry_name']=='law, justice, & company affairs','ministry_name']='law, justice & company affairs'
@@ -371,4 +385,91 @@ cabinet_csv_file.loc[cabinet_csv_file['ministry_category']=='personnel, public g
 cabinet_csv_file.loc[cabinet_csv_file['ministry_category2']=='personnel, public grievances & pension', 'ministry_category2']= "personnel, public/private grievances & pension"
 
 
+fig5 = go.Figure()
+fig5.add_trace(go.Bar(
+    x=months,
+    y=[20, 14, 25, 16, 18, 22, 19, 15, 12, 16, 14, 17],
+    name='Primary Product',
+    marker_color='indianred'
+fig5.add_trace(
+    go.Scatter(x=list(df.index),
+               y=list(df.High),
+               name="High",
+               line=dict(color="#33CFA5")))
 
+fig.add_trace(
+    go.Scatter(x=list(df.index),
+               y=[df.High.mean()] * len(df.index),
+               name="High Average",
+               visible=False,
+               line=dict(color="#33CFA5", dash="dash")))
+
+fig.add_trace(
+    go.Scatter(x=list(df.index),
+               y=list(df.Low),
+               name="Low",
+               line=dict(color="#F06A6A")))
+
+fig.add_trace(
+    go.Scatter(x=list(df.index),
+               y=[df.Low.mean()] * len(df.index),
+               name="Low Average",
+               visible=False,
+               line=dict(color="#F06A6A", dash="dash")))
+
+# Add Annotations and Buttons
+DM_annotations = [dict(x="2016-03-01",
+                         y=df.High.mean(),
+                         xref="x", yref="y",
+                         text="High Average:<br> %.3f" % df.High.mean(),
+                         ax=0, ay=-40),
+                    dict(x=df.High.idxmax(),
+                         y=df.High.max(),
+                         xref="x", yref="y",
+                         text="High Max:<br> %.3f" % df.High.max(),
+                         ax=0, ay=-40)]
+low_annotations = [dict(x="2015-05-01",
+                        y=df.Low.mean(),
+                        xref="x", yref="y",
+                        text="Low Average:<br> %.3f" % df.Low.mean(),
+                        ax=0, ay=40),
+                   dict(x=df.High.idxmin(),
+                        y=df.Low.min(),
+                        xref="x", yref="y",
+                        text="Low Min:<br> %.3f" % df.Low.min(),
+                        ax=0, ay=40)]
+
+fig.update_layout(
+    updatemenus=[
+        dict(
+            active=0,
+            buttons=list([
+                dict(label="None",
+                     method="update",
+                     args=[{"visible": [True, False, True, False]},
+                           {"title": "Yahoo",
+                            "annotations": []}]),
+                dict(label="High",
+                     method="update",
+                     args=[{"visible": [True, True, False, False]},
+                           {"title": "Yahoo High",
+                            "annotations": high_annotations}]),
+                dict(label="Low",
+                     method="update",
+                     args=[{"visible": [False, False, True, True]},
+                           {"title": "Yahoo Low",
+                            "annotations": low_annotations}]),
+                dict(label="Both",
+                     method="update",
+                     args=[{"visible": [True, True, True, True]},
+                           {"title": "Yahoo",
+                            "annotations": high_annotations + low_annotations}]),
+            ]),
+        )
+    ])
+
+# Set title
+fig.update_layout(title_text="Yahoo")
+
+fig.show()
+"""
