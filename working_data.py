@@ -13,6 +13,24 @@ import pandas as pd
 
 
 cabinet_csv_file = pd.read_csv("cabinet_data_final_1006.csv")
+
+
+# fixing ministry names and categories
+cabinet_csv_file.loc[cabinet_csv_file['ministry_name']=='revenue & banking','ministry_category']='finance'
+cabinet_csv_file.loc[cabinet_csv_file['ministry_name']=='indo pak agreement','ministry_category']='external affairs'
+cabinet_csv_file.loc[cabinet_csv_file['ministry_name']=='disinvestment','ministry_category']='finance'
+# adding second ministry category
+cabinet_csv_file.loc[cabinet_csv_file['ministry_name']=='food & agriculture','ministry_category2']='agriculture'
+cabinet_csv_file.loc[cabinet_csv_file['ministry_name']=='food & civil supplies','ministry_category2']='commerce, industry, civil supplies'
+cabinet_csv_file.loc[cabinet_csv_file['ministry_name']=='food, agriculture, community development & cooperation','ministry_category2']='agriculture; community development, panchayati raj, rural development'
+cabinet_csv_file.loc[cabinet_csv_file['ministry_name']=='food processing industries, agriculture','ministry_category2']='agriculture'
+cabinet_csv_file.loc[cabinet_csv_file['ministry_name']=='Social and women\'s welfare','ministry_category2']='women, social justice, minority, tribal affairs'
+cabinet_csv_file.loc[cabinet_csv_file['ministry_name']=='urban affairs & emplyoment','ministry_category2']='labour, employment, rehabilitation'
+cabinet_csv_file.loc[cabinet_csv_file['ministry_name']=='urban employment & poverty alleviation','ministry_category2']='labour, employment, rehabilitation'
+cabinet_csv_file.loc[cabinet_csv_file['ministry_name']=='works, housing & rehabilitation','ministry_category2']='labour, employment, rehabilitation'
+cabinet_csv_file.loc[cabinet_csv_file['ministry_name']=='tourism & culture','ministry_category2']='culture'
+
+
 unique_values_for_name = set(cabinet_csv_file.name)
 print(unique_values_for_name)
 unique_values_for_state = set(cabinet_csv_file.state)
@@ -288,7 +306,7 @@ all_years_female.sort()
 """
 count_female = {}
 count_male = {}
-
+all_years = [x for x in range(1952,2019)]
 for i in range(0, len(all_years)):
     count_female[all_years[i]]= 0
     count_male[all_years[i]]= 0
@@ -306,6 +324,7 @@ list_of_years_2 = pd.DataFrame()
 
 
 
+# getting counts for each year by gender
 for i in common_names:
     count_rows={}
     for p in range(0,len(all_years)):
@@ -315,14 +334,17 @@ for i in common_names:
         year_split = split_years(subset, j)
         for x in year_split:
             count_rows[x] += 1
+
     list_of_all_years = [k for k,v in count_rows.items() if v >= 1]
     set1=set(cabinet_csv_file[cabinet_csv_file.NAME == i].GENDER)
     if 'F' in set1:
         for x in list_of_all_years:
             count_female[x] +=1
+
     else:
         for x in list_of_all_years:
             count_male[x] += 1
+
 
 unique_names=[]
 for i in unique_values_for_name:
@@ -331,17 +353,20 @@ for i in unique_values_for_name:
 
 for i in unique_names:
     df_gender_subset = cabinet_csv_file[cabinet_csv_file['NAME'] == i]
-    f_rows = df_gender_subset[df_gender_subset['HOUSE']=='F']
-    m_rows = df_gender_subset[df_gender_subset['HOUSE']=='M']
+    f_rows = df_gender_subset[df_gender_subset['GENDER']=='F']
+    m_rows = df_gender_subset[df_gender_subset['GENDER']=='M']
 
     for j in range(0, len(f_rows)):
         year_split = split_years(f_rows, j)
         for x in year_split:
             count_female[x]+=1
+
     for j in range(0, len(m_rows)):
         year_split = split_years(m_rows, j)
         for x in year_split:
             count_male[x]+=1
+
+
 complete_gender = pd.DataFrame()
 complete_gender['years'] = pd.Series(list(count_female.keys())).values
 complete_gender['count'] = pd.Series(list(count_female.values())).values
@@ -363,7 +388,6 @@ fig34 = px.bar(all_dfs_combined_gender, x='years', y='count',
              color='gender',
              labels={'count':'Number of MPs'}, height=400)
 fig34.show()
-
 
 """
 print(set(cabinet_csv_file['rank']))
