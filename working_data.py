@@ -13,6 +13,7 @@ import pandas as pd
 
 
 cabinet_csv_file = pd.read_csv("cabinet_data_final_1006.csv")
+"""
 unique_values_for_name = set(cabinet_csv_file.name)
 print(unique_values_for_name)
 unique_values_for_state = set(cabinet_csv_file.state)
@@ -62,7 +63,7 @@ for col in cabinet_csv_file.columns:
         cabinet_csv_file.rename(columns={col: col.upper()}, inplace=True)
 
 #cabinet_csv_file.groupby('state').count()
-
+"""
 print(cabinet_csv_file.columns)
 cabinet_csv_file.loc[cabinet_csv_file['PARTY']=='SAMATA PARTY', 'PARTY']= 'SP'
 cabinet_csv_file.loc[cabinet_csv_file['PARTY']=='LOK JAN SHAKTI PARTY', 'PARTY']= 'LJSP'
@@ -73,7 +74,7 @@ updated_unique_values_for_party = set(cabinet_csv_file.PARTY)
 print(updated_unique_values_for_party)
 # 4-June
 # See what are the unique values for each column
-
+"""
 # cleaning column ls_number
 print(unique_values_for_ls_number)
 #cleaning column for NAME
@@ -87,7 +88,7 @@ bool_series_party = pd.isnull(cabinet_csv_file['PARTY'])
 print(cabinet_csv_file.loc[pd.isnull(cabinet_csv_file['PARTY'])])
 cabinet_csv_file.loc[pd.isnull(cabinet_csv_file['PARTY']) == True, 'PARTY'] = 'NOT_APPLICABLE'
 cabinet_csv_file.loc[cabinet_csv_file['PARTY']=='N/a','PARTY']='NOT_APPLICABLE'
-
+"""
 
 cabinet_csv_file.groupby('PARTY').count()
 #cleaning column for appointment_begin
@@ -165,8 +166,9 @@ print(cabinet_csv_file['list_of_years'])
 
 cabinet_csv_file['appointment_begin_in_datetime'] = cabinet_csv_file['appointment_begin_in_datetime'].dt.strftime('%Y-%m-%d')
 cabinet_csv_file['appointment_end_in_datetime'] = cabinet_csv_file['appointment_end_in_datetime'].dt.strftime('%Y-%m-%d')
-
-
+print(set(list(cabinet_csv_file[cabinet_csv_file.NAME == 'Kailash Nath Katju'].HOUSE)))
+subset_lok_sabha = cabinet_csv_file[(cabinet_csv_file['NAME'] == 'Kailash Nath Katju') & (cabinet_csv_file['HOUSE'] == 'Lok Sabha')]
+print(subset_lok_sabha)
 import plotly.figure_factory as ff
 
 
@@ -193,7 +195,7 @@ education_df = cabinet_csv_file[cabinet_csv_file['ministry_category']=='educatio
 # trying with all df - education_df = cabinet_csv_file
 # trying to plot these for each year
 
-
+"""
 all_names = list(set(education_df.NAME))
 all_years = [x for x in education_df.list_of_years]
 all_years = list(set(','.join(all_years).split(',')))
@@ -214,14 +216,15 @@ for i in range(0, len(all_years)):
     count_rs[all_years[i]]=0
     count_ls[all_years[i]]=0
     count_none[all_years[i]]=0
+"""
 def split_years(rows, j):
     year_split = rows.list_of_years.iloc[j].split(',')
     year_split.remove('')
     year_split = [int(x) for x in year_split]
     return(year_split)
-
+"""
 for i in range(0, len(all_names)):
-    df_subset = education_df[education_df['NAME'] == all_names[i]]
+    df_subset = education_df[education_df['NAME'] == all_na mes[i]]
     ls_rows = df_subset[df_subset['HOUSE']=='Lok Sabha']
     rs_rows = df_subset[df_subset['HOUSE']=='Rajya Sabha']
     none_rows = df_subset[df_subset['HOUSE']=='not_applicable']
@@ -264,7 +267,7 @@ all_dfs = [complete_df1, complete_df2, complete_df3]
 all_dfs_combined = pd.concat(all_dfs)
 
 
-import plotly.express as px
+
 
 fig = px.bar(all_dfs_combined, x='years', y='count',
              color='house',
@@ -274,48 +277,53 @@ fig1 = px.line(all_dfs_combined, x="years", y="count", color='house')
 fig1.show()
 #creating the stacked area chart
 
-
-
 """
-gender_df = cabinet_csv_file[cabinet_csv_file['GENDER']=='F']
-all_names_female=list(set(gender_df.NAME))
-all_years_female=[x for x in gender_df.list_of_years]
 
-all_years_females = list(set(','.join(all_years_female).split(',')))
-all_years_female.remove('')
-all_years_female = [int(x) for x in all_years_female]
-all_years_female.sort()
-"""
+
+
+
 count_female = {}
 count_male = {}
 
+count_ls={}
+count_rs={}
+count_not_applicable={}
+
+
+all_years = [x for x in range(1952, 2019)]
 for i in range(0, len(all_years)):
     count_female[all_years[i]]= 0
     count_male[all_years[i]]= 0
+
+for i in range(0, len(all_years)):
+    count_ls[all_years[i]]=0
+    count_rs[all_years[i]]=0
+    count_not_applicable[all_years[i]]=0
+
+unique_values_for_name = set(cabinet_csv_file['NAME'])
+
 
 # list_of_years_part_2
 common_names = []
 for i in unique_values_for_name:
     if len(cabinet_csv_file[cabinet_csv_file['NAME'] == i]) > 1:
         common_names.append(i)
-print(common_names)
-print(len(common_names))
-print(len(unique_values_for_name))
+
 
 list_of_years_2 = pd.DataFrame()
 
 
 
 for i in common_names:
-    count_rows={}
+    count_rows_gender={}
     for p in range(0,len(all_years)):
-        count_rows[all_years[p]]=0
+        count_rows_gender[all_years[p]]=0
     subset= cabinet_csv_file[cabinet_csv_file['NAME']==i]
     for j in range(0, len(subset)):
         year_split = split_years(subset, j)
         for x in year_split:
-            count_rows[x] += 1
-    list_of_all_years = [k for k,v in count_rows.items() if v >= 1]
+            count_rows_gender[x] += 1
+    list_of_all_years = [k for k,v in count_rows_gender.items() if v >= 1]
     set1=set(cabinet_csv_file[cabinet_csv_file.NAME == i].GENDER)
     if 'F' in set1:
         for x in list_of_all_years:
@@ -331,8 +339,8 @@ for i in unique_values_for_name:
 
 for i in unique_names:
     df_gender_subset = cabinet_csv_file[cabinet_csv_file['NAME'] == i]
-    f_rows = df_gender_subset[df_gender_subset['HOUSE']=='F']
-    m_rows = df_gender_subset[df_gender_subset['HOUSE']=='M']
+    f_rows = df_gender_subset[df_gender_subset['GENDER']=='F']
+    m_rows = df_gender_subset[df_gender_subset['GENDER']=='M']
 
     for j in range(0, len(f_rows)):
         year_split = split_years(f_rows, j)
@@ -357,7 +365,7 @@ all_dfs_gender = [complete_gender, complete_gender2]
 all_dfs_combined_gender = pd.concat(all_dfs_gender)
 
 
-
+import plotly.express as px
 
 fig34 = px.bar(all_dfs_combined_gender, x='years', y='count',
              color='gender',
@@ -366,6 +374,8 @@ fig34.show()
 
 
 """
+
+
 print(set(cabinet_csv_file['rank']))
 # fixing spelling mistakes in ministry_name
 cabinet_csv_file.loc[cabinet_csv_file['ministry_name']=='cabinet secreteriat','ministry_name']='cabinet secretariat'
@@ -384,6 +394,173 @@ cabinet_csv_file.loc[cabinet_csv_file['ministry_name']=="Prime Minister's Office
 cabinet_csv_file.loc[cabinet_csv_file['ministry_category']=='personnel, public grievances & pension', 'ministry_category']= "personnel, public/private grievances & pension"
 cabinet_csv_file.loc[cabinet_csv_file['ministry_category2']=='personnel, public grievances & pension', 'ministry_category2']= "personnel, public/private grievances & pension"
 
+"""
+for i in common_names:
+    set1 = set(cabinet_csv_file[cabinet_csv_file.NAME == i].HOUSE)
+    count_rows_ls = {}
+    count_rows_rs = {}
+    count_rows_none = {}
+    for p in range(0, len(all_years)):
+        count_rows_ls[all_years[p]] = 0
+        count_rows_rs[all_years[p]] = 0
+        count_rows_none[all_years[p]] = 0
+    if 'Lok Sabha' in set1:
+        subset_lok_sabha = cabinet_csv_file[(cabinet_csv_file['NAME'] == i) & (cabinet_csv_file['HOUSE'] == 'Lok Sabha')]
+        for j in range(0, len(subset_lok_sabha)):
+            year_split = split_years(subset_lok_sabha, j)
+            for x in year_split:
+                count_rows_ls[x] += 1
+        list_of_all_years = [k for k,v in count_rows_ls.items() if v >= 1]
+        for x in list_of_all_years:
+            count_ls[x] +=1
+
+    if 'Rajya Sabha' in set1:
+        subset_rajya_sabha = cabinet_csv_file[(cabinet_csv_file['NAME'] == i) & (cabinet_csv_file['HOUSE'] == 'Rajya Sabha')]
+        for j in range(0, len(subset_rajya_sabha)):
+            year_split = split_years(subset_rajya_sabha, j)
+            for x in year_split:
+                count_rows_rs[x] += 1
+        list_of_all_years = [k for k, v in count_rows_rs.items() if v >= 1]
+        for x in list_of_all_years:
+            count_rs[x] += 1
+
+    if 'not_applicable' in set1:
+        subset_not_applicable = cabinet_csv_file[(cabinet_csv_file['NAME'] == i) & (cabinet_csv_file['HOUSE'] == 'not_applicable')]
+        for j in range(0, len(subset_not_applicable)):
+            year_split = split_years(subset_not_applicable, j)
+            for x in year_split:
+                count_rows_none[x] += 1
+        list_of_all_years = [k for k, v in count_rows_none.items() if v >= 1]
+        for x in list_of_all_years:
+            count_not_applicable[x] += 1
+for i in unique_names:
+    df_house_subset = cabinet_csv_file[cabinet_csv_file['NAME'] == i]
+    ls_rows = df_house_subset[df_house_subset['HOUSE']=='Lok Sabha']
+    rs_rows = df_house_subset[df_house_subset['HOUSE']=='Rajya Sabha']
+    none_rows = df_house_subset[df_house_subset['HOUSE']=='not_applicable']
+
+    for j in range(0, len(ls_rows)):
+        year_split = split_years(ls_rows, j)
+        for x in year_split:
+            count_ls[x]+=1
+    for j in range(0, len(rs_rows)):
+        year_split = split_years(rs_rows, j)
+        for x in year_split:
+            count_rs[x]+=1
+complete_df1 = pd.DataFrame()
+complete_df1['years'] = pd.Series(list(count_ls.keys())).values
+complete_df1['count'] = pd.Series(list(count_ls.values())).values
+complete_df1['house'] = 'Lok Sabha'
+
+
+complete_df2 = pd.DataFrame()
+complete_df2['years'] = pd.Series(list(count_rs.keys())).values
+complete_df2['count'] = pd.Series(list(count_rs.values())).values
+complete_df2['house'] = 'Rajya Sabha'
+
+complete_df3 = pd.DataFrame()
+complete_df3['years'] = pd.Series(list(count_not_applicable.keys())).values
+complete_df3['count'] = pd.Series(list(count_not_applicable.values())).values
+complete_df3['house'] = 'not_applicable'
+
+all_dfs = [complete_df1, complete_df2, complete_df3]
+all_dfs_combined = pd.concat(all_dfs)
+
+
+import plotly.express as px
+
+fig = px.bar(all_dfs_combined, x='years', y='count',
+             color='house',
+             labels={'count':'Number of MPs'}, height=400)
+fig.show()
+fig1 = px.line(all_dfs_combined, x="years", y="count", color='house')
+fig1.show()
+common_names_PM = []
+for i in common_names:
+    set1=set(cabinet_csv_file[cabinet_csv_file.NAME == i].RANK)
+    if 'PM' in set1:
+
+
+
+    set1 = set(cabinet_csv_file[cabinet_csv_file.NAME == i].HOUSE)
+    count_rows_ls = {}
+    count_rows_rs = {}
+    count_rows_none = {}
+    for p in range(0, len(all_years)):
+        count_rows_ls[all_years[p]] = 0
+        count_rows_rs[all_years[p]] = 0
+        count_rows_none[all_years[p]] = 0
+    if 'Lok Sabha' in set1:
+        subset_lok_sabha = cabinet_csv_file[(cabinet_csv_file['NAME'] == i) & (cabinet_csv_file['HOUSE'] == 'Lok Sabha')]
+        for j in range(0, len(subset_lok_sabha)):
+            year_split = split_years(subset_lok_sabha, j)
+            for x in year_split:
+                count_rows_ls[x] += 1
+        list_of_all_years = [k for k,v in count_rows_ls.items() if v >= 1]
+        for x in list_of_all_years:
+            count_ls[x] +=1
+
+    if 'Rajya Sabha' in set1:
+        subset_rajya_sabha = cabinet_csv_file[(cabinet_csv_file['NAME'] == i) & (cabinet_csv_file['HOUSE'] == 'Rajya Sabha')]
+        for j in range(0, len(subset_rajya_sabha)):
+            year_split = split_years(subset_rajya_sabha, j)
+            for x in year_split:
+                count_rows_rs[x] += 1
+        list_of_all_years = [k for k, v in count_rows_rs.items() if v >= 1]
+        for x in list_of_all_years:
+            count_rs[x] += 1
+
+    if 'not_applicable' in set1:
+        subset_not_applicable = cabinet_csv_file[(cabinet_csv_file['NAME'] == i) & (cabinet_csv_file['HOUSE'] == 'not_applicable')]
+        for j in range(0, len(subset_not_applicable)):
+            year_split = split_years(subset_not_applicable, j)
+            for x in year_split:
+                count_rows_none[x] += 1
+        list_of_all_years = [k for k, v in count_rows_none.items() if v >= 1]
+        for x in list_of_all_years:
+            count_not_applicable[x] += 1
+for i in unique_names:
+    df_house_subset = cabinet_csv_file[cabinet_csv_file['NAME'] == i]
+    ls_rows = df_house_subset[df_house_subset['HOUSE']=='Lok Sabha']
+    rs_rows = df_house_subset[df_house_subset['HOUSE']=='Rajya Sabha']
+    none_rows = df_house_subset[df_house_subset['HOUSE']=='not_applicable']
+
+    for j in range(0, len(ls_rows)):
+        year_split = split_years(ls_rows, j)
+        for x in year_split:
+            count_ls[x]+=1
+    for j in range(0, len(rs_rows)):
+        year_split = split_years(rs_rows, j)
+        for x in year_split:
+            count_rs[x]+=1
+complete_df1 = pd.DataFrame()
+complete_df1['years'] = pd.Series(list(count_ls.keys())).values
+complete_df1['count'] = pd.Series(list(count_ls.values())).values
+complete_df1['house'] = 'Lok Sabha'
+
+
+complete_df2 = pd.DataFrame()
+complete_df2['years'] = pd.Series(list(count_rs.keys())).values
+complete_df2['count'] = pd.Series(list(count_rs.values())).values
+complete_df2['house'] = 'Rajya Sabha'
+
+complete_df3 = pd.DataFrame()
+complete_df3['years'] = pd.Series(list(count_not_applicable.keys())).values
+complete_df3['count'] = pd.Series(list(count_not_applicable.values())).values
+complete_df3['house'] = 'not_applicable'
+
+all_dfs = [complete_df1, complete_df2, complete_df3]
+all_dfs_combined = pd.concat(all_dfs)
+
+
+import plotly.express as px
+
+fig = px.bar(all_dfs_combined, x='years', y='count',
+             color='house',
+             labels={'count':'Number of MPs'}, height=400)
+fig.show()
+fig1 = px.line(all_dfs_combined, x="years", y="count", color='house')
+fig1.show()
 
 fig5 = go.Figure()
 fig5.add_trace(go.Bar(
@@ -472,4 +649,6 @@ fig.update_layout(
 fig.update_layout(title_text="Yahoo")
 
 fig.show()
-"""
+
+
+
