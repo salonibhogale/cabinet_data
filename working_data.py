@@ -122,6 +122,22 @@ cabinet_csv_file.loc[cabinet_csv_file['ministry_name']=='works, housing & rehabi
 cabinet_csv_file.loc[cabinet_csv_file['ministry_name']=='tourism & culture','ministry_category2']='culture'
 
 
+min_names = []
+min_category = []
+for i in set(cabinet_csv_file.ministry_category):
+    subset_df1 = cabinet_csv_file[cabinet_csv_file.ministry_category==i]
+    ministry_names1 = set(subset_df1.ministry_name)
+    subset_df2 = cabinet_csv_file[cabinet_csv_file.ministry_category2==i]
+    ministry_names2 = set(subset_df2.ministry_name)
+    all_names = list(ministry_names1) + list(ministry_names2)
+    min_names.append(all_names)
+    min_category.append(i)
+
+min_cat_df = pd.DataFrame()
+min_cat_df['min_category'] = pd.Series(min_category).values
+min_cat_df['min_names'] = pd.Series(min_names).values
+min_cat_df.to_csv('ministry_categories.csv')
+
 
 ####################################################### ADDING YEARS DATA ####################################################################
 ##############################################################################################################################################
