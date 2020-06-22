@@ -104,6 +104,8 @@ cabinet_csv_file.loc[cabinet_csv_file['ministry_category']=='personnel, public g
 cabinet_csv_file.loc[cabinet_csv_file['ministry_category2']=='personnel, public grievances & pension', 'ministry_category2']= "personnel, public/private grievances & pension"
 cabinet_csv_file.loc[cabinet_csv_file['ministry_category']=='steel, coal, mines, oil, petrol, chemicals, fertillizers', 'ministry_category']= "steel, coal, mines, oil, petrol, chemicals, fertilizers"
 cabinet_csv_file.loc[cabinet_csv_file['ministry_category2']=='steel, coal, mines, oil, petrol, chemicals, fertillizers', 'ministry_category']= "steel, coal, mines, oil, petrol, chemicals, fertilizers"
+cabinet_csv_file.loc[cabinet_csv_file['ministry_category']=='rural development, community development, panchayati raj, rural development', 'ministry_category']= "rural development, community development, panchayati raj"
+cabinet_csv_file.loc[cabinet_csv_file['ministry_category2']=='rural development, community development, panchayati raj, rural development', 'ministry_category']= "rural development, community development, panchayati raj"
 
 
 # fixing ministry names and categories for some ministries
