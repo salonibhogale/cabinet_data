@@ -215,6 +215,21 @@ def split_years(rows, j):
 ######################################################### SETTING DICTIONARIES TO ZERO ##########################################################
 count_female = {}
 count_male = {}
+count_male_pm ={}
+count_female_pm={}
+count_male_dcm={}
+count_female_dcm={}
+count_male_cm={}
+count_male_dpm={}
+count_male_mos={}
+count_male_other={}
+count_male_dm={}
+count_female_cm={}
+count_female_dpm={}
+count_female_other={}
+count_female_mos={}
+count_female_dm={}
+
 
 count_ls={}
 count_rs={}
@@ -223,8 +238,21 @@ count_none={}
 
 all_years = [x for x in range(1952, 2019)]
 for i in range(0, len(all_years)):
-    count_female[all_years[i]]= 0
-    count_male[all_years[i]]= 0
+    count_female_pm[all_years[i]]= 0
+    count_male_pm[all_years[i]]= 0
+    count_female_dcm[all_years[i]] = 0
+    count_male_dcm[all_years[i]] = 0
+    count_female_dm[all_years[i]] = 0
+    count_male_dm[all_years[i]] = 0
+    count_female_mos[all_years[i]] = 0
+    count_male_mos[all_years[i]] = 0
+    count_female_dpm[all_years[i]] = 0
+    count_male_dpm[all_years[i]] = 0
+    count_female_other[all_years[i]] = 0
+    count_male_other[all_years[i]] = 0
+    count_female_cm[all_years[i]] = 0
+    count_male_cm[all_years[i]] = 0
+
     count_ls[all_years[i]]=0
     count_rs[all_years[i]]=0
     count_not_applicable[all_years[i]]=0
@@ -291,50 +319,351 @@ cabinet_csv_file.to_csv('processed_data.csv',index=False)
 
 
 all_names = list(set(cabinet_csv_file.NAME))
+"""
+all_names_PM=[]
+all_names_DM=[]
+all_names_DCM=[]
+all_names_DPM=[]
+all_names_CM=[]
+all_names_Other=[]
+all_names_MoS=[]
+for i in all_names:
+    set= set(cabinet_csv_file['NAME']==i).RANK
+    if 'PM' in set:
+        all_names_PM.append(i)
+    if "DM" in set:
+        all_names_DM.append(i)
+    if 'DCM' in set:
+        all_names_DCM.append(i)
+    if 'DPM' in set:
+        all_names_DPM.append(i)
+    if 'CM' in set:
+        all_names_CM.append(i)
+    if 'Other' in set:
+        all_names_Other.append(i)
+    if 'MoS' in set:
+        all_names_MoS.append(i)
+"""
 
-for i in range(0, len(all_names)):
+for i in range(0,len(all_names)):
     df_subset = cabinet_csv_file[cabinet_csv_file['NAME'] == all_names[i]]
-    m_rows = df_subset[df_subset['GENDER']=='M']
-    f_rows = df_subset[df_subset['GENDER']=='F']
-    year_split_m = []
-    year_split_f = []
-    for j in range(0, len(m_rows)):
-        year_split_m = year_split_m + split_years(m_rows, j)
-    year_split_m = list(set(year_split_m))
-    for x in year_split_m:
-        count_male[x]+=1
-    for j in range(0, len(f_rows)):
-        year_split_f = year_split_f + split_years(f_rows, j)
-    year_split_f = list(set(year_split_f))
+    m_rows_PM = df_subset[(df_subset['GENDER']=='M') & (df_subset['RANK']=='PM')]
+    f_rows_PM = df_subset[(df_subset['GENDER']=='F') & (df_subset['RANK']=='PM')]
+    m_rows_DCM = df_subset[(df_subset['GENDER'] == 'M') & (df_subset['RANK'] == 'DCM')]
+    m_rows_DPM = df_subset[(df_subset['GENDER'] == 'M') & (df_subset['RANK'] == 'DP,')]
+    m_rows_CM = df_subset[(df_subset['GENDER'] == 'M') & (df_subset['RANK'] == 'CM')]
+    m_rows_Other = df_subset[(df_subset['GENDER'] == 'M') & (df_subset['RANK'] == 'Other')]
+    m_rows_MoS = df_subset[(df_subset['GENDER'] == 'M') & (df_subset['RANK'] == 'MoS')]
+    m_rows_DM = df_subset[(df_subset['GENDER'] == 'M') & (df_subset['RANK'] == 'DM')]
+    f_rows_DCM = df_subset[(df_subset['GENDER'] == 'F') & (df_subset['RANK'] == 'DCM')]
+    f_rows_DPM = df_subset[(df_subset['GENDER'] == 'F') & (df_subset['RANK'] == 'DPM')]
+    f_rows_CM = df_subset[(df_subset['GENDER'] == 'F') & (df_subset['RANK'] == 'CM')]
+    f_rows_Other = df_subset[(df_subset['GENDER'] == 'F') & (df_subset['RANK'] == 'Other')]
+    f_rows_MoS = df_subset[(df_subset['GENDER'] == 'F') & (df_subset['RANK'] == 'MoS')]
+    f_rows_DM = df_subset[(df_subset['GENDER'] == 'F') & (df_subset['RANK'] == 'DM')]
+    year_split_m_pm = []
+    year_split_f_pm = []
+    year_split_m_cm = []
+    year_split_f_cm = []
+    year_split_m_dcm = []
+    year_split_f_dpm = []
+    year_split_m_dpm = []
+    year_split_f_dcm = []
+    year_split_m_other = []
+    year_split_f_other = []
+    year_split_m_mos = []
+    year_split_f_mos = []
+    year_split_m_dm = []
+    year_split_f_dm = []
+    year_split_m_cm = []
+    year_split_f_cm = []
+    for j in range(0, len(m_rows_PM)):
+        year_split_m_pm = year_split_m_pm + split_years(m_rows_PM, j)
+    year_split_m_pm = list(set(year_split_m_pm))
+    for x in year_split_m_pm:
+        count_male_pm[x]+=1
+    for j in range(0, len(m_rows_DCM)):
+        year_split_m_dcm = year_split_m_dcm + split_years(m_rows_DCM, j)
+    year_split_m_dcm = list(set(year_split_m_dcm))
+    for x in year_split_m_dcm:
+        count_male_dcm[x]+=1
+    for j in range(0, len(m_rows_Other)):
+        year_split_m_other = year_split_m_other + split_years(m_rows_Other, j)
+    year_split_m_other = list(set(year_split_m_other))
+    for x in year_split_m_other:
+        count_male_other[x]+=1
+    for j in range(0, len(m_rows_MoS)):
+        year_split_m_mos = year_split_m_mos + split_years(m_rows_MoS, j)
+    year_split_m_mos = list(set(year_split_m_mos))
+    for x in year_split_m_mos:
+        count_male_mos[x]+=1
+    for j in range(0, len(m_rows_DM)):
+        year_split_m_dm = year_split_m_dm + split_years(m_rows_DM, j)
+    year_split_m_dm = list(set(year_split_m_dm))
+    for x in year_split_m_dm:
+        count_male_dm[x]+=1
+    for j in range(0, len(m_rows_DPM)):
+        year_split_m_dm = year_split_m_dm + split_years(m_rows_DPM, j)
+    year_split_m_dm = list(set(year_split_m_dm))
+    for x in year_split_m_dm:
+        count_male_dpm[x]+=1
+    for j in range(0, len(m_rows_CM)):
+        year_split_m_cm = year_split_m_cm + split_years(m_rows_CM, j)
+    year_split_m_cm = list(set(year_split_m_cm))
+    for x in year_split_m_cm:
+        count_male_cm[x]+=1
+    for j in range(0, len(f_rows_PM)):
+        year_split_f_pm = year_split_f_pm + split_years(f_rows_PM, j)
+    year_split_f_pm = list(set(year_split_f_pm))
+    for x in year_split_f_pm:
+        count_female_pm[x]+=1
+    for j in range(0, len(f_rows_DCM)):
+        year_split_f_dcm = year_split_f_dcm + split_years(f_rows_DCM, j)
+    year_split_f = list(set(year_split_f_dcm))
     for x in year_split_f:
-        count_female[x]+=1
+        count_female_dcm[x]+=1
+    for j in range(0, len(f_rows_DM)):
+        year_split_f_dm = year_split_f_dm + split_years(f_rows_DM, j)
+    year_split_f_dm = list(set(year_split_f_dm))
+    for x in year_split_f_dm:
+        count_female_dm[x]+=1
+    for j in range(0, len(f_rows_Other)):
+        year_split_f_other = year_split_f_other + split_years(f_rows_Other, j)
+    year_split_f_other = list(set(year_split_f_other))
+    for x in year_split_f:
+        count_female_other[x]+=1
+    for j in range(0, len(f_rows_MoS)):
+        year_split_f_mos = year_split_f_mos + split_years(f_rows_MoS, j)
+    year_split_f_mos = list(set(year_split_f_mos))
+    for x in year_split_f:
+        count_female_mos[x]+=1
+    for j in range(0, len(f_rows_DPM)):
+        year_split_f_dpm = year_split_f_dpm + split_years(f_rows_DPM, j)
+    year_split_f_dpm = list(set(year_split_f_dpm))
+    for x in year_split_f:
+        count_female_dpm[x]+=1
+    for j in range(0, len(f_rows_CM)):
+        year_split_f_cm = year_split_f_cm + split_years(f_rows_CM, j)
+    year_split_f_cm = list(set(year_split_f_cm))
+    for x in year_split_f_cm:
+        count_female_cm[x]+=1
 
 # plot out the dictionary
 
 # first create the complete df
 complete_df1 = pd.DataFrame()
-complete_df1['years'] = pd.Series(list(count_male.keys())).values
-complete_df1['count'] = pd.Series(list(count_male.values())).values
+complete_df1['years'] = pd.Series(list(count_male_pm.keys())).values
+complete_df1['count'] = pd.Series(list(count_male_pm.values())).values
+complete_df1['rank'] = 'PM'
 complete_df1['gender'] = 'Male'
 
 
+
 complete_df2 = pd.DataFrame()
-complete_df2['years'] = pd.Series(list(count_female.keys())).values
-complete_df2['count'] = pd.Series(list(count_female.values())).values
+complete_df2['years'] = pd.Series(list(count_female_pm.keys())).values
+complete_df2['count'] = pd.Series(list(count_female_pm.values())).values
+complete_df2['rank']= 'PM'
 complete_df2['gender'] = 'Female'
 
-all_dfs = [complete_df1, complete_df2]
+
+complete_df3 = pd.DataFrame()
+complete_df3['years'] = pd.Series(list(count_male_dm.keys())).values
+complete_df3['count'] = pd.Series(list(count_male_dm.values())).values
+complete_df3['rank']='DM'
+complete_df3['gender'] = 'Male'
+
+
+complete_df4 = pd.DataFrame()
+complete_df4['years'] = pd.Series(list(count_female_dm.keys())).values
+complete_df4['count'] = pd.Series(list(count_female_dm.values())).values
+complete_df4['rank']='DM'
+complete_df4['gender'] = 'Female'
+
+complete_df5 = pd.DataFrame()
+complete_df5['years'] = pd.Series(list(count_male_dpm.keys())).values
+complete_df5['count'] = pd.Series(list(count_male_dpm.values())).values
+complete_df5['rank']='DPM'
+
+complete_df5['gender'] = 'Male'
+
+
+complete_df6 = pd.DataFrame()
+complete_df6['years'] = pd.Series(list(count_female_dpm.keys())).values
+complete_df6['count'] = pd.Series(list(count_female_dpm.values())).values
+complete_df6['rank']='DPM'
+complete_df6['gender'] = 'Female'
+
+
+complete_df7 = pd.DataFrame()
+complete_df7['years'] = pd.Series(list(count_male_dcm.keys())).values
+complete_df7['count'] = pd.Series(list(count_male_dcm.values())).values
+complete_df7['rank']='DCM'
+complete_df7['gender'] = 'Male'
+
+
+
+complete_df8 = pd.DataFrame()
+complete_df8['years'] = pd.Series(list(count_female_dcm.keys())).values
+complete_df8['count'] = pd.Series(list(count_female_dcm.values())).values
+complete_df8['rank'] = 'DCM'
+complete_df8['gender'] = 'Female'
+
+complete_df9 = pd.DataFrame()
+complete_df9['years'] = pd.Series(list(count_male_cm.keys())).values
+complete_df9['count'] = pd.Series(list(count_male_cm.values())).values
+complete_df9['rank'] = 'DCM'
+complete_df9['gender'] = 'Male'
+
+
+
+complete_df10 = pd.DataFrame()
+complete_df10['years'] = pd.Series(list(count_female_cm.keys())).values
+complete_df10['count'] = pd.Series(list(count_female_cm.values())).values
+complete_df10['rank'] = 'CM'
+complete_df10['gender'] = 'Female'
+
+complete_df11 = pd.DataFrame()
+complete_df11['years'] = pd.Series(list(count_male_other.keys())).values
+complete_df11['count'] = pd.Series(list(count_male_other.values())).values
+complete_df11['rank'] = 'Other'
+complete_df11['gender'] = 'Male'
+
+
+complete_df12 = pd.DataFrame()
+complete_df12['years'] = pd.Series(list(count_female_other.keys())).values
+complete_df12['count'] = pd.Series(list(count_female_other.values())).values
+complete_df12['rank']= 'Other'
+complete_df12['gender'] = 'Female'
+
+complete_df13 = pd.DataFrame()
+complete_df13['years'] = pd.Series(list(count_male_mos.keys())).values
+complete_df13['count'] = pd.Series(list(count_male_mos.values())).values
+complete_df13['rank'] = 'MoS'
+complete_df13['gender'] = 'Male'
+
+
+complete_df14 = pd.DataFrame()
+complete_df14['years'] = pd.Series(list(count_female_mos.keys())).values
+complete_df14['count'] = pd.Series(list(count_female_mos.values())).values
+complete_df14['rank'] = 'MoS'
+complete_df14['gender'] = 'Female'
+
+all_dfs = [complete_df1, complete_df2,complete_df3, complete_df4, complete_df5, complete_df6, complete_df7, complete_df8, complete_df9, complete_df10, complete_df11, complete_df12, complete_df13, complete_df14]
 all_dfs_combined = pd.concat(all_dfs)
 
+
 fig = px.bar(all_dfs_combined, x='years', y='count',
-             color='gender',
+             color='rank',
+
              labels={'count':'Number of MPs'}, height=400)
 fig.show()
+#######
+"""
+fig = go.Figure()
+fig.add_trace(go.Bar(
+    x=pd.Series(list(count_male_pm.keys())).values,
+    y=pd.Series(list(count_male_pm.values())).values,
+    name='PM Male',
+    marker_color='indianred'
+fig5.add_trace(
+    go.Scatter(x=list(df.index),
+               y=list(df.High),
+               name="High",
+               line=dict(color="#33CFA5")))
 
+fig.add_trace(
+    go.Scatter(x=list(df.index),
+               y=[df.High.mean()] * len(df.index),
+               name="High Average",
+               visible=False,
+               line=dict(color="#33CFA5", dash="dash")))
+
+fig.add_trace(
+    go.Scatter(x=list(df.index),
+               y=list(df.Low),
+               name="Low",
+               line=dict(color="#F06A6A")))
+
+fig.add_trace(
+    go.Scatter(x=list(df.index),
+               y=[df.Low.mean()] * len(df.index),
+               name="Low Average",
+               visible=False,
+               line=dict(color="#F06A6A", dash="dash")))
+
+# Add Annotations and Buttons
+DM_annotations = [dict(x="2016-03-01",
+                         y=df.High.mean(),
+                         xref="x", yref="y",
+                         text="High Average:<br> %.3f" % df.High.mean(),
+                         ax=0, ay=-40),
+                    dict(x=df.High.idxmax(),
+                         y=df.High.max(),
+                         xref="x", yref="y",
+                         text="High Max:<br> %.3f" % df.High.max(),
+                         ax=0, ay=-40)]
+low_annotations = [dict(x="2015-05-01",
+                        y=df.Low.mean(),
+                        xref="x", yref="y",
+                        text="Low Average:<br> %.3f" % df.Low.mean(),
+                        ax=0, ay=40),
+                   dict(x=df.High.idxmin(),
+                        y=df.Low.min(),
+                        xref="x", yref="y",
+                        text="Low Min:<br> %.3f" % df.Low.min(),
+                        ax=0, ay=40)]
+"""
+fig.update_layout(
+    updatemenus=[
+        dict(
+            active=0,
+            buttons=list([
+                dict(label="PM",
+                     method="update",
+                     args=[{"visible": [True,False,False,False,False,False,False]},
+                           {"title": "Rank PM"}]),
+                dict(label="DM",
+                     method="update",
+                     args=[{"visible": [False,True,False,False,False,False,False]},
+                           {"title": "Rank DM"}]),
+                dict(label="DPM",
+                     method="update",
+                     args=[{"visible": [False,False,True,False,False,False,False]},
+                           {"title": "Rank DPM"}]),
+                dict(label="DCM",
+                     method="update",
+                     args=[{"visible": [False,False,False,True,False,False,False]},
+                           {"title": "Rank DCM"}]),
+                dict(label="CM",
+                     method="update",
+                     args=[{"visible": [False,False,False,False,True,False,False]},
+                           {"title": "Rank CM"}]),
+                dict(label="Other",
+                     method="update",
+                     args=[{"visible": [False,False,False,False,False,True,False]},
+                           {"title": "Rank Other"}]),
+                dict(label="MoS",
+                     method="update",
+                     args=[{"visible": [False,False,False,False,False,False,True]},
+                           {"title": "Rank MoS"}])
+
+
+
+
+            ]),
+        )
+    ])
+
+# Set title
+fig.update_layout(title_text="Representation")
+
+fig.show()
 
 
 ######################################################### YOU CAN CROSS CHECK YOUR CODE #####################################################
 #############################################################################################################################################
+"""
+unique_values_for_name=set(cabinet_csv_file.NAME)
 
 
 # list_of_years_part_2
@@ -488,6 +817,7 @@ fig = px.bar(all_dfs_combined, x='years', y='count',
 fig.show()
 fig1 = px.line(all_dfs_combined, x="years", y="count", color='house')
 fig1.show()
+
 common_names_PM = []
 for i in common_names:
     set1=set(cabinet_csv_file[cabinet_csv_file.NAME == i].RANK)
@@ -571,94 +901,7 @@ fig = px.bar(all_dfs_combined, x='years', y='count',
 fig.show()
 fig1 = px.line(all_dfs_combined, x="years", y="count", color='house')
 fig1.show()
-
-fig5 = go.Figure()
-fig5.add_trace(go.Bar(
-    x=months,
-    y=[20, 14, 25, 16, 18, 22, 19, 15, 12, 16, 14, 17],
-    name='Primary Product',
-    marker_color='indianred'
-fig5.add_trace(
-    go.Scatter(x=list(df.index),
-               y=list(df.High),
-               name="High",
-               line=dict(color="#33CFA5")))
-
-fig.add_trace(
-    go.Scatter(x=list(df.index),
-               y=[df.High.mean()] * len(df.index),
-               name="High Average",
-               visible=False,
-               line=dict(color="#33CFA5", dash="dash")))
-
-fig.add_trace(
-    go.Scatter(x=list(df.index),
-               y=list(df.Low),
-               name="Low",
-               line=dict(color="#F06A6A")))
-
-fig.add_trace(
-    go.Scatter(x=list(df.index),
-               y=[df.Low.mean()] * len(df.index),
-               name="Low Average",
-               visible=False,
-               line=dict(color="#F06A6A", dash="dash")))
-
-# Add Annotations and Buttons
-DM_annotations = [dict(x="2016-03-01",
-                         y=df.High.mean(),
-                         xref="x", yref="y",
-                         text="High Average:<br> %.3f" % df.High.mean(),
-                         ax=0, ay=-40),
-                    dict(x=df.High.idxmax(),
-                         y=df.High.max(),
-                         xref="x", yref="y",
-                         text="High Max:<br> %.3f" % df.High.max(),
-                         ax=0, ay=-40)]
-low_annotations = [dict(x="2015-05-01",
-                        y=df.Low.mean(),
-                        xref="x", yref="y",
-                        text="Low Average:<br> %.3f" % df.Low.mean(),
-                        ax=0, ay=40),
-                   dict(x=df.High.idxmin(),
-                        y=df.Low.min(),
-                        xref="x", yref="y",
-                        text="Low Min:<br> %.3f" % df.Low.min(),
-                        ax=0, ay=40)]
-
-fig.update_layout(
-    updatemenus=[
-        dict(
-            active=0,
-            buttons=list([
-                dict(label="None",
-                     method="update",
-                     args=[{"visible": [True, False, True, False]},
-                           {"title": "Yahoo",
-                            "annotations": []}]),
-                dict(label="High",
-                     method="update",
-                     args=[{"visible": [True, True, False, False]},
-                           {"title": "Yahoo High",
-                            "annotations": high_annotations}]),
-                dict(label="Low",
-                     method="update",
-                     args=[{"visible": [False, False, True, True]},
-                           {"title": "Yahoo Low",
-                            "annotations": low_annotations}]),
-                dict(label="Both",
-                     method="update",
-                     args=[{"visible": [True, True, True, True]},
-                           {"title": "Yahoo",
-                            "annotations": high_annotations + low_annotations}]),
-            ]),
-        )
-    ])
-
-# Set title
-fig.update_layout(title_text="Yahoo")
-
-fig.show()
+"""
 
 
 
