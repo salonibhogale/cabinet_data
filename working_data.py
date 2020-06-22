@@ -148,7 +148,7 @@ min_cat_df.to_csv('ministry_categories.csv')
 list_of_years = list(range(1952,2019))
 
 def convert_year_to_datetime(year):
-    return pd.to_datetime(year, format = '%Y')
+    return pd.to_datetime('01-01-'+ str(year), format = '%d-%m-%Y')
 
 list_of_years_datetime = [convert_year_to_datetime(x) for x in list_of_years]
 
@@ -172,7 +172,6 @@ print(cabinet_csv_file['list_of_years'])
 ##############################################################################################################################################
 cabinet_csv_file['appointment_begin_in_datetime'] = cabinet_csv_file['appointment_begin_in_datetime'].dt.strftime('%Y-%m-%d')
 cabinet_csv_file['appointment_end_in_datetime'] = cabinet_csv_file['appointment_end_in_datetime'].dt.strftime('%Y-%m-%d')
-
 
 ####################################################### SUBSETING EXAMPLE ####################################################################
 ##############################################################################################################################################
