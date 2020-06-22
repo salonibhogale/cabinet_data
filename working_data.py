@@ -102,6 +102,25 @@ cabinet_csv_file.loc[cabinet_csv_file['ministry_name']=='steel, mines & coal ', 
 cabinet_csv_file.loc[cabinet_csv_file['ministry_name']=="Prime Minister's Office", 'ministry_name']="prime minister's office"
 cabinet_csv_file.loc[cabinet_csv_file['ministry_category']=='personnel, public grievances & pension', 'ministry_category']= "personnel, public/private grievances & pension"
 cabinet_csv_file.loc[cabinet_csv_file['ministry_category2']=='personnel, public grievances & pension', 'ministry_category2']= "personnel, public/private grievances & pension"
+cabinet_csv_file.loc[cabinet_csv_file['ministry_category']=='steel, coal, mines, oil, petrol, chemicals, fertillizers', 'ministry_category']= "steel, coal, mines, oil, petrol, chemicals, fertilizers"
+cabinet_csv_file.loc[cabinet_csv_file['ministry_category2']=='steel, coal, mines, oil, petrol, chemicals, fertillizers', 'ministry_category']= "steel, coal, mines, oil, petrol, chemicals, fertilizers"
+
+
+# fixing ministry names and categories for some ministries
+cabinet_csv_file.loc[cabinet_csv_file['ministry_name']=='revenue & banking','ministry_category']='finance'
+cabinet_csv_file.loc[cabinet_csv_file['ministry_name']=='indo pak agreement','ministry_category']='external affairs'
+cabinet_csv_file.loc[cabinet_csv_file['ministry_name']=='disinvestment','ministry_category']='finance'
+# adding second ministry category for some ministries
+cabinet_csv_file.loc[cabinet_csv_file['ministry_name']=='food & agriculture','ministry_category2']='agriculture'
+cabinet_csv_file.loc[cabinet_csv_file['ministry_name']=='food & civil supplies','ministry_category2']='commerce, industry, civil supplies'
+cabinet_csv_file.loc[cabinet_csv_file['ministry_name']=='food, agriculture, community development & cooperation','ministry_category2']='agriculture; community development, panchayati raj, rural development'
+cabinet_csv_file.loc[cabinet_csv_file['ministry_name']=='food processing industries, agriculture','ministry_category2']='agriculture'
+cabinet_csv_file.loc[cabinet_csv_file['ministry_name']=='Social and women\'s welfare','ministry_category2']='women, social justice, minority, tribal affairs'
+cabinet_csv_file.loc[cabinet_csv_file['ministry_name']=='urban affairs & emplyoment','ministry_category2']='labour, employment, rehabilitation'
+cabinet_csv_file.loc[cabinet_csv_file['ministry_name']=='urban employment & poverty alleviation','ministry_category2']='labour, employment, rehabilitation'
+cabinet_csv_file.loc[cabinet_csv_file['ministry_name']=='works, housing & rehabilitation','ministry_category2']='labour, employment, rehabilitation'
+cabinet_csv_file.loc[cabinet_csv_file['ministry_name']=='tourism & culture','ministry_category2']='culture'
+
 
 
 ####################################################### ADDING YEARS DATA ####################################################################
