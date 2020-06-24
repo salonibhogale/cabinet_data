@@ -394,9 +394,9 @@ for i in range(0,len(all_names)):
     for x in year_split_m_dm:
         count_male_dm[x]+=1
     for j in range(0, len(m_rows_DPM)):
-        year_split_m_dm = year_split_m_dm + split_years(m_rows_DPM, j)
-    year_split_m_dm = list(set(year_split_m_dm))
-    for x in year_split_m_dm:
+        year_split_m_dpm = year_split_m_dpm + split_years(m_rows_DPM, j)
+    year_split_m_dpm = list(set(year_split_m_dpm))
+    for x in year_split_m_dpm:
         count_male_dpm[x]+=1
     for j in range(0, len(m_rows_CM)):
         year_split_m_cm = year_split_m_cm + split_years(m_rows_CM, j)
@@ -410,8 +410,8 @@ for i in range(0,len(all_names)):
         count_female_pm[x]+=1
     for j in range(0, len(f_rows_DCM)):
         year_split_f_dcm = year_split_f_dcm + split_years(f_rows_DCM, j)
-    year_split_f = list(set(year_split_f_dcm))
-    for x in year_split_f:
+    year_split_f_dcm = list(set(year_split_f_dcm))
+    for x in year_split_f_dcm:
         count_female_dcm[x]+=1
     for j in range(0, len(f_rows_DM)):
         year_split_f_dm = year_split_f_dm + split_years(f_rows_DM, j)
@@ -421,17 +421,17 @@ for i in range(0,len(all_names)):
     for j in range(0, len(f_rows_Other)):
         year_split_f_other = year_split_f_other + split_years(f_rows_Other, j)
     year_split_f_other = list(set(year_split_f_other))
-    for x in year_split_f:
+    for x in year_split_f_other:
         count_female_other[x]+=1
     for j in range(0, len(f_rows_MoS)):
         year_split_f_mos = year_split_f_mos + split_years(f_rows_MoS, j)
     year_split_f_mos = list(set(year_split_f_mos))
-    for x in year_split_f:
+    for x in year_split_f_mos:
         count_female_mos[x]+=1
     for j in range(0, len(f_rows_DPM)):
         year_split_f_dpm = year_split_f_dpm + split_years(f_rows_DPM, j)
     year_split_f_dpm = list(set(year_split_f_dpm))
-    for x in year_split_f:
+    for x in year_split_f_dpm:
         count_female_dpm[x]+=1
     for j in range(0, len(f_rows_CM)):
         year_split_f_cm = year_split_f_cm + split_years(f_rows_CM, j)
