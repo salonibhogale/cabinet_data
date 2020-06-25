@@ -319,6 +319,45 @@ fig.show()
 
 cabinet_csv_file.to_csv('processed_data.csv',index=False)
 
+######################################################### CREATING RAW DATA FOR ##########################################################
+############################################################## CALCULATING AGGREGATES ################################################
+
+year=[]
+genders=[]
+position=[]
+name = []
+all_names = list(set(cabinet_csv_file.NAME))
+for i in range(0, len(cabinet_csv_file)):
+    name_req = cabinet_csv_file.NAME.iloc[i]
+    years_split = cabinet_csv_file.list_of_years.iloc[i].split(',')
+    years_split.remove('')
+    gender_req = cabinet_csv_file.GENDER.iloc[i]
+    pos_req = cabinet_csv_file.RANK.iloc[i]
+    for j in years_split:
+        name.append(name_req)
+        year.append(j)
+        genders.append(gender_req)
+        position.append(pos_req)
+
+aggregate_df = pd.DataFrame()
+aggregate_df['name']= pd.Series(name).values
+aggregate_df['year']= pd.Series(year).values
+aggregate_df['gender'] = pd.Series(genders).values
+aggregate_df['position'] = pd.Series(position).values
+
+
+# Generate aggregate counts (first aggregate by name)
+print(aggregate_df.groupby(['name','year','gender','position']).agg({'gender':'count'}))
+req_agg = aggregate_df.groupby(['name','year','gender','position']).agg({'gender':'count'})
+req_agg.columns = ['count_rows']
+req_agg = req_agg.reset_index()
+
+# reaggregate - doing this retains the configuration such that
+# each name is only counted once (as we drop the count calculated in the above aggregation)
+req_agg_drop_cols = req_agg[['year','gender','position']]
+print(req_agg_drop_cols.groupby(['year','gender','position']).agg({'gender':'count'}))
+
+
 ######################################################### PLOTTING DATA FOR GENDER ##########################################################
 ############################################################################################################################################
 
