@@ -183,6 +183,7 @@ print(subset_lok_sabha)
 ###################################################### BUILDING DATA FOR #####################################################################
 ######################################################### GANTT CHART ########################################################################
 # build out the entire data frame using a for loop
+
 df= []
 for i in range(0, len(cabinet_csv_file)):
     if cabinet_csv_file.ministry_category.iloc[i]=='education':
@@ -261,7 +262,6 @@ for i in range(0, len(all_years)):
     count_not_applicable[all_years[i]]=0
     count_none[all_years[i]]=0
 
-
 ######################################################### PLOTTING DATA FOR HOUSE ##########################################################
 ############################################################################################################################################
 all_names = list(set(cabinet_csv_file.NAME))
@@ -318,6 +318,7 @@ fig = px.bar(all_dfs_combined, x='years', y='count',
 fig.show()
 
 cabinet_csv_file.to_csv('processed_data.csv',index=False)
+
 ######################################################### PLOTTING DATA FOR GENDER ##########################################################
 ############################################################################################################################################
 
@@ -388,11 +389,8 @@ for i in range(0,len(all_names)):
     year_split_m_mos = list(set(year_split_m_mos))
     for x in year_split_m_mos:
         count_male_mos[x]+=1
-    for j in range(0, len(m_rows_DM)):
-        year_split_m_dm = year_split_m_dm + split_years(m_rows_DM, j)
-    year_split_m_dm = list(set(year_split_m_dm))
-    for x in year_split_m_dm:
-        count_male_dm[x]+=1
+
+
     for j in range(0, len(m_rows_DPM)):
         year_split_m_dpm = year_split_m_dpm + split_years(m_rows_DPM, j)
     year_split_m_dpm = list(set(year_split_m_dpm))
@@ -413,11 +411,7 @@ for i in range(0,len(all_names)):
     year_split_f_dcm = list(set(year_split_f_dcm))
     for x in year_split_f_dcm:
         count_female_dcm[x]+=1
-    for j in range(0, len(f_rows_DM)):
-        year_split_f_dm = year_split_f_dm + split_years(f_rows_DM, j)
-    year_split_f_dm = list(set(year_split_f_dm))
-    for x in year_split_f_dm:
-        count_female_dm[x]+=1
+
     for j in range(0, len(f_rows_Other)):
         year_split_f_other = year_split_f_other + split_years(f_rows_Other, j)
     year_split_f_other = list(set(year_split_f_other))
@@ -448,129 +442,178 @@ fig.add_trace(
     go.Bar(x=list(count_male.keys()),
     y=list(count_male.values()),
     name='Male',
-    marker_color='green'))
+marker=dict(
+               color='#2A8B8E',
+               line=dict(
+                   color='#2A8B8E'))))
 fig.add_trace(
     go.Bar(x=list(count_female.keys()),
     y=list(count_female.values()),
     name='Female',
-    marker_color='indianred'))
+marker=dict(
+            color='#D8F0F0',
+            line=dict(
+                color='#D8F0F0'))))
+
 fig.add_trace(
     go.Bar(x=list(count_male_pm.keys()),
     y=list(count_male_pm.values()),
-    name='PM Male',
-    marker_color='green'))
+    name='Male',
+    visible= False,
+marker=dict(
+               color='#2A8B8E',
+               line=dict(
+                   color='#2A8B8E'))))
 fig.add_trace(
     go.Bar(x=list(count_female_pm.keys()),
     y=list(count_female_pm.values()),
-    name='PM Female',
-    marker_color='indianred'))
+    name='Female',
+           visible=False,
+marker=dict(
+            color='#D8F0F0',
+            line=dict(
+                color='#D8F0F0'))))
 fig.add_trace(
     go.Bar(x=list(count_male_cm.keys()),
     y=list(count_male_cm.values()),
-    name='CM Male',
-    marker_color='green'))
+    name='Male',
+           visible=False,
+marker=dict(
+               color='#2A8B8E',
+               line=dict(
+                   color='#2A8B8E'))))
 fig.add_trace(
     go.Bar(x=list(count_female_cm.keys()),
     y=list(count_female_cm.values()),
-    name='CM Female',
-    marker_color='indianred'))
+    name='Female',
+           visible=False,
+marker=dict(
+            color='#D8F0F0',
+            line=dict(
+                color='#D8F0F0'))))
 
 fig.add_trace(
     go.Bar(x=list(count_male_dcm.keys()),
     y=list(count_male_dcm.values()),
-    name='DCM Male',
-    marker_color='green'))
+    name='Male',
+           visible=False,
+           marker=dict(
+               color='#2A8B8E',
+               line=dict(
+                   color='#2A8B8E'))))
+
 fig.add_trace(
     go.Bar(x=list(count_female_dcm.keys()),
     y=list(count_female_dcm.values()),
-    name='DCM Female',
-    marker_color='indianred'))
+    name='Female',
+           visible=False,
+marker=dict(
+            color='#D8F0F0',
+            line=dict(
+                color='#D8F0F0'))))
 fig.add_trace(
     go.Bar(x=list(count_male_dpm.keys()),
     y=list(count_male_dpm.values()),
-    name='DPM Male',
-    marker_color='green'))
+    name='Male',
+           visible=False,
+           marker=dict(
+               color='#2A8B8E',
+               line=dict(
+                   color='#2A8B8E'))))
+
 fig.add_trace(
     go.Bar(x=list(count_female_dpm.keys()),
     y=list(count_female_dpm.values()),
-    name='DPM Female',
-    marker_color='indianred'))
-fig.add_trace(
-    go.Bar(x=list(count_male_dm.keys()),
-    y=list(count_male_dm.values()),
-    name='DM Male',
-    marker_color='green'))
-fig.add_trace(
-    go.Bar(x=list(count_female_dm.keys()),
-    y=list(count_female_dm.values()),
-    name='DM Female',
-    marker_color='indianred'))
+    name='Female',
+           visible=False,
+marker=dict(
+            color='#D8F0F0',
+            line=dict(
+                color='#D8F0F0'))))
 fig.add_trace(
     go.Bar(x=list(count_male_other.keys()),
     y=list(count_male_other.values()),
-    name='Other Male',
-    marker_color='green'))
+    name='Male',
+           visible=False,
+     marker=dict(
+               color='#2A8B8E',
+               line=dict(
+                   color='#2A8B8E'))))
 fig.add_trace(
     go.Bar(x=list(count_female_other.keys()),
     y=list(count_female_other.values()),
-    name='Other Female',
-    marker_color='indianred'))
+    name='Female',
+           visible=False,
+marker=dict(
+            color='#D8F0F0',
+            line=dict(
+                color='#D8F0F0'))))
+
 fig.add_trace(
     go.Bar(x=list(count_male_mos.keys()),
     y=list(count_male_mos.values()),
-    name='MoS Male',
-    marker_color='green'))
+    name='Male',
+           visible=False,
+           marker=dict(
+               color='#2A8B8E',
+               line=dict(
+                   color='#2A8B8E'))))
 fig.add_trace(
     go.Bar(x=list(count_female_mos.keys()),
     y=list(count_female_mos.values()),
-    name='MoS Female',
-    marker_color='indianred'))
+    name='Female',
+           visible=False,
+    marker=dict(
+            color='#D8F0F0',
+            line=dict(
+                color='#D8F0F0'))))
 
 
 fig.update_layout(
     barmode='stack',
+    bargap=0.45,
+    yaxis=dict(range=[0,80]),
+    plot_bgcolor= '#444444',
     updatemenus=[
         dict(
             active=0,
             buttons=list([
                 dict(label="All",
                      method="update",
-                     args=[{"visible": [True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False]},
+                     args=[{"visible": [True,True,False,False,False,False,False,False,False,False,False,False,False,False]},
                            {"title": "Gender Distribution"}]),
 
-                dict(label="PM",
+                dict(label="Prime Minister",
                      method="update",
-                     args=[{"visible": [False,False,True,True,False,False,False,False,False,False,False,False,False,False,False,False]},
-                           {"title": "Rank PM"}]),
+                     args=[{"visible": [False,False,True,True,False,False,False,False,False,False,False,False,False,False]},
+                           {"title": "Prime Minister Rank: by Gender"}]),
 
-                dict(label="CM",
+                dict(label="Cabinet Minister",
                      method="update",
-                     args=[{"visible": [False,False,False,False,True,True,False,False,False,False,False,False,False,False,False,False]},
-                           {"title": "Rank CM"}]),
-                dict(label="DCM",
+                     args=[{"visible": [False,False,False,False,True,True,False,False,False,False,False,False,False,False]},
+                           {"title": "Cabinet Minister Rank: by Gender"}]),
+                dict(label="Deputy Cabinet Minister",
                      method="update",
-                     args=[{"visible": [False,False,False,False,False,False,True,True,False,False,False,False,False,False,False,False]},
-                           {"title": "Rank DCM"}]),
-                dict(label="DPM",
+                     args=[{"visible": [False,False,False,False,False,False,True,True,False,False,False,False,False,False]},
+                           {"title": "Deputy Cabinet Minister Rank: by Gender"}]),
+                dict(label="Deputy Prime Minister",
                      method="update",
-                     args=[{"visible": [False,False,False,False,False,False,False,False,True,True,False,False,False,False,False,False]},
-                           {"title": "Rank DPM"}]),
-                dict(label="DM",
-                     method="update",
-                     args=[{"visible": [False,False,False,False,False,False,False,False,False,False,True,True,False,False,False,False]},
-                           {"title": "Rank DM"}]),
+                     args=[{"visible": [False,False,False,False,False,False,False,False,True,True,False,False,False,False]},
+                           {"title": "Deputy Prime Minister Rank: by Gender"}]),
+
                 dict(label="Other",
                      method="update",
-                     args=[{"visible": [False,False,False,False,False,False,False,False,False,False,False,False,True,True,False,False]},
-                           {"title": "Rank Other"}]),
-                dict(label="MoS",
+                     args=[{"visible": [False,False,False,False,False,False,False,False,False,False,True,True,False,False]},
+                           {"title": "Other(Ambiguous Rank): by Gender"}]),
+                dict(label="Minister of State",
                      method="update",
-                     args=[{"visible": [False,False,False,False,False,False,False,False,False,False,False,False,False,False,True,True]},
-                           {"title": "Rank MoS"}])
+                     args=[{"visible": [False,False,False,False,False,False,False,False,False,False,False,False,True,True]},
+                           {"title": "Minister of State Rank: by Gender"}])
             ]),
         )
     ])
-
+fig.update_xaxes(showgrid=True, gridwidth=1, gridcolor='#444444')
+fig.update_yaxes(showgrid=True, gridwidth=1, gridcolor='#444444')
 # Set title
 fig.update_layout(title_text=" Gender Representation Across Ranks")
 
@@ -578,4 +621,4 @@ fig.show()
 
 
 ######################################################### YOU CAN CROSS CHECK YOUR CODE #####################################################
-#############################################################################################################################################
+
