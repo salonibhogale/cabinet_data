@@ -357,6 +357,8 @@ req_agg = req_agg.reset_index()
 req_agg_drop_cols = req_agg[['year','gender','position']]
 print(req_agg_drop_cols.groupby(['year','gender','position']).agg({'gender':'count'}))
 
+req_agg_var = req_agg_drop_cols.groupby(['year','gender','position']).size().reset_index(name='counts')
+
 
 ######################################################### PLOTTING DATA FOR GENDER ##########################################################
 ############################################################################################################################################
@@ -474,9 +476,36 @@ for i in range(0,len(all_names)):
 
 # plot out the dictionary
 
-#######
+############################ USE THIS SUBSETTING TO SORT OUT THE ERROR ############################
+
+# df = req_agg_var
+
+# fig.add_trace(
+#     go.Bar(x=list(df.year),
+#     y=list(df[df['gender']=='M'].counts),
+#     name='Male',
+# marker=dict(
+#                color='#2A8B8E',
+#                line=dict(
+#                    color='#2A8B8E'))))
+#
+# fig.add_trace(
+#     go.Bar(x=list(df.year),
+#     y=list(df[(df['gender']=='M') & (df['position']=='PM')].counts),
+#     name='Male',
+# marker=dict(
+#                color='#2A8B8E',
+#                line=dict(
+#                    color='#2A8B8E'))))
+#
+
+
+############################ VISUALIZATION ############################
+
+
 import plotly.graph_objects as go
 fig = go.Figure()
+
 fig.add_trace(
     go.Bar(x=list(count_male.keys()),
     y=list(count_male.values()),
@@ -660,4 +689,186 @@ fig.show()
 
 
 ######################################################### YOU CAN CROSS CHECK YOUR CODE #####################################################
+
+fig = go.Figure()
+fig.add_trace(
+    go.Bar(x=list(count_male.keys()),
+    y=list(count_male.values()),
+    name='Male',
+marker=dict(
+               color='#2A8B8E',
+               line=dict(
+                   color='#2A8B8E'))))
+fig.add_trace(
+    go.Bar(x=list(count_female.keys()),
+    y=list(count_female.values()),
+    name='Female',
+marker=dict(
+            color='#D8F0F0',
+            line=dict(
+                color='#D8F0F0'))))
+
+fig.add_trace(
+    go.Bar(x=list(count_male_pm.keys()),
+    y=list(count_male_pm.values()),
+    name='Male',
+    visible= False,
+marker=dict(
+               color='#2A8B8E',
+               line=dict(
+                   color='#2A8B8E'))))
+fig.add_trace(
+    go.Bar(x=list(count_female_pm.keys()),
+    y=list(count_female_pm.values()),
+    name='Female',
+           visible=False,
+marker=dict(
+            color='#D8F0F0',
+            line=dict(
+                color='#D8F0F0'))))
+fig.add_trace(
+    go.Bar(x=list(count_male_cm.keys()),
+    y=list(count_male_cm.values()),
+    name='Male',
+           visible=False,
+marker=dict(
+               color='#2A8B8E',
+               line=dict(
+                   color='#2A8B8E'))))
+fig.add_trace(
+    go.Bar(x=list(count_female_cm.keys()),
+    y=list(count_female_cm.values()),
+    name='Female',
+           visible=False,
+marker=dict(
+            color='#D8F0F0',
+            line=dict(
+                color='#D8F0F0'))))
+
+fig.add_trace(
+    go.Bar(x=list(count_male_dcm.keys()),
+    y=list(count_male_dcm.values()),
+    name='Male',
+           visible=False,
+           marker=dict(
+               color='#2A8B8E',
+               line=dict(
+                   color='#2A8B8E'))))
+
+fig.add_trace(
+    go.Bar(x=list(count_female_dcm.keys()),
+    y=list(count_female_dcm.values()),
+    name='Female',
+           visible=False,
+marker=dict(
+            color='#D8F0F0',
+            line=dict(
+                color='#D8F0F0'))))
+fig.add_trace(
+    go.Bar(x=list(count_male_dpm.keys()),
+    y=list(count_male_dpm.values()),
+    name='Male',
+           visible=False,
+           marker=dict(
+               color='#2A8B8E',
+               line=dict(
+                   color='#2A8B8E'))))
+
+fig.add_trace(
+    go.Bar(x=list(count_female_dpm.keys()),
+    y=list(count_female_dpm.values()),
+    name='Female',
+           visible=False,
+marker=dict(
+            color='#D8F0F0',
+            line=dict(
+                color='#D8F0F0'))))
+fig.add_trace(
+    go.Bar(x=list(count_male_other.keys()),
+    y=list(count_male_other.values()),
+    name='Male',
+           visible=False,
+     marker=dict(
+               color='#2A8B8E',
+               line=dict(
+                   color='#2A8B8E'))))
+fig.add_trace(
+    go.Bar(x=list(count_female_other.keys()),
+    y=list(count_female_other.values()),
+    name='Female',
+           visible=False,
+marker=dict(
+            color='#D8F0F0',
+            line=dict(
+                color='#D8F0F0'))))
+
+fig.add_trace(
+    go.Bar(x=list(count_male_mos.keys()),
+    y=list(count_male_mos.values()),
+    name='Male',
+           visible=False,
+           marker=dict(
+               color='#2A8B8E',
+               line=dict(
+                   color='#2A8B8E'))))
+fig.add_trace(
+    go.Bar(x=list(count_female_mos.keys()),
+    y=list(count_female_mos.values()),
+    name='Female',
+           visible=False,
+    marker=dict(
+            color='#D8F0F0',
+            line=dict(
+                color='#D8F0F0'))))
+
+
+fig.update_layout(
+    barmode='stack',
+    bargap=0.45,
+    yaxis=dict(range=[0,80]),
+    plot_bgcolor= '#444444',
+    updatemenus=[
+        dict(
+            active=0,
+            buttons=list([
+                dict(label="All",
+                     method="update",
+                     args=[{"visible": [True,True,False,False,False,False,False,False,False,False,False,False,False,False]},
+                           {"title": "Gender Distribution"}]),
+
+                dict(label="Prime Minister",
+                     method="update",
+                     args=[{"visible": [False,False,True,True,False,False,False,False,False,False,False,False,False,False]},
+                           {"title": "Prime Minister Rank: by Gender"}]),
+
+                dict(label="Cabinet Minister",
+                     method="update",
+                     args=[{"visible": [False,False,False,False,True,True,False,False,False,False,False,False,False,False]},
+                           {"title": "Cabinet Minister Rank: by Gender"}]),
+                dict(label="Deputy Cabinet Minister",
+                     method="update",
+                     args=[{"visible": [False,False,False,False,False,False,True,True,False,False,False,False,False,False]},
+                           {"title": "Deputy Cabinet Minister Rank: by Gender"}]),
+                dict(label="Deputy Prime Minister",
+                     method="update",
+                     args=[{"visible": [False,False,False,False,False,False,False,False,True,True,False,False,False,False]},
+                           {"title": "Deputy Prime Minister Rank: by Gender"}]),
+
+                dict(label="Other",
+                     method="update",
+                     args=[{"visible": [False,False,False,False,False,False,False,False,False,False,True,True,False,False]},
+                           {"title": "Other(Ambiguous Rank): by Gender"}]),
+                dict(label="Minister of State",
+                     method="update",
+                     args=[{"visible": [False,False,False,False,False,False,False,False,False,False,False,False,True,True]},
+                           {"title": "Minister of State Rank: by Gender"}])
+            ]),
+        )
+    ])
+fig.update_xaxes(showgrid=True, gridwidth=1, gridcolor='#444444')
+fig.update_yaxes(showgrid=True, gridwidth=1, gridcolor='#444444')
+# Set title
+fig.update_layout(title_text=" Gender Representation Across Ranks")
+
+fig.show()
 
