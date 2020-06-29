@@ -322,8 +322,9 @@ cabinet_csv_file.to_csv('processed_data.csv',index=False)
 ######################################################### CREATING RAW DATA FOR ##########################################################
 ############################################################## CALCULATING AGGREGATES ################################################
 
+########################################################## PLOTTING DATA FOR HOUSES###############################################################
 year=[]
-genders=[]
+house=[]
 position=[]
 name = []
 all_names = list(set(cabinet_csv_file.NAME))
@@ -342,23 +343,285 @@ for i in range(0, len(cabinet_csv_file)):
 aggregate_df = pd.DataFrame()
 aggregate_df['name']= pd.Series(name).values
 aggregate_df['year']= pd.Series(year).values
-aggregate_df['gender'] = pd.Series(genders).values
+aggregate_df['house'] = pd.Series(house).values
 aggregate_df['position'] = pd.Series(position).values
 
 
 # Generate aggregate counts (first aggregate by name)
-print(aggregate_df.groupby(['name','year','gender','position']).agg({'gender':'count'}))
-req_agg = aggregate_df.groupby(['name','year','gender','position']).agg({'gender':'count'})
+print(aggregate_df.groupby(['name','year','house','position']).agg({'house':'count'}))
+req_agg = aggregate_df.groupby(['name','year','house','position']).agg({'house':'count'})
 req_agg.columns = ['count_rows']
 req_agg = req_agg.reset_index()
 
 # reaggregate - doing this retains the configuration such that
 # each name is only counted once (as we drop the count calculated in the above aggregation)
-req_agg_drop_cols = req_agg[['year','gender','position']]
-print(req_agg_drop_cols.groupby(['year','gender','position']).agg({'gender':'count'}))
+req_agg_drop_cols = req_agg[['year','house','position']]
+print(req_agg_drop_cols.groupby(['year','house','position']).agg({'house':'count'}))
 
-req_agg_var = req_agg_drop_cols.groupby(['year','gender','position']).size().reset_index(name='counts')
+req_agg_var = req_agg_drop_cols.groupby(['year','house','position']).size().reset_index(name='counts')
+for i in range(0, len(all_names)):
+    df_subset = cabinet_csv_file[cabinet_csv_file['NAME'] == all_names[i]]
+    ls_rows = df_subset[df_subset['HOUSE']=='Lok Sabha']
+    rs_rows = df_subset[df_subset['HOUSE']=='Rajya Sabha']
+    none_rows = df_subset[df_subset['HOUSE']=='not_applicable']
+    year_split_ls = []
+    year_split_rs = []
+    year_split_none = []
+    for j in range(0, len(ls_rows)):
+        year_split_ls = year_split_ls + split_years(ls_rows, j)
+    year_split_ls = list(set(year_split_ls))
+    for x in year_split_ls:
+        count_ls[x]+=1
+    for j in range(0, len(rs_rows)):
+        year_split_rs = year_split_rs + split_years(rs_rows, j)
+    year_split_rs = list(set(year_split_rs))
+    for x in year_split_rs:
+        count_rs[x]+=1
+    for j in range(0, len(none_rows)):
+        year_split_none = year_split_none + split_years(none_rows, j)
+    year_split_none = list(set(year_split_none))
+    for x in year_split_none:
+        count_none[x]+=1
+df = req_agg_var
+print(df)
+male= pd.DataFrame
 
+
+
+
+import plotly.graph_objects as go
+fig = go.Figure()
+fig.add_trace(
+     go.Bar(x=list(count_ls.keys()),
+    y=list(count_ls.values()),
+
+     name='Lok Sabha',
+            visible=True,
+ marker=dict(
+                color='#2A8B8E',
+                line=dict(
+                    color='#2A8B8E'))))
+
+
+fig.add_trace(
+     go.Bar(x=list(count_rs.keys()),
+    y=list(count_rs.values()),
+     name='Rajya Sabha',
+            visible=True,
+ marker=dict(
+                color='#D8F0F0',
+                line=dict(
+                    color='#D8F0F0'))))
+fig.add_trace(
+     go.Bar(x=list(count_none.keys()),
+    y=list(count_none.values()),
+     name='Not Applicable',
+            visible=True,
+ marker=dict(
+                color='#D8F0F0',
+                line=dict(
+                    color='#D8F0F0'))))
+
+fig.add_trace(
+     go.Bar(x=list(df[(df['house']=='Lok Sabha') & (df['position']=='PM')].year),
+     y=list(df[(df['house']=='Lok Sabha') & (df['position']=='PM')].counts),
+     name='Lok Sabha',
+            visible=False,
+ marker=dict(
+                color='#2A8B8E',
+                line=dict(
+                    color='#2A8B8E'))))
+
+fig.add_trace(
+     go.Bar(x=list(df[(df['house']=='Rajya Sabha') & (df['position']=='PM')].year),
+     y=list(df[(df['house']=='Rajya Sabha') & (df['position']=='PM')].counts),
+     name='Rajya Sabha',
+visible=False,
+ marker=dict(
+                color='#D8F0F0',
+                line=dict(
+                    color='#D8F0F0'))))
+fig.add_trace(
+     go.Bar(x=list(df[(df['house']=='not_applicable') & (df['position']=='PM')].year),
+     y=list(df[(df['house']=='not_applicable') & (df['position']=='PM')].counts),
+     name='Not Applicable',
+visible=False,
+ marker=dict(
+                color='#D8F0F0',
+                line=dict(
+                    color='#D8F0F0'))))
+
+fig.add_trace(
+     go.Bar(x=list(df[(df['house']=='Lok Sabha') & (df['position']=='CM')].year),
+     y=list(df[(df['house']=='Lok Sabha') & (df['position']=='CM')].counts),
+     name='Lok Sabha',
+            visible=False,
+ marker=dict(
+                color='#2A8B8E',
+                line=dict(
+                    color='#2A8B8E'))))
+
+fig.add_trace(
+     go.Bar(x=list(df[(df['house']=='Rajya Sabha') & (df['position']=='CM')].year),
+     y=list(df[(df['house']=='Rajya Sabha') & (df['position']=='CM')].counts),
+     name='Rajya Sabha',
+visible=False,
+ marker=dict(
+                color='#D8F0F0',
+                line=dict(
+                    color='#D8F0F0'))))
+fig.add_trace(
+     go.Bar(x=list(df[(df['house']=='not_applicable') & (df['position']=='CM')].year),
+     y=list(df[(df['house']=='not_applicable') & (df['position']=='CM')].counts),
+     name='Not Applicable',
+visible=False,
+ marker=dict(
+                color='#D8F0F0',
+                line=dict(
+                    color='#D8F0F0'))))
+
+fig.add_trace(
+     go.Bar(x=list(df[(df['house']=='Lok Sabha') & (df['position']=='DPM')].year),
+     y=list(df[(df['house']=='Lok Sabha') & (df['position']=='DPM')].counts),
+     name='Lok Sabha',
+            visible=False,
+ marker=dict(
+                color='#2A8B8E',
+                line=dict(
+                    color='#2A8B8E'))))
+
+fig.add_trace(
+     go.Bar(x=list(df[(df['house']=='Rajya Sabha') & (df['position']=='DPM')].year),
+     y=list(df[(df['house']=='Rajya Sabha') & (df['position']=='DPM')].counts),
+     name='Rajya Sabha',
+visible=False,
+ marker=dict(
+                color='#D8F0F0',
+                line=dict(
+                    color='#D8F0F0'))))
+fig.add_trace(
+     go.Bar(x=list(df[(df['house']=='not_applicable') & (df['position']=='DPM')].year),
+     y=list(df[(df['house']=='not_applicable') & (df['position']=='DPM')].counts),
+     name='Not Applicable',
+visible=False,
+ marker=dict(
+                color='#D8F0F0',
+                line=dict(
+                    color='#D8F0F0'))))
+
+
+fig.add_trace(
+     go.Bar(x=list(df[(df['house']=='Lok Sabha') & (df['position']=='DCM')].year),
+     y=list(df[(df['house']=='Lok Sabha') & (df['position']=='DCM')].counts),
+     name='Lok Sabha',
+            visible=False,
+ marker=dict(
+                color='#2A8B8E',
+                line=dict(
+                    color='#2A8B8E'))))
+
+fig.add_trace(
+     go.Bar(x=list(df[(df['house']=='Rajya Sabha') & (df['position']=='DCM')].year),
+     y=list(df[(df['house']=='Rajya Sabha') & (df['position']=='DCM')].counts),
+     name='Rajya Sabha',
+visible=False,
+ marker=dict(
+                color='#D8F0F0',
+                line=dict(
+                    color='#D8F0F0'))))
+fig.add_trace(
+     go.Bar(x=list(df[(df['house']=='not_applicable') & (df['position']=='DCM')].year),
+     y=list(df[(df['house']=='not_applicable') & (df['position']=='DCM')].counts),
+     name='Not Applicable',
+visible=False,
+ marker=dict(
+                color='#D8F0F0',
+                line=dict(
+                    color='#D8F0F0'))))
+
+
+fig.add_trace(
+     go.Bar(x=list(df[(df['house']=='Lok Sabha') & (df['position']=='MoS')].year),
+     y=list(df[(df['house']=='Lok Sabha') & (df['position']=='PM')].counts),
+     name='Lok Sabha',
+            visible=False,
+ marker=dict(
+                color='#2A8B8E',
+                line=dict(
+                    color='#2A8B8E'))))
+
+fig.add_trace(
+     go.Bar(x=list(df[(df['house']=='Rajya Sabha') & (df['position']=='MoS')].year),
+     y=list(df[(df['house']=='Rajya Sabha') & (df['position']=='PM')].counts),
+     name='Rajya Sabha',
+visible=False,
+ marker=dict(
+                color='#D8F0F0',
+                line=dict(
+                    color='#D8F0F0'))))
+fig.add_trace(
+     go.Bar(x=list(df[(df['house']=='not_applicable') & (df['position']=='MoS')].year),
+     y=list(df[(df['house']=='not_applicable') & (df['position']=='MoS')].counts),
+     name='Not Applicable',
+visible=False,
+ marker=dict(
+                color='#D8F0F0',
+                line=dict(
+                    color='#D8F0F0'))))
+
+
+
+fig.update_layout(
+    barmode='stack',
+    bargap=0.45,
+    yaxis=dict(range=[0,82]),
+    xaxis=dict(range=[1951,2019]),
+    plot_bgcolor= '#444444',
+
+    updatemenus=[
+        dict(
+            active=0,
+            buttons=list([
+                dict(label="All",
+                     method="update",
+                     args=[{"visible": [True,True,True,False,False,False,False,False,False,False,False,False,False,False,False,False,False,False]},
+                           {"title": "House Distribution"}]),
+
+                dict(label="Prime Minister",
+                     method="update",
+                     args=[{"visible": [False,False,False,True,True,True,False,False,False,False,False,False,False,False,False,False,False,False]},
+                           {"title": "Prime Minister Rank: by House"}]),
+
+                dict(label="Cabinet Minister",
+                     method="update",
+                     args=[{"visible": [False,False,False,False,False,False,True,True,True,False,False,False,False,False,False,False,False,False]},
+                           {"title": "Cabinet Minister Rank: by House"}]),
+                dict(label="Deputy Prime Minister",
+                     method="update",
+                     args=[{"visible": [False,False,False,False,False,False,False,False,True,True,True,False,False,False,False,False,False]},
+                           {"title": "Deputy Prime Minister Rank: by House"}]),
+                dict(label="Deputy Cabinet Minister",
+                     method="update",
+                     args=[{"visible": [False,False,False,False,False,False,False,False,False,False,False,False,True,True,True,False,False,False]},
+                           {"title": "Deputy Cabinet Minister Rank: by House"}]),
+
+
+                dict(label="Minister of State",
+                     method="update",
+                     args=[{"visible": [False,False,False,False,False,False,False,False,False,False,False,False,False,False,False,True,True,True]},
+                           {"title": "Minister of State Rank: by House"}])
+            ]),
+
+yanchor="top"
+        ),
+
+    ])
+fig.update_xaxes(showgrid=True, gridwidth=1, gridcolor='#444444')
+fig.update_yaxes(showgrid=True, gridwidth=1, gridcolor='#444444')
+# Set title
+fig.update_layout(title_text=" House Representation Across Ranks")
+
+fig.show()
 
 ######################################################### PLOTTING DATA FOR GENDER ##########################################################
 ############################################################################################################################################
@@ -477,28 +740,28 @@ for i in range(0,len(all_names)):
 # plot out the dictionary
 
 ############################ USE THIS SUBSETTING TO SORT OUT THE ERROR ############################
+"""
+ df = req_agg_var
 
-# df = req_agg_var
+ fig.add_trace(
+     go.Bar(x=list(df.year),
+     y=list(df[df['gender']=='M'].counts),
+     name='Male',
+ marker=dict(
+                color='#2A8B8E',
+                line=dict(
+                    color='#2A8B8E'))))
 
-# fig.add_trace(
-#     go.Bar(x=list(df.year),
-#     y=list(df[df['gender']=='M'].counts),
-#     name='Male',
-# marker=dict(
-#                color='#2A8B8E',
-#                line=dict(
-#                    color='#2A8B8E'))))
-#
-# fig.add_trace(
-#     go.Bar(x=list(df.year),
-#     y=list(df[(df['gender']=='M') & (df['position']=='PM')].counts),
-#     name='Male',
-# marker=dict(
-#                color='#2A8B8E',
-#                line=dict(
-#                    color='#2A8B8E'))))
-#
+ fig.add_trace(
+     go.Bar(x=list(df.year),
+     y=list(df[(df['gender']=='M') & (df['position']=='PM')].counts),
+     name='Male',
+ marker=dict(
+                color='#2A8B8E',
+                line=dict(
+                    color='#2A8B8E'))))
 
+"""
 
 ############################ VISUALIZATION ############################
 
@@ -689,7 +952,7 @@ fig.show()
 
 
 ######################################################### YOU CAN CROSS CHECK YOUR CODE #####################################################
-
+"""
 fig = go.Figure()
 fig.add_trace(
     go.Bar(x=list(count_male.keys()),
@@ -872,3 +1135,4 @@ fig.update_layout(title_text=" Gender Representation Across Ranks")
 
 fig.show()
 
+"""
