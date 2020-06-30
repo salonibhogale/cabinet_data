@@ -186,7 +186,7 @@ fig.update_layout(
     barmode='stack',
     bargap=0.45,
     yaxis=dict(range=[0,82]),
-    xaxis=dict(range=[1951,2019]),
+    xaxis=dict(range=[1947,2019]),
     plot_bgcolor= '#444444',
 
     updatemenus=[
