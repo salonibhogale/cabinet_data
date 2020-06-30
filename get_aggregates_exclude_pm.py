@@ -4,12 +4,6 @@ import numpy as np
 cabinet_csv_file = pd.read_csv("cabinet_data_final_3006.csv")
 cabinet_csv_file = cabinet_csv_file.fillna('')
 
-def split_years(rows, j):
-    year_split = rows.list_of_years.iloc[j].split(',')
-    year_split.remove('')
-    year_split = [int(x) for x in year_split]
-    return(year_split)
-
 ########################################################## PLOTTING DATA FOR HOUSES ################################################################
 
 ########################################################## GROUP BY METHOD ################################################################
@@ -56,15 +50,69 @@ req_agg_var.to_csv('aggregates_using_groupby.csv',index=False)
 for i in range(0, len(cabinet_csv_file)):
     if cabinet_csv_file.RANK.iloc[i]=='PM':
         name_instance = cabinet_csv_file.NAME.iloc[i]
-        print(name_instance)
+        print(i)
+        # print(name_instance)
         # get list of years
-        print(cabinet_csv_file.list_of_years.iloc[i])
+        # print(cabinet_csv_file.list_of_years.iloc[i])
 
         # for these years: check if same name is for rank 'CM'
+        if cabinet_csv_file.list_of_years.iloc[i]!='':
+            split_years = cabinet_csv_file.list_of_years.iloc[i].split(',')
+            split_years.remove('')
+            # for these years check if any with same name is "NOT" CM
+            df_subset = cabinet_csv_file[(cabinet_csv_file['NAME']==name_instance) & (cabinet_csv_file['RANK']=='CM')]
+            # setting PM's metadata to 0
+            dict = {}
+            for s in split_years:
+                dict[s]=0
+            print(dict)
+            for j in split_years:
+                for k in range(0, len(df_subset)):
+                    if j in df_subset.iloc[k].list_of_years:
+                        dict[j]+=1
+            print(dict)
 
+# Proved that for all years: PMs hold > 1 position as CM as well
 
-        df_subset = cabinet_csv_file[cabinet_csv_file['NAME']==name_instance]
-        # get year subset
-        years_all = split_years(df_subset,i)
-        if 'CM' not in list(df_subset.RANK):
-            print(name_instance)
+# but are there any members who hold >1 positions at any point of time?
+
+def position_clash(check_position, compare_position, cabinet_csv_file):
+    for i in range(0, len(cabinet_csv_file)):
+        if cabinet_csv_file.RANK.iloc[i]==check_position:
+            name_instance = cabinet_csv_file.NAME.iloc[i]
+
+            # for these years: check if same name is for rank 'CM'
+            if cabinet_csv_file.list_of_years.iloc[i]!='':
+                split_years = cabinet_csv_file.list_of_years.iloc[i].split(',')
+                split_years.remove('')
+                # for these years check if any with same name is "NOT" CM
+                df_subset = cabinet_csv_file[(cabinet_csv_file['NAME']==name_instance) & (cabinet_csv_file['RANK']==compare_position)]
+                # setting PM's metadata to 0
+                dict = {}
+                for s in split_years:
+                    dict[s]=0
+                # print(dict)
+                for j in split_years:
+                    for k in range(0, len(df_subset)):
+                        if j in df_subset.iloc[k].list_of_years:
+                            dict[j]+=1
+                if 0 not in dict.values():
+                    print("Error for",name_instance, i)
+
+position_clash('PM','CM',cabinet_csv_file)
+position_clash('DCM','CM',cabinet_csv_file)
+position_clash('MoS','CM',cabinet_csv_file)
+position_clash('DPM','CM',cabinet_csv_file)
+position_clash('Other','CM',cabinet_csv_file)
+
+# Error for Jai Sukh Lal Hathi 376
+# Error for PIYUSH GOYAL 1982
+# Error for M. THAMBIDURAI 2584
+# Error for BABUL SUPRIYO 3291
+# Error for Morarji Desai 753
+# Error for Yeshwantrao Chavan 1118
+# Error for Sardar Vallabhbhai Patel 1878
+# Error for LAL KRISHNA ADVANI 3444
+# Error for DEVI LAL 3448
+# Error for Krishna Chandra Pant 803
+# Error for Madhavsinh Solanki 1538
