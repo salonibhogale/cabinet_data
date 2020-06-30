@@ -1,10 +1,7 @@
 import pandas as pd
 import numpy as np
 
-
-
-
-cabinet_csv_file = pd.read_csv("cabinet_data_final_1006.csv")
+cabinet_csv_file = pd.read_csv("cabinet_data_final_3006.csv")
 ###################################################### BUILDING DATA FOR #####################################################################
 ######################################################### GANTT CHART ########################################################################
 # build out the entire data frame using a for loop
@@ -63,7 +60,7 @@ count_not_applicable={}
 count_none={}
 count_m={}
 count_f={}
-all_years = [x for x in range(1952, 2019)]
+all_years = [x for x in range(1952, 2020)]
 for i in range(0, len(all_years)):
     count_male[all_years[i]] = 0
     count_female[all_years[i]] = 0
@@ -431,8 +428,8 @@ print(req_agg_drop_cols.groupby(['year','gender','position']).agg({'gender':'cou
 req_agg_var = req_agg_drop_cols.groupby(['year','gender','position']).size().reset_index(name='counts')
 for i in range(0, len(all_names)):
     df_subset = cabinet_csv_file[cabinet_csv_file['NAME'] == all_names[i]]
-    f_rows = df_subset[df_subset['GENDER']=='M']
-    m_rows = df_subset[df_subset['GENDER']=='F']
+    f_rows = df_subset[df_subset['GENDER']=='F']
+    m_rows = df_subset[df_subset['GENDER']=='M']
 
     year_split_f = []
     year_split_m = []
@@ -441,12 +438,12 @@ for i in range(0, len(all_names)):
         year_split_f = year_split_f + split_years(f_rows, j)
     year_split_f = list(set(year_split_f))
     for x in year_split_f:
-        count_f[x]+=1
+        count_female[x]+=1
     for j in range(0, len(m_rows)):
         year_split_m = year_split_m + split_years(m_rows, j)
     year_split_m = list(set(year_split_m))
     for x in year_split_m:
-        count_rs[x]+=1
+        count_male[x]+=1
 
 df = req_agg_var
 print(df)
@@ -458,8 +455,8 @@ male= pd.DataFrame
 import plotly.graph_objects as go
 fig = go.Figure()
 fig.add_trace(
-     go.Bar(x=list(count_m.keys()),
-    y=list(count_m.values()),
+     go.Bar(x=list(count_male.keys()),
+    y=list(count_male.values()),
 
      name='Male',
             visible=True,
@@ -470,8 +467,8 @@ fig.add_trace(
 
 
 fig.add_trace(
-     go.Bar(x=list(count_f.keys()),
-    y=list(count_f.values()),
+     go.Bar(x=list(count_female.keys()),
+    y=list(count_female.values()),
      name='Female',
             visible=True,
  marker=dict(

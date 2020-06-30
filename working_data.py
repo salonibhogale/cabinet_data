@@ -146,7 +146,7 @@ min_cat_df.to_csv('ministry_categories.csv')
 ##############################################################################################################################################
 
 
-list_of_years = list(range(1952,2020))
+list_of_years = list(range(1947,2020))
 
 def convert_year_to_datetime(year):
     return pd.to_datetime('01-01-'+ str(year), format = '%d-%m-%Y')
@@ -180,4 +180,4 @@ print(set(list(cabinet_csv_file[cabinet_csv_file.NAME == 'Kailash Nath Katju'].H
 subset_lok_sabha = cabinet_csv_file[(cabinet_csv_file['NAME'] == 'Kailash Nath Katju') & (cabinet_csv_file['HOUSE'] == 'Lok Sabha')]
 print(subset_lok_sabha)
 
-cabinet_csv_file.to_csv('cabinet_data_final_1006.csv')
+cabinet_csv_file.to_csv('cabinet_data_final_3006.csv')
