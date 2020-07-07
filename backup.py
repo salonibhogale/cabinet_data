@@ -171,3 +171,346 @@ cabinet_csv_file.loc[cabinet_csv_file['ministry_category']=='personnel, public g
 cabinet_csv_file.loc[cabinet_csv_file['ministry_category2']=='personnel, public grievances & pension', 'ministry_category2']= "personnel, public/private grievances & pension"
 
 """
+
+
+"""
+for i in range(0,len(all_names)):
+    df_subset = cabinet_csv_file[cabinet_csv_file['NAME'] == all_names[i]]
+    m_rows= df_subset[df_subset['GENDER']=='M']
+    f_rows= df_subset[df_subset['GENDER']=='F']
+    m_rows_PM = df_subset[(df_subset['GENDER']=='M') & (df_subset['RANK']=='PM')]
+    f_rows_PM = df_subset[(df_subset['GENDER']=='F') & (df_subset['RANK']=='PM')]
+    m_rows_DCM = df_subset[(df_subset['GENDER'] == 'M') & (df_subset['RANK'] == 'DCM')]
+    m_rows_DPM = df_subset[(df_subset['GENDER'] == 'M') & (df_subset['RANK'] == 'DPM')]
+    m_rows_CM = df_subset[(df_subset['GENDER'] == 'M') & (df_subset['RANK'] == 'CM')]
+    m_rows_Other = df_subset[(df_subset['GENDER'] == 'M') & (df_subset['RANK'] == 'Other')]
+    m_rows_MoS = df_subset[(df_subset['GENDER'] == 'M') & (df_subset['RANK'] == 'MoS')]
+    m_rows_DM = df_subset[(df_subset['GENDER'] == 'M') & (df_subset['RANK'] == 'DM')]
+    f_rows_DCM = df_subset[(df_subset['GENDER'] == 'F') & (df_subset['RANK'] == 'DCM')]
+    f_rows_DPM = df_subset[(df_subset['GENDER'] == 'F') & (df_subset['RANK'] == 'DPM')]
+    f_rows_CM = df_subset[(df_subset['GENDER'] == 'F') & (df_subset['RANK'] == 'CM')]
+    f_rows_Other = df_subset[(df_subset['GENDER'] == 'F') & (df_subset['RANK'] == 'Other')]
+    f_rows_MoS = df_subset[(df_subset['GENDER'] == 'F') & (df_subset['RANK'] == 'MoS')]
+    f_rows_DM = df_subset[(df_subset['GENDER'] == 'F') & (df_subset['RANK'] == 'DM')]
+    year_split_f=[]
+    year_split_m=[]
+    year_split_m_pm = []
+    year_split_f_pm = []
+    year_split_m_cm = []
+    year_split_f_cm = []
+    year_split_m_dcm = []
+    year_split_f_dpm = []
+    year_split_m_dpm = []
+    year_split_f_dcm = []
+    year_split_m_other = []
+    year_split_f_other = []
+    year_split_m_mos = []
+    year_split_f_mos = []
+    year_split_m_dm = []
+    year_split_f_dm = []
+    year_split_m_cm = []
+    year_split_f_cm = []
+    for j in range(0, len(m_rows)):
+        year_split_m = year_split_m + split_years(m_rows, j)
+    year_split_m = list(set(year_split_m))
+    for x in year_split_m:
+        count_male[x]+=1
+    for j in range(0, len(f_rows)):
+        year_split_f = year_split_f + split_years(f_rows, j)
+    year_split_f = list(set(year_split_f))
+    for x in year_split_f:
+        count_female[x]+=1
+
+    for j in range(0, len(m_rows_PM)):
+        year_split_m_pm = year_split_m_pm + split_years(m_rows_PM, j)
+    year_split_m_pm = list(set(year_split_m_pm))
+    for x in year_split_m_pm:
+        count_male_pm[x]+=1
+    for j in range(0, len(m_rows_DCM)):
+        year_split_m_dcm = year_split_m_dcm + split_years(m_rows_DCM, j)
+    year_split_m_dcm = list(set(year_split_m_dcm))
+    for x in year_split_m_dcm:
+        count_male_dcm[x]+=1
+    for j in range(0, len(m_rows_Other)):
+        year_split_m_other = year_split_m_other + split_years(m_rows_Other, j)
+    year_split_m_other = list(set(year_split_m_other))
+    for x in year_split_m_other:
+        count_male_other[x]+=1
+    for j in range(0, len(m_rows_MoS)):
+        year_split_m_mos = year_split_m_mos + split_years(m_rows_MoS, j)
+    year_split_m_mos = list(set(year_split_m_mos))
+    for x in year_split_m_mos:
+        count_male_mos[x]+=1
+
+
+    for j in range(0, len(m_rows_DPM)):
+        year_split_m_dpm = year_split_m_dpm + split_years(m_rows_DPM, j)
+    year_split_m_dpm = list(set(year_split_m_dpm))
+    for x in year_split_m_dpm:
+        count_male_dpm[x]+=1
+    for j in range(0, len(m_rows_CM)):
+        year_split_m_cm = year_split_m_cm + split_years(m_rows_CM, j)
+    year_split_m_cm = list(set(year_split_m_cm))
+    for x in year_split_m_cm:
+        count_male_cm[x]+=1
+    for j in range(0, len(f_rows_PM)):
+        year_split_f_pm = year_split_f_pm + split_years(f_rows_PM, j)
+    year_split_f_pm = list(set(year_split_f_pm))
+    for x in year_split_f_pm:
+        count_female_pm[x]+=1
+    for j in range(0, len(f_rows_DCM)):
+        year_split_f_dcm = year_split_f_dcm + split_years(f_rows_DCM, j)
+    year_split_f_dcm = list(set(year_split_f_dcm))
+    for x in year_split_f_dcm:
+        count_female_dcm[x]+=1
+
+    for j in range(0, len(f_rows_Other)):
+        year_split_f_other = year_split_f_other + split_years(f_rows_Other, j)
+    year_split_f_other = list(set(year_split_f_other))
+    for x in year_split_f_other:
+        count_female_other[x]+=1
+    for j in range(0, len(f_rows_MoS)):
+        year_split_f_mos = year_split_f_mos + split_years(f_rows_MoS, j)
+    year_split_f_mos = list(set(year_split_f_mos))
+    for x in year_split_f_mos:
+        count_female_mos[x]+=1
+    for j in range(0, len(f_rows_DPM)):
+        year_split_f_dpm = year_split_f_dpm + split_years(f_rows_DPM, j)
+    year_split_f_dpm = list(set(year_split_f_dpm))
+    for x in year_split_f_dpm:
+        count_female_dpm[x]+=1
+    for j in range(0, len(f_rows_CM)):
+        year_split_f_cm = year_split_f_cm + split_years(f_rows_CM, j)
+    year_split_f_cm = list(set(year_split_f_cm))
+    for x in year_split_f_cm:
+        count_female_cm[x]+=1
+
+# plot out the dictionary
+
+############################ USE THIS SUBSETTING TO SORT OUT THE ERROR ############################
+
+df = req_agg_var
+
+ fig.add_trace(
+     go.Bar(x=list(df.year),
+     y=list(df[df['gender']=='M'].counts),
+     name='Male',
+ marker=dict(
+                color='#2A8B8E',
+                line=dict(
+                    color='#2A8B8E'))))
+
+ fig.add_trace(
+     go.Bar(x=list(df.year),
+     y=list(df[(df['gender']=='M') & (df['position']=='PM')].counts),
+     name='Male',
+ marker=dict(
+                color='#2A8B8E',
+                line=dict(
+                    color='#2A8B8E'))))
+
+
+
+############################ VISUALIZATION ############################
+
+
+import plotly.graph_objects as go
+fig = go.Figure()
+
+fig.add_trace(
+    go.Bar(x=list(count_male.keys()),
+    y=list(count_male.values()),
+    name='Male',
+marker=dict(
+               color='#2A8B8E',
+               line=dict(
+                   color='#2A8B8E'))))
+fig.add_trace(
+    go.Bar(x=list(count_female.keys()),
+    y=list(count_female.values()),
+    name='Female',
+marker=dict(
+            color='#D8F0F0',
+            line=dict(
+                color='#D8F0F0'))))
+
+fig.add_trace(
+    go.Bar(x=list(count_male_pm.keys()),
+    y=list(count_male_pm.values()),
+    name='Male',
+    visible= False,
+marker=dict(
+               color='#2A8B8E',
+               line=dict(
+                   color='#2A8B8E'))))
+fig.add_trace(
+    go.Bar(x=list(count_female_pm.keys()),
+    y=list(count_female_pm.values()),
+    name='Female',
+           visible=False,
+marker=dict(
+            color='#D8F0F0',
+            line=dict(
+                color='#D8F0F0'))))
+fig.add_trace(
+    go.Bar(x=list(count_male_cm.keys()),
+    y=list(count_male_cm.values()),
+    name='Male',
+           visible=False,
+marker=dict(
+               color='#2A8B8E',
+               line=dict(
+                   color='#2A8B8E'))))
+fig.add_trace(
+    go.Bar(x=list(count_female_cm.keys()),
+    y=list(count_female_cm.values()),
+    name='Female',
+           visible=False,
+marker=dict(
+            color='#D8F0F0',
+            line=dict(
+                color='#D8F0F0'))))
+
+fig.add_trace(
+    go.Bar(x=list(count_male_dcm.keys()),
+    y=list(count_male_dcm.values()),
+    name='Male',
+           visible=False,
+           marker=dict(
+               color='#2A8B8E',
+               line=dict(
+                   color='#2A8B8E'))))
+
+fig.add_trace(
+    go.Bar(x=list(count_female_dcm.keys()),
+    y=list(count_female_dcm.values()),
+    name='Female',
+           visible=False,
+marker=dict(
+            color='#D8F0F0',
+            line=dict(
+                color='#D8F0F0'))))
+fig.add_trace(
+    go.Bar(x=list(count_male_dpm.keys()),
+    y=list(count_male_dpm.values()),
+    name='Male',
+           visible=False,
+           marker=dict(
+               color='#2A8B8E',
+               line=dict(
+                   color='#2A8B8E'))))
+
+fig.add_trace(
+    go.Bar(x=list(count_female_dpm.keys()),
+    y=list(count_female_dpm.values()),
+    name='Female',
+           visible=False,
+marker=dict(
+            color='#D8F0F0',
+            line=dict(
+                color='#D8F0F0'))))
+fig.add_trace(
+    go.Bar(x=list(count_male_other.keys()),
+    y=list(count_male_other.values()),
+    name='Male',
+           visible=False,
+     marker=dict(
+               color='#2A8B8E',
+               line=dict(
+                   color='#2A8B8E'))))
+fig.add_trace(
+    go.Bar(x=list(count_female_other.keys()),
+    y=list(count_female_other.values()),
+    name='Female',
+           visible=False,
+marker=dict(
+            color='#D8F0F0',
+            line=dict(
+                color='#D8F0F0'))))
+
+fig.add_trace(
+    go.Bar(x=list(count_male_mos.keys()),
+    y=list(count_male_mos.values()),
+    name='Male',
+           visible=False,
+           marker=dict(
+               color='#2A8B8E',
+               line=dict(
+                   color='#2A8B8E'))))
+fig.add_trace(
+    go.Bar(x=list(count_female_mos.keys()),
+    y=list(count_female_mos.values()),
+    name='Female',
+           visible=False,
+    marker=dict(
+            color='#D8F0F0',
+            line=dict(
+                color='#D8F0F0'))))
+
+
+fig.update_layout(
+    barmode='stack',
+    bargap=0.45,
+    yaxis=dict(range=[0,80]),
+    plot_bgcolor= '#444444',
+    updatemenus=[
+        dict(
+            active=0,
+            buttons=list([
+                dict(label="All",
+                     method="update",
+                     args=[{"visible": [True,True,False,False,False,False,False,False,False,False,False,False,False,False]},
+                           {"title": "Gender Distribution"}]),
+
+                dict(label="Prime Minister",
+                     method="update",
+                     args=[{"visible": [False,False,True,True,False,False,False,False,False,False,False,False,False,False]},
+                           {"title": "Prime Minister Rank: by Gender"}]),
+
+                dict(label="Cabinet Minister",
+                     method="update",
+                     args=[{"visible": [False,False,False,False,True,True,False,False,False,False,False,False,False,False]},
+                           {"title": "Cabinet Minister Rank: by Gender"}]),
+                dict(label="Deputy Cabinet Minister",
+                     method="update",
+                     args=[{"visible": [False,False,False,False,False,False,True,True,False,False,False,False,False,False]},
+                           {"title": "Deputy Cabinet Minister Rank: by Gender"}]),
+                dict(label="Deputy Prime Minister",
+                     method="update",
+                     args=[{"visible": [False,False,False,False,False,False,False,False,True,True,False,False,False,False]},
+                           {"title": "Deputy Prime Minister Rank: by Gender"}]),
+
+                dict(label="Other",
+                     method="update",
+                     args=[{"visible": [False,False,False,False,False,False,False,False,False,False,True,True,False,False]},
+                           {"title": "Other(Ambiguous Rank): by Gender"}]),
+                dict(label="Minister of State",
+                     method="update",
+                     args=[{"visible": [False,False,False,False,False,False,False,False,False,False,False,False,True,True]},
+                           {"title": "Minister of State Rank: by Gender"}])
+            ]),
+        )
+    ])
+fig.update_xaxes(showgrid=True, gridwidth=1, gridcolor='#444444')
+fig.update_yaxes(showgrid=True, gridwidth=1, gridcolor='#444444')
+# Set title
+fig.update_layout(title_text=" Gender Representation Across Ranks")
+
+fig.show()
+"""
+
+# build out the entire data frame using a for loop
+"""
+df= []
+for i in range(0, len(cabinet_csv_file)):
+    if cabinet_csv_file.ministry_category.iloc[i]=='education':
+        dict_to_append = dict(Task=cabinet_csv_file['NAME'].iloc[i], Start=cabinet_csv_file['appointment_begin_in_datetime'].iloc[i], Finish= cabinet_csv_file['appointment_end_in_datetime'].iloc[i],Resource=cabinet_csv_file['HOUSE'].iloc[i])
+        df.append(dict_to_append)
+
+ # visualize the chart: make this more intuitive (better colours? )
+colors = {'Lok Sabha': 'rgb(34,139,34)',
+          'Rajya Sabha':'rgb(178,34,34)',
+          'not_applicable': 'rgb(254, 255, 51)'}
+fig = ff.create_gantt(df, colors=colors, index_col='Resource', show_colorbar=True, group_tasks=True)
+fig.show()
+"""
